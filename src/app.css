@@ -1,0 +1,642 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* `dark:` is class-based, not `prefers-color-scheme`: the app is a single light
+   identity and nothing sets `.dark`, so without this a machine in dark mode would paint
+   shadcn's `dark:` utilities over tokens that have no dark counterpart. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-border, currentcolor);
+	}
+}
+
+:root {
+	/* Brand, taken from the logo: charcoal ground, white type, one yellow accent. */
+	--charcoal: hsl(0 0% 12%);
+	--yellow: hsl(50 98% 51%);
+	--white: hsl(0 0% 98%);
+	/* The paper the how-to illustrations are drawn on. */
+	--cream: #fdf4e0;
+
+	/* Primary */
+	--primary: var(--yellow);
+	--primary-foreground: var(--charcoal);
+
+	/* Secondary */
+	--secondary: hsl(0 0% 22%);
+	--secondary-foreground: var(--white);
+
+	/* Base Surfaces */
+	--background: var(--charcoal);
+	--foreground: var(--white);
+	--base-100: hsl(0 0% 15%);
+	--base-200: hsl(0 0% 18%);
+	--base-300: hsl(0 0% 23%);
+	--base-content: hsl(0 0% 72%);
+
+	/* Card & Popover */
+	--card: hsl(0 0% 15%);
+	--card-foreground: var(--white);
+	--popover: hsl(0 0% 15%);
+	--popover-foreground: var(--white);
+
+	/* UI Elements */
+	--border: hsl(0 0% 22%);
+	--input: hsl(0 0% 30%);
+	--ring: var(--yellow);
+	--muted: hsl(0 0% 18%);
+	--muted-foreground: hsl(0 0% 72%);
+	--accent: hsl(0 0% 18%);
+	--accent-foreground: var(--white);
+
+	/* Neutral */
+	--neutral: hsl(0 0% 18%);
+	--neutral-content: hsl(0 0% 72%);
+
+	/* Semantic Colors */
+	--destructive: hsl(4 85% 66%);
+	--destructive-foreground: var(--charcoal);
+	--success: hsl(144 50% 56%);
+	--success-foreground: var(--charcoal);
+	--warning: hsl(44.7 100% 50%);
+
+	/* Sidebar */
+	--sidebar: hsl(0 0% 15%);
+	--sidebar-foreground: var(--white);
+	--sidebar-primary: var(--yellow);
+	--sidebar-primary-foreground: var(--charcoal);
+	--sidebar-accent: hsl(0 0% 18%);
+	--sidebar-accent-foreground: var(--white);
+	--sidebar-border: hsl(0 0% 22%);
+	--sidebar-ring: var(--yellow);
+
+	/* ── Surface vocabulary the `ui/` components are written in ──────────────────── */
+	--sand: var(--background); /* the page ground */
+	--paper: var(--base-100); /* cards, sheets, bars */
+	--line: var(--border); /* hairlines, card borders */
+	--wash: var(--muted); /* image wells, quiet panels */
+	--tint: var(--base-200); /* notes, unread rows, selected states */
+	--ink: var(--foreground); /* text, headings, light buttons */
+	--faint: hsl(0 0% 52%); /* placeholders, tertiary meta */
+	--amber: var(--warning);
+	--ember: hsl(21 89% 52%);
+	--clay: var(--muted-foreground);
+	--strip-muted: hsl(0 0% 40%);
+	--reading-ink: var(--base-content);
+	--primary-lighter: hsl(50 100% 62%);
+	--primary-darker: hsl(48 96% 44%);
+
+	--ease-pop: cubic-bezier(0.22, 1, 0.36, 1);
+
+	/* Design Tokens */
+	--radius: 0.5rem;
+
+	/* The height of every field — input, select trigger, combobox trigger, phone input:
+	   44px under the finger, 40px from `md` up (the media rule below `:root`). A token
+	   rather than `h-11 md:h-10`, so a call site overrides it with one `h-*`. The `ui/`
+	   controls size themselves with `h-(--field-height)`; without it they collapse to
+	   their text. */
+	--field-height: 2.75rem;
+
+	--chart-1: hsl(21 89% 52%);
+	--chart-2: hsl(197 71% 73%);
+	--chart-3: hsl(221 54% 39%);
+	--chart-4: hsl(88 82% 85%);
+	--chart-5: hsl(62 98% 73%);
+}
+
+@media (min-width: 48rem) {
+	:root {
+		--field-height: 2.5rem;
+	}
+}
+
+@theme inline {
+	/* Radius */
+	--radius-sm: calc(var(--radius) - 0.25rem);
+	--radius-md: var(--radius);
+	--radius-lg: calc(var(--radius) + 0.25rem);
+	--radius-xl: calc(var(--radius) + 0.5rem);
+
+	/* Container */
+	--container-center: true;
+	--container-padding: 2rem;
+	--container-screen-2xl: 1400px;
+
+	/* Color Mappings */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+
+	/* Base Colors */
+	--color-base: var(--base-content);
+	--color-base-content: var(--base-content);
+	--color-base-100: var(--base-100);
+	--color-base-200: var(--base-200);
+	--color-base-300: var(--base-300);
+
+	/* Neutral */
+	--color-neutral: var(--neutral);
+	--color-neutral-content: var(--neutral-content);
+
+	/* Semantic Colors */
+	--color-success: var(--success);
+	--color-success-foreground: var(--success-foreground);
+	--color-warning: var(--warning);
+	--color-error: var(--destructive);
+	--color-error-foreground: var(--destructive-foreground);
+
+	/* Animations */
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+	/* Chart Colors */
+	--color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+
+	--color-cream: var(--cream);
+	--color-charcoal: var(--charcoal);
+
+	/* Shared surface vocabulary (see `:root`) */
+	--color-ink: var(--ink);
+	--color-line: var(--line);
+	--color-paper: var(--paper);
+	--color-wash: var(--wash);
+	--color-tint: var(--tint);
+	--color-sand: var(--sand);
+	--color-faint: var(--faint);
+	--color-amber: var(--amber);
+	--color-ember: var(--ember);
+	--color-clay: var(--clay);
+	--color-strip-muted: var(--strip-muted);
+	--color-reading-ink: var(--reading-ink);
+	--color-primary-lighter: var(--primary-lighter);
+	--color-primary-darker: var(--primary-darker);
+
+	/* Poppins for text, Cormorant Garamond for display headings. */
+	--font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', Georgia, serif;
+	--font-onest: var(--font-sans);
+	--font-pixel: var(--font-sans);
+	--font-term: var(--font-sans);
+	--font-weight-book: 400;
+
+	--tracking-base: 0em;
+	--tracking-title: -0.012em;
+	--tracking-hero: -0.025em;
+	--tracking-display: -0.03em;
+
+	/* A card lifted off the page: a soft drop here, where Barakumba prints an offset. */
+	--shadow-sticker: 0 1px 3px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.04);
+	--shadow-stamp: 0 2px 6px rgb(0 0 0 / 0.14);
+	--shadow-stamp-sm: 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+@keyframes accordion-down {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--bits-accordion-content-height);
+	}
+}
+
+@keyframes accordion-up {
+	from {
+		height: var(--bits-accordion-content-height);
+	}
+	to {
+		height: 0;
+	}
+}
+
+@keyframes caret-blink {
+	0%,
+	70%,
+	100% {
+		opacity: 1;
+	}
+	20%,
+	50% {
+		opacity: 0;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	section[aria-label^='Notifications'] {
+		pointer-events: none !important;
+	}
+
+	[data-sonner-toaster] {
+		z-index: 9999 !important;
+		pointer-events: none !important;
+	}
+
+	[data-sonner-toast] {
+		pointer-events: auto !important;
+	}
+
+	button:not([disabled]),
+	[role='button']:not([disabled]) {
+		cursor: pointer;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+		font-family: var(--font-sans);
+		font-feature-settings: 'rlig' 1, 'calt' 1;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 5rem;
+		color-scheme: dark;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
+	ul {
+		white-space: normal;
+	}
+}
+
+@utility no-scrollbar {
+	@apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
+/* ── Type roles ─────────────────────────────────────────────────────────────
+   Weight and tracking only; size comes from the scale at the call site. In
+   `@layer components`, so any utility (`font-bold`, `tracking-tight`) overrides.
+   */
+@layer components {
+	.type-title {
+		font-weight: 600;
+		letter-spacing: var(--tracking-title);
+		line-height: 1.25;
+		text-transform: none;
+	}
+
+	.type-hero {
+		font-weight: 700;
+		letter-spacing: var(--tracking-hero);
+		line-height: 1.05;
+	}
+
+	.type-body {
+		font-weight: 400;
+		letter-spacing: var(--tracking-base);
+		line-height: 1.55;
+	}
+
+	/* Prices, counts, timestamps: figures line up in columns. */
+	.type-meta {
+		font-weight: 500;
+		letter-spacing: var(--tracking-base);
+		line-height: 1.4;
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+/* ── Surfaces ──────────────────────────────────────────────────────────────────
+   `pop*` all mean "a hairline-bordered surface"; `--pop-color` recolours the line. */
+@utility pop {
+	&& {
+		border: 1px solid var(--pop-color, var(--line));
+	}
+}
+
+@utility pop-sm {
+	&& {
+		border: 1px solid var(--pop-color, var(--line));
+	}
+}
+
+@utility pop-lg {
+	&& {
+		border: 1px solid var(--pop-color, var(--line));
+	}
+}
+
+@utility pop-soft {
+	--pop-color: var(--line);
+}
+
+/* A press is a small dip in opacity; nothing moves. */
+@utility pop-press {
+	transition:
+		opacity 120ms ease,
+		background-color 150ms ease;
+
+	&:active {
+		opacity: 0.85;
+	}
+}
+
+/* Hover on a pointer device raises the surface with a soft shadow. Behind
+   `(hover: hover)` so it never sticks after a tap in the WebView. */
+@utility pop-lift {
+	transition:
+		box-shadow 200ms ease,
+		border-color 200ms ease;
+
+	@media (hover: hover) {
+		&:hover {
+			box-shadow: var(--shadow-md);
+		}
+	}
+}
+
+/* Barakumba's paper grain for full-screen overlays; this app's ground is plain. */
+@utility checker {
+	background-image: none;
+}
+
+/* The pill: filter chips, tab triggers and nav links share it. Selected is ink with
+   light text, unselected white on a hairline. Keyed off `data-state` (bits-ui tabs),
+   `aria-current` (nav links) and `aria-pressed` (a toggle). */
+@utility chip {
+	white-space: nowrap;
+	border-radius: 9999px;
+	background: var(--paper);
+	padding: 0.4375rem 0.875rem;
+	color: var(--ink);
+	font-size: var(--text-sm);
+	font-weight: 500;
+	letter-spacing: 0;
+
+	&[data-state='active'],
+	&[aria-current='page'],
+	&[aria-pressed='true'] {
+		background: var(--ink);
+		border-color: var(--ink);
+		color: var(--sand);
+	}
+}
+
+/* The small-caps label over a group ("E-POSTA BİLDİRİMLERİ"). Two to four words at
+   most; colour comes from the call site (`text-muted-foreground`). */
+@utility eyebrow {
+	font-size: 0.6875rem;
+	font-weight: 400;
+	line-height: 1.6;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* A one-line supporting note under a heading or in a dialog. Width stays at the call
+   site (`w-fit`, `max-w-sm`). */
+@utility ink-strip {
+	background: var(--tint);
+	color: var(--ink);
+	font-weight: 500;
+	font-size: var(--text-sm);
+	line-height: 1.45;
+	letter-spacing: 0;
+	padding: 0.375rem 0.625rem;
+	border-radius: 0.375rem;
+}
+
+/* A section head: the title on a hairline rule. A trailing link is pushed right. */
+@utility section-rule {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	padding-bottom: 0.625rem;
+	border-bottom: 1px solid var(--line);
+	color: var(--ink);
+
+	& > a:last-child {
+		margin-left: auto;
+	}
+}
+
+/* A corner flag on a photo ("YENİ"). Needs a `relative` parent. */
+@utility sticker {
+	position: absolute;
+	top: 0.625rem;
+	left: 0.625rem;
+	z-index: 1;
+	border-radius: 0.25rem;
+	background: var(--ink);
+	padding: 0.25rem 0.5rem;
+	color: var(--sand);
+	font-size: 0.6875rem;
+	line-height: 1.2;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+/* A scroller that fades out at whichever edge still has content behind it. The
+   `data-overflow-*` hooks come from `scrollEdges` (#ui/lib/scroll-edges.ts); without
+   them nothing is masked. `--scroll-fade` is the depth of the fade. */
+@utility scroll-fade-x {
+	--scroll-fade: 2rem;
+
+	&[data-overflow-start]:not([data-overflow-end]) {
+		mask-image: linear-gradient(to right, transparent, #000 var(--scroll-fade));
+	}
+	&[data-overflow-end]:not([data-overflow-start]) {
+		mask-image: linear-gradient(to left, transparent, #000 var(--scroll-fade));
+	}
+	&[data-overflow-start][data-overflow-end] {
+		mask-image: linear-gradient(
+			to right,
+			transparent,
+			#000 var(--scroll-fade),
+			#000 calc(100% - var(--scroll-fade)),
+			transparent
+		);
+	}
+}
+
+@utility scroll-fade-y {
+	--scroll-fade: 1.5rem;
+
+	&[data-overflow-start]:not([data-overflow-end]) {
+		mask-image: linear-gradient(to bottom, transparent, #000 var(--scroll-fade));
+	}
+	&[data-overflow-end]:not([data-overflow-start]) {
+		mask-image: linear-gradient(to top, transparent, #000 var(--scroll-fade));
+	}
+	&[data-overflow-start][data-overflow-end] {
+		mask-image: linear-gradient(
+			to bottom,
+			transparent,
+			#000 var(--scroll-fade),
+			#000 calc(100% - var(--scroll-fade)),
+			transparent
+		);
+	}
+}
+
+@utility pt-safe {
+	padding-top: env(safe-area-inset-top);
+}
+@utility pt-safe-* {
+	padding-top: calc(env(safe-area-inset-top) + --spacing(--value(integer)));
+}
+@utility top-safe {
+	top: env(safe-area-inset-top);
+}
+@utility top-safe-* {
+	top: calc(env(safe-area-inset-top) + --spacing(--value(integer)));
+}
+@utility pb-safe {
+	padding-bottom: env(safe-area-inset-bottom);
+}
+@utility pb-safe-* {
+	padding-bottom: calc(env(safe-area-inset-bottom) + --spacing(--value(integer)));
+}
+@utility bottom-safe {
+	bottom: env(safe-area-inset-bottom);
+}
+@utility bottom-safe-* {
+	bottom: calc(env(safe-area-inset-bottom) + --spacing(--value(integer)));
+}
+@utility pl-safe {
+	padding-left: env(safe-area-inset-left);
+}
+@utility pr-safe {
+	padding-right: env(safe-area-inset-right);
+}
+
+/* Custom Utility Classes */
+.abs {
+	@apply absolute;
+}
+.rel {
+	@apply relative;
+}
+.f {
+	display: flex !important;
+}
+.f.f-col {
+	@apply flex-col;
+}
+.al-c {
+	@apply items-center;
+}
+.f1 {
+	@apply flex-1;
+}
+.ju-c {
+	@apply justify-center;
+}
+.ju-bet {
+	@apply justify-between;
+}
+.f-wrap {
+	@apply flex-wrap;
+}
+.cc {
+	@apply items-center justify-center;
+}
+.fw {
+	@apply w-full;
+}
+.fh {
+	@apply h-full;
+}
+.muted {
+	@apply text-muted-foreground;
+}
+
+/* Labels */
+.lbl {
+	@apply text-xs text-gray-400 uppercase;
+}
+.editor-menu-label {
+	@apply text-sm font-light text-gray-400 uppercase;
+}
+
+/* Panel */
+.panel {
+	@apply bg-white flex flex-col rounded overflow-hidden;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+}
+
+/* Hover Reveal */
+.hoverable.h-reveal .h-reveal-body {
+	display: none !important;
+}
+.hoverable.h-reveal:hover .h-reveal-body {
+	display: flex !important;
+}
+.hoverable.h-reveal > .h-reveal-child {
+	display: none !important;
+}
+.hoverable.h-reveal:hover > .h-reveal-child {
+	display: flex !important;
+}
+
+/* Mark Highlight */
+mark {
+	font-weight: bolder;
+	background:
+		linear-gradient(
+			104deg,
+			rgba(243, 255, 130, 0) 0.9%,
+			rgb(249, 255, 130) 2.4%,
+			rgba(255, 251, 130, 0.5) 5.8%,
+			rgba(255, 249, 130, 0.402) 93%,
+			rgba(255, 253, 130, 0.7) 96%,
+			rgba(130, 255, 1732, 0) 98%
+		),
+		linear-gradient(
+			183deg,
+			rgba(249, 255, 130, 0) 0%,
+			rgba(255, 251, 130, 0.3) 7.9%,
+			rgba(255, 253, 130, 0) 15%
+		);
+	padding: 3px 5px;
+	-webkit-box-decoration-break: clone;
+	margin: 0;
+	border-radius: 7.5px;
+	text-shadow:
+		-12px 12px 9.8px rgba(249, 255, 130, 0.7),
+		21px -18.1px 7.3px rgba(255, 255, 255, 1),
+		-18.1px -27.3px 30px rgba(255, 255, 255, 1);
+}

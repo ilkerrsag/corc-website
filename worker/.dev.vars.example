@@ -1,0 +1,3 @@
+# Cloudflare's always-pass Turnstile test secret. In production set the real one with:
+#   pnpm wrangler secret put TURNSTILE_SECRET_KEY
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA

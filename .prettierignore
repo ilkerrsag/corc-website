@@ -1,0 +1,14 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+
+# Miscellaneous
+/static/
+
+# Copied from eventist-monorepo; kept in its formatting
+/src/ui/
+/src/app.css
+/src/media.css

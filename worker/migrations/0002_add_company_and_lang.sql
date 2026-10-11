@@ -1,0 +1,2 @@
+ALTER TABLE submissions ADD COLUMN company TEXT NOT NULL DEFAULT '';
+ALTER TABLE submissions ADD COLUMN lang TEXT;

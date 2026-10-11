@@ -1,0 +1,18 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "corc-contact",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-01",
+	"workers_dev": false,
+	// Replace with the real domain. The DNS record must be proxied (orange cloud) so
+	// Cloudflare runs the worker for this path instead of forwarding it to Vercel.
+	"routes": [{ "pattern": "example.com/api/contact", "zone_name": "example.com" }],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "corc-contact",
+			// Paste the id printed by `pnpm wrangler d1 create corc-contact`.
+			"database_id": "00000000-0000-0000-0000-000000000000"
+		}
+	]
+}

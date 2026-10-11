@@ -1,0 +1,19 @@
+{
+	"name": "corc-contact-worker",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy",
+		"check": "tsc --noEmit",
+		"db:migrate:local": "wrangler d1 migrations apply corc-contact --local",
+		"db:migrate:remote": "wrangler d1 migrations apply corc-contact --remote",
+		"db:list": "wrangler d1 execute corc-contact --remote --command \"SELECT id, created_at, lang, name, company, email, message FROM submissions ORDER BY id DESC LIMIT 50\""
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^5.20261009.1",
+		"typescript": "^7.0.2",
+		"wrangler": "^4.149.0"
+	}
+}
