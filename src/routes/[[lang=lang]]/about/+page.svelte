@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Leaf, Zap } from '@lucide/svelte';
 
-	import pouch from '#lib/assets/pages/about-pouch.webp';
+	import bottle from '#lib/assets/pages/about-bottle.webp';
 	import story from '#lib/assets/pages/about-story.webp';
 	import bear from '#lib/assets/pages/berlin-bear.webp';
 	import Seo from '#lib/components/Seo.svelte';
@@ -15,7 +15,12 @@
 	const t = $derived(messages[data.lang]);
 </script>
 
-<Seo lang={data.lang} title={t.about.meta.title} description={t.about.meta.description} />
+<Seo
+	lang={data.lang}
+	title={t.about.meta.title}
+	description={t.about.meta.description}
+	keywords={t.about.meta.keywords}
+/>
 
 <section
 	class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-14 sm:py-20"
@@ -30,7 +35,7 @@
 		<p class="mt-6 leading-relaxed text-muted-foreground">{t.about.lead}</p>
 	</div>
 	<img
-		src={pouch}
+		src={bottle}
 		alt={t.about.imageAlt}
 		width="1200"
 		height="1200"

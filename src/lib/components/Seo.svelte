@@ -4,7 +4,12 @@
 	import { defaultLocale, type Locale, locales, routePath } from '#lib/i18n/index.js';
 	import { site } from '#lib/site.js';
 
-	let { lang, title, description }: { lang: Locale; title: string; description: string } = $props();
+	let {
+		lang,
+		title,
+		description,
+		keywords
+	}: { lang: Locale; title: string; description: string; keywords?: string } = $props();
 
 	// The same page in another language: same route, same params, different prefix.
 	const url = (locale: Locale) => site.url + routePath(locale, page.route.id!, page.params);
@@ -13,6 +18,7 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content={description} />
+	{#if keywords}<meta name="keywords" content={keywords} />{/if}
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={site.name} />
 	<meta property="og:title" content={title} />

@@ -7,6 +7,7 @@
 	import logo from '#lib/assets/logo.png';
 	import {
 		type Locale,
+		localeNames,
 		locales,
 		type Messages,
 		type PageName,
@@ -23,11 +24,16 @@
 	afterNavigate(() => (menuOpen = false));
 
 	const links = $derived<{ page: PageName; label: string }[]>([
+		{ page: 'home', label: t.nav.home },
 		{ page: 'bases', label: t.nav.bases },
 		{ page: 'about', label: t.nav.about }
 	]);
 
-	const isCurrent = (name: PageName) => page.route.id?.startsWith(routes[name]) ?? false;
+	// `home` is the prefix of every other route, so it only counts on an exact match.
+	const isCurrent = (name: PageName) =>
+		name === 'home'
+			? page.route.id === routes.home
+			: (page.route.id?.startsWith(routes[name]) ?? false);
 </script>
 
 <header class="sticky top-0 z-40 border-b border-line bg-background">
@@ -57,9 +63,9 @@
 						hreflang={locale}
 						lang={locale}
 						aria-current={locale === lang ? 'true' : undefined}
-						class="px-1 py-2 text-muted-foreground uppercase transition-colors hover:text-foreground aria-[current=true]:font-semibold aria-[current=true]:text-foreground"
+						class="px-1 py-2 text-muted-foreground transition-colors hover:text-foreground aria-[current=true]:font-semibold aria-[current=true]:text-foreground"
 					>
-						{locale}
+						{localeNames[locale]}
 					</a>
 				{/each}
 			</div>

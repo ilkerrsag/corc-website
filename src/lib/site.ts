@@ -1,9 +1,9 @@
 // The one place the brand lives: change it here and every page, title and footer follows.
 export const site = {
-	name: 'Corc',
-	company: 'Corc',
-	tagline: 'Pour Mix Perfect.',
+	name: 'CORC',
+	company: 'CORC',
+	tagline: 'Pop. Pour. Done.',
 	email: 'info@corcdrinks.com',
-	// The public origin, for canonical and hreflang links. Unset until the domain is decided.
-	url: (import.meta.env.VITE_SITE_URL ?? '') as string
+	// The public origin, for canonical and hreflang links.
+	url: (import.meta.env.VITE_SITE_URL ?? 'https://corcdrinks.com') as string
 };

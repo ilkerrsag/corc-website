@@ -3,99 +3,135 @@ import type { Messages } from './index';
 
 const en: Messages = {
 	meta: {
-		title: `Ready to Mix Cocktails and Mocktails in Berlin | ${site.name}`,
+		title: `Ready to Mix Cocktail and Mocktail Bases for Venues and Events | ${site.name}`,
 		description:
-			'Ready to mix cocktail and mocktail bases made in Berlin with real fruit and herbs. For bars, events and modern hospitality. Fast, consistent, no compromises.'
+			'Ready to mix cocktail and mocktail bases from Berlin, made with real fruit and herbs. For bars, caterers, hotels and corporate events. Fast, consistent, no compromise.',
+		keywords:
+			'cocktail bases Berlin, mocktail bases, cocktail catering Berlin, drinks for corporate events'
 	},
 	nav: {
-		home: 'Home',
-		bases: 'Our bases',
+		home: 'Main Page',
+		bases: 'Cocktail Bases',
 		about: 'About',
-		cta: 'Book a tasting',
+		cta: 'Book a Tasting',
 		main: 'Main navigation',
 		menu: 'Menu',
 		language: 'Language'
 	},
 	hero: {
-		title: ['Signature quality.', 'Ready in seconds.'],
-		lead: 'Exceptional cocktails and mocktails with minimal preparation and maximum consistency. Built for bars, events and modern hospitality.',
-		cta: 'Book your tasting',
+		intro:
+			'Exceptional cocktails and mocktails with minimal prep and maximum consistency. For bars, caterers, hotels and corporate events.',
+		title: ['Bar quality.', 'In the glass in seconds.'],
+		cta: 'Book Your Tasting',
 		secondary: 'How it works',
-		imageAlt: `${site.name} pouch on a bar counter with a bartender in the background`
+		imageAlt: `${site.name} bottle on a bar counter with a bartender in the background`
+	},
+	audience: {
+		title: `Where ${site.name} gets poured`,
+		items: [
+			'Bars and restaurants',
+			'Caterers and event agencies',
+			'Hotels and conferences',
+			'Company parties and office events',
+			'Private celebrations'
+		]
 	},
 	how: {
 		eyebrow: 'How it works',
-		title: `Two ways to mix your ${site.name}`,
-		lead: 'Pour the base, top up or shake, and serve. Consistent drinks without extra preparation.',
+		title: `That’s how simple ${site.name} is`,
+		lead: 'Pour the base, top up or give it a quick shake, and serve. The same drink every time, with no prep behind it.',
+		heading: `Two ways to mix your ${site.name}`,
 		shake: {
-			title: 'Shake',
+			title: 'shake',
 			imageAlt: 'Illustration: shaker with ice, add base and spirit, shake, serve in a glass',
-			steps: ['Fill shaker with ice', 'Add base + spirit (optional)', 'Shake well', 'Serve']
+			steps: ['Fill shaker with ice', 'Add base', '+ spirit (optional)', 'Shake well', 'Serve']
 		},
 		stir: {
-			title: 'Stir',
+			title: 'stir',
 			imageAlt: 'Illustration: glass with ice, add base, spirit and water, stir, serve',
-			steps: ['Fill glass with ice', 'Add base + spirit (optional) + water', 'Stir well', 'Serve']
+			steps: [
+				'Fill glass with ice',
+				'Add base',
+				'+ spirit (optional) + water',
+				'Stir well',
+				'Serve'
+			]
 		},
 		ratio: {
 			title: 'Recommended ratio',
 			items: [
-				{ amount: '1.5 shots', label: `${site.name} base` },
-				{ amount: '1 shot', label: 'Spirit (optional)' },
-				{ amount: '½ shot', label: 'Water (without shaker)' }
+				{ amount: '1.5 Shot', label: `${site.name} Base` },
+				{ amount: '1 Shot', label: 'Spirit (optional)' },
+				{ amount: '½ Shot', label: 'Water (without shaker)' }
 			],
-			note: 'Adjust to taste. Enjoy responsibly.'
+			note: 'One shot equals 5 cl. Leave out the spirit and it becomes a mocktail. Adjust it to taste. Please enjoy responsibly.'
 		}
 	},
 	why: {
 		eyebrow: `Why ${site.name}`,
-		title: 'Built for venues that take quality seriously.',
-		lead: `Four reasons Berlin's top venues are choosing ${site.name}.`,
+		title: 'For everyone who pours and refuses to compromise.',
+		lead: `Five reasons bars, caterers and companies in Berlin work with ${site.name}.`,
 		reasons: [
 			{
 				tag: 'Speed',
-				title: 'Ready to serve in under 10 seconds',
-				text: 'Pour, serve, repeat. Your team pours a perfect cocktail at the pace your event demands. Everything is ready, you just make it look good.',
-				imageAlt: 'Five colourful cocktails and mocktails side by side on a bar counter'
+				title: 'In the glass in under 10 seconds',
+				text: 'Pour, hand it over, move on. Your team serves at the pace the evening demands. The work is already done, you just make it look good.',
+				imageAlt: `${site.name} Basilico bottle on a counter next to a row of finished drinks`
 			},
 			{
 				tag: 'Fresh and natural',
-				title: 'Mixologist developed. Consistently delivered.',
-				text: 'Made with real fruit and herbs, freshly mixed on demand. Signature quality your team can replicate confidently, every shift.',
-				imageAlt: `${site.name} pouch with fresh berries, lemon, passion fruit and herbs`
+				title: 'Mixologist developed. Reliably delivered.',
+				text: 'Real fruit and herbs as the main ingredient, mixed fresh to order. Bar quality your team can repeat every single time.',
+				imageAlt: `${site.name} Fragola bottle among fresh strawberries, raspberries, lemons and mint`
 			},
 			{
 				tag: 'Easy',
-				title: 'Zero extra training required',
-				text: 'No complex prep, no specialist knowledge needed. Your team pours a perfect cocktail every time, from the opening shift to the busiest night of the week.',
-				imageAlt: `A bartender pouring a green drink over ice next to the ${site.name} pouch`
+				title: 'Ready to use with no training',
+				text: 'No complicated prep, no specialist knowledge. Every guest gets the same good cocktail, from the first round to the busiest moment of the night.',
+				imageAlt: `${site.name} Yuzu bottle beside a glass being stirred with a bar spoon`
 			},
 			{
-				tag: 'Happy customers',
+				tag: 'With or without alcohol',
+				title: 'Every base works alcohol free',
+				text: 'The same base, once with spirit and once without. Everyone at the table gets a drink that was actually thought through, not a soft drink handed over as a fallback.',
+				imageAlt: ''
+			},
+			{
+				tag: 'Happy guests',
 				title: 'Drinks worth coming back for',
-				text: 'Give your guests something they remember. Handcrafted quality worth a second glass, and a third.',
-				imageAlt: 'Guests laughing in a bar, holding colourful drinks'
+				text: 'Give your guests something that stays with them. Handcrafted quality worth a second glass. And a third.',
+				imageAlt: 'Guests talking around a high table, colourful drinks in hand'
 			}
 		]
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Let the taste do the talking',
-		lead: `Get in touch to book a tasting appointment and we will bring ${site.name} to your venue.`,
+		title: 'Let the glass make the case',
+		note: `Get in touch to set up a tasting. We bring ${site.name} to you, to the bar, the office or straight to the event.`,
 		form: {
 			name: 'Your name',
-			company: 'Venue or company name',
+			company: 'Company or venue name',
 			email: 'Email address',
-			message: 'Anything else you want us to know',
-			messagePlaceholder: 'Upcoming event, preferred meeting time, specific questions…',
-			submit: 'Submit',
-			sending: 'Sending…',
+			businessType: 'Type of business',
+			businessTypePlaceholder: 'Please select',
+			businessTypeOptions: [
+				{ value: 'bar', label: 'Bar or restaurant' },
+				{ value: 'caterer', label: 'Caterer or agency' },
+				{ value: 'hotel', label: 'Hotel' },
+				{ value: 'company', label: 'Company' },
+				{ value: 'other', label: 'Other' }
+			],
+			message: 'Anything else we should know?',
+			messagePlaceholder: 'Upcoming event, preferred meeting time, specific questions …',
+			submit: 'Send',
+			sending: 'Sending …',
 			sentTitle: 'Thanks, we have your request.',
 			sentText: 'We will be in touch shortly to arrange a time.',
 			errors: {
 				name: 'Please enter your name.',
-				company: 'Please enter your venue or company.',
+				company: 'Please enter your company or venue.',
 				email: 'Please enter a valid email address.',
+				businessType: 'Please choose the type of business.',
 				message: 'The message is too long.',
 				invalid: 'Please check the highlighted fields.',
 				verification: 'The spam check failed. Please try again.',
@@ -108,25 +144,45 @@ const en: Messages = {
 	},
 	bases: {
 		meta: {
-			title: `Cocktail and Mocktail Bases | ${site.name}`,
+			title: `Cocktail and Mocktail Bases | ${site.name} Berlin`,
 			description:
-				'Ready to mix cocktail and mocktail bases for events, bars and venues in Berlin. Real fruit, fast preparation and consistent taste. The easy solution for your venue.'
+				'Five cocktail and mocktail bases in 400 ml and 1 L. Real fruit and herbs, fast preparation, consistent taste. Every base works alcohol free.',
+			keywords: 'ready to mix cocktails, mocktail bases, alcohol free cocktails events'
 		},
-		eyebrow: 'Our bases',
-		title: 'Signature cocktail and mocktail bases, crafted to perform.',
-		lead: 'Five flavours made with real fruit and herbs. With a spirit or alcohol-free, in the glass in seconds.',
+		eyebrow: 'Cocktail Bases',
+		title: 'Cocktail and mocktail bases, made for pouring under pressure.',
 		discover: 'Discover',
-		statsAlt: 'Friends toasting with drinks at a dinner',
+		statsAlt: 'Guests toasting with drinks at a dinner',
 		stats: [
 			{
 				value: '5',
-				label: 'Flavours',
+				label: 'Flavors',
 				text: 'Each developed by a certified mixologist and food scientist'
 			},
-			{ value: '3', label: 'Formats', text: '1L, 3L and 5L to fit any venue size' },
-			{ value: '<10s', label: 'Serve time', text: 'From tap to glass, no prep required' },
-			{ value: '65–85%', label: 'Real fruit', text: 'Freshly mixed on demand' }
-		]
+			{
+				value: '2',
+				label: 'Formats',
+				text: '400 ml and 1 L, for the trial run and for daily service'
+			},
+			{ value: '<10s', label: 'Serve time', text: 'Straight into the glass, no prep needed' },
+			{
+				value: 'Fruit first',
+				label: 'Real ingredients',
+				text: 'Fruit and herbs are the main ingredient in every base, mixed fresh to order'
+			}
+		],
+		yield: {
+			title: 'How far does one bottle go?',
+			items: [
+				{ format: '400 ml', drinks: '5 to 6 drinks' },
+				{ format: '1 L', drinks: '12 to 13 drinks' }
+			],
+			note: 'Based on 1.5 shots of base per glass.'
+		},
+		range: {
+			title: 'Five bases. Five signatures.',
+			lead: 'Every base works with or without a spirit.'
+		}
 	},
 	product: {
 		metaTitle: (name: string) => `${name} | Cocktail Base | ${site.name}`,
@@ -135,69 +191,74 @@ const en: Messages = {
 		pairsWith: 'Pairs with',
 		garnish: 'Elevate with',
 		formats: 'Formats',
-		glasses: (count: number) => `approx. ${count} glasses`,
+		glasses: (count: string) => `${count} glasses`,
 		back: 'All bases',
 		others: 'More flavours'
 	},
 	cta: {
-		title: 'Pick your flavours, tell us your venue.',
-		lead: 'We will reach out shortly to arrange your tasting.',
+		title: 'Tell us where you will be pouring.',
+		lead: 'We will be in touch shortly and bring the tasting to you.',
 		button: 'Book a tasting'
 	},
 	about: {
 		meta: {
 			title: `About ${site.name} | Berlin Beverage Brand`,
-			description: `Meet ${site.name}, a Berlin beverage brand creating fresh cocktail and mocktail bases with real fruit and herbs for bars, events and hospitality.`
+			description: `${site.name} is a Berlin beverage brand making fresh cocktail and mocktail bases with real fruit and herbs for hospitality, caterers and corporate events.`,
+			keywords: 'Berlin beverage brand, cocktail brand Berlin, mocktail brand Berlin'
 		},
 		eyebrow: `About ${site.name}`,
-		title: 'Modern cocktail bases. Built for the people who serve them.',
-		lead: 'We develop cocktail bases for professional environments where speed, consistency and quality matter most. Our system reduces complexity without limiting creativity, so teams can focus on the experience rather than the preparation.',
-		imageAlt: `${site.name} pouch against dark marble`,
+		title: 'Modern cocktail bases. Made for the people who serve them.',
+		lead: 'We build cocktail bases for situations where pace, reliability and quality all have to come together. Our system takes the complexity out without cutting the creativity, so teams can spend their attention on the experience instead of the prep.',
+		imageAlt: `${site.name} bottle against dark marble`,
 		features: [
-			{ title: 'Naturally crafted', text: 'Real fruit and herbs, up to 88% fruit content' },
 			{
-				title: 'Built for speed',
-				text: 'Ready to serve in under 10 seconds, no prep, no specialist skills needed'
+				title: 'Naturally made',
+				text: 'Real fruit and herbs as the main ingredient, no shortcuts'
 			},
 			{
-				title: 'Born in Berlin',
-				text: 'Developed in a city where creativity and culture naturally intersect.'
+				title: 'Built for pace',
+				text: 'Ready to serve in under 10 seconds, no prep and no specialist skills'
+			},
+			{
+				title: 'Started in Berlin',
+				text: 'From a city where culture and creativity keep running into each other'
 			}
 		],
 		story: {
 			eyebrow: 'Our story',
-			title: 'It was never just about the drink.',
-			imageAlt: `${site.name} pouch with two drinks in a club with coloured lights`,
+			title: 'It was never only about the drink.',
+			imageAlt: `${site.name} bottle with two drinks in a club with coloured lights`,
 			opening:
-				'Food and drinks connect people in a way that little else can. They create moments that stay with us long after the last sip, long after the evening ends.',
+				'Food and drink bring people together in a way almost nothing else manages. They leave behind moments that stay long after the last sip and long after the night ends.',
 			paragraphs: [
-				'A great drink in the right setting has the power to bring people together, open conversations and create an atmosphere that feels like its own small place in time.',
-				`${site.name} was born from the desire to make these moments happen again and again. Not just once, not just by chance, but deliberately and reliably. Through hundreds of events and thousands of guests, one thing became clear: what people truly value is not just the drink itself, but the experience surrounding it.`
+				'A good drink in the right place opens conversations, pulls people toward each other and creates a mood that feels like its own small place in time.',
+				`${site.name} started from wanting to make those moments repeatable. Not once, not by accident, but on purpose and every time. After hundreds of events and thousands of guests one thing was clear: what counts is not only the drink, but everything happening around it.`
 			],
-			closing: `${site.name} is not just about cocktails. It is about the moments they create.`
+			closing: `${site.name} is not only a cocktail. It is the moments that come out of it.`
 		},
 		cta: {
-			title: `Ready to bring ${site.name} to your venue?`,
-			lead: 'Request a tasting. We come to you.'
+			title: `Ready to bring ${site.name} to your bar or your next event?`,
+			lead: 'Request a tasting and we will come to you.'
 		}
 	},
 	tastingPage: {
 		meta: {
 			title: `Book a Cocktail Tasting in Berlin | ${site.name}`,
-			description: `Book a cocktail and mocktail tasting in Berlin. Try ${site.name} at your venue with no pressure and see how fast, consistent drinks can work.`
+			description: `Book a cocktail and mocktail tasting in Berlin. Try ${site.name} at your bar, your office or your event, no pressure, no obligation.`,
+			keywords: 'cocktail tasting Berlin, event drinks Berlin, cocktail catering'
 		},
-		title: 'Let the taste do the talking.',
-		lead: 'Five mixologist developed bases. Real fruit, real herbs, freshly mixed on demand. For venues that serve without compromise.',
+		title: 'Let the glass make the case.',
+		lead: 'Five mixologist developed bases. Real fruit, real herbs, mixed fresh to order. For anyone who pours without compromise.',
 		steps: [
 			{
 				title: 'Fill in the form',
-				text: 'Tell us about your venue and which flavours interest you most.'
+				text: 'Tell us briefly where you will be pouring and which flavors interest you.'
 			},
 			{
-				title: 'We get in touch',
-				text: 'We will reach out shortly to arrange a tasting at a time that suits you.'
+				title: 'We get back to you',
+				text: 'We will reach out shortly and find a slot that fits your schedule.'
 			},
-			{ title: 'Taste and decide', text: 'Try the bases with your team.' }
+			{ title: 'Taste and decide', text: 'Try the bases together with your team.' }
 		]
 	},
 	footer: {

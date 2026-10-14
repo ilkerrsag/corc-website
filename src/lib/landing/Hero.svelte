@@ -29,15 +29,15 @@
 
 	<div class="mx-auto flex min-h-[min(44rem,82svh)] max-w-6xl items-center px-5 py-20">
 		<div class="max-w-xl">
+			<p class="max-w-md text-base leading-relaxed text-foreground/85 sm:text-lg">
+				{t.hero.intro}
+			</p>
 			<h1
-				class="font-display text-5xl leading-[1.02] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
+				class="mt-6 font-display text-5xl leading-[1.02] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
 			>
 				{t.hero.title[0]}
-				<span class="block text-primary italic">{t.hero.title[1]}</span>
+				<span class="block text-primary uppercase">{t.hero.title[1]}</span>
 			</h1>
-			<p class="mt-6 max-w-md text-base leading-relaxed text-foreground/85 sm:text-lg">
-				{t.hero.lead}
-			</p>
 			<div class="mt-8 flex flex-wrap gap-3">
 				<Button href="#tasting" size="xl" class="rounded-full">{t.hero.cta}</Button>
 				<Button

@@ -2,215 +2,269 @@ import { site } from '../site';
 
 const de = {
 	meta: {
-		title: `Fertige Mocktail und Cocktail Basen für die Gastronomie | ${site.name}`,
+		title: `Fertige Cocktail und Mocktail Basen für Gastronomie und Events | ${site.name}`,
 		description:
-			'Fertige Mocktail und Cocktail Basen aus Berlin, hergestellt aus echten Früchten und Kräutern. Für Bars, Events und die moderne Gastronomie. Schnell, konsistent, kompromisslos.'
+			'Trinkfertige Cocktail und Mocktail Basen aus Berlin, aus echten Früchten und Kräutern. Für Bars, Caterer, Hotels und Firmenevents. Schnell, gleichbleibend, kompromisslos.',
+		keywords:
+			'Cocktail Basen Berlin, Mocktail Basen, Cocktail Catering Berlin, Drinks für Firmenevents'
 	},
 	nav: {
-		home: 'Startseite',
-		bases: 'Unsere Basen',
-		about: 'Über uns',
+		home: 'Hauptseite',
+		bases: 'Cocktail Basen',
+		about: `Über ${site.name}`,
 		cta: 'Tasting buchen',
 		main: 'Hauptnavigation',
 		menu: 'Menü',
 		language: 'Sprache'
 	},
 	hero: {
-		title: ['Signature Qualität.', 'Fertig in Sekunden.'],
-		lead: 'Außergewöhnliche Cocktails und Mocktails. Minimaler Aufwand, maximale Konsistenz. Entwickelt für Bars, Events und die moderne Gastronomie.',
-		cta: 'Tasting anfragen',
+		intro:
+			'Besondere Cocktails und Mocktails. Wenig Aufwand, jedes Mal das gleiche Ergebnis. Für Bars, Caterer, Hotels und Firmenevents.',
+		title: ['Barqualität.', 'In Sekunden im Glas.'],
+		cta: 'Tasting vereinbaren',
 		secondary: 'So funktioniert’s',
-		imageAlt: `${site.name} Pouch auf einem Bartresen, im Hintergrund ein Barkeeper`
+		imageAlt: `${site.name} Flasche auf einem Bartresen, im Hintergrund ein Barkeeper`
+	},
+	audience: {
+		title: `Wo ${site.name} ausgeschenkt wird`,
+		items: [
+			'Bars und Restaurants',
+			'Caterer und Eventagenturen',
+			'Hotels und Konferenzen',
+			'Firmenfeiern und Büroevents',
+			'Private Veranstaltungen'
+		]
 	},
 	how: {
 		eyebrow: 'So funktioniert’s',
-		title: `Zwei Arten, euren ${site.name} zu mixen`,
-		lead: 'Base einschenken, auffüllen oder shaken, servieren. Konstante Drinks ohne zusätzliche Vorbereitung.',
+		title: `So einfach läuft ${site.name}`,
+		lead: 'Base ins Glas, auffüllen oder kurz shaken, servieren. Gleichbleibende Drinks, ganz ohne Vorbereitung.',
+		heading: `Zwei Wege, euren ${site.name} zu mixen`,
 		shake: {
-			title: 'Shake',
+			title: 'shaken',
 			imageAlt:
 				'Illustration: Shaker mit Eis, Base und Spirituose dazu, schütteln, im Glas servieren',
 			steps: [
 				'Shaker mit Eis füllen',
-				'Base + Spirituose (optional) hinzufügen',
-				'Kräftig schütteln',
+				'Base dazugeben',
+				'+ Spirituose (optional)',
+				'Kräftig shaken',
 				'Servieren'
 			]
 		},
 		stir: {
-			title: 'Rühren',
-			imageAlt: 'Illustration: Glas mit Eis, Base, Spirituose und Wasser dazu, rühren, servieren',
+			title: 'rühren',
+			imageAlt: 'Illustration: Glas mit Eis, Base, Spirituose und Wasser dazu, umrühren, servieren',
 			steps: [
 				'Glas mit Eis füllen',
-				'Base + Spirituose (optional) + Wasser hinzufügen',
-				'Gut rühren',
+				'Base dazugeben',
+				'+ Spirituose (optional) + Wasser',
+				'Gut umrühren',
 				'Servieren'
 			]
 		},
 		ratio: {
-			title: 'Empfohlenes Mischverhältnis',
+			title: 'Empfohlenes Verhältnis',
 			items: [
 				{ amount: '1,5 Shot', label: `${site.name} Base` },
 				{ amount: '1 Shot', label: 'Spirituose (optional)' },
 				{ amount: '½ Shot', label: 'Wasser (ohne Shaker)' }
 			],
-			note: 'Geschmack nach Bedarf anpassen. Genuss verantwortungsvoll.'
+			note: '1 Shot entspricht 5 cl. Ohne Spirituose wird daraus ein Mocktail. Stärke und Geschmack könnt ihr frei anpassen. Bitte genießt verantwortungsvoll.'
 		}
 	},
 	why: {
 		eyebrow: `Warum ${site.name}`,
-		title: 'Entwickelt für Betriebe, die Qualität ernst nehmen.',
-		lead: `Vier Gründe, warum Berlins beste Venues auf ${site.name} setzen.`,
+		title: 'Für alle, die ausschenken und dabei keine Abstriche machen.',
+		lead: `Fünf Gründe, warum Bars, Caterer und Unternehmen in Berlin mit ${site.name} arbeiten.`,
 		reasons: [
 			{
 				tag: 'Schnell',
-				title: 'Servierfähig in unter 10 Sekunden',
-				text: 'Einschenken, servieren, weiter. Euer Team schenkt in dem Tempo ein, das euer Betrieb verlangt. Alles ist vorbereitet, ihr macht es nur gut aussehen.',
-				imageAlt: 'Fünf farbige Cocktails und Mocktails nebeneinander auf einem Bartresen'
+				title: 'In unter 10 Sekunden im Glas',
+				text: 'Eingießen, rausgeben, weiter. Euer Team bedient im Tempo, das der Abend verlangt. Die Arbeit ist längst getan, ihr setzt den Drink nur noch in Szene.',
+				imageAlt: `${site.name} Basilico Flasche auf einem Tresen, daneben eine Reihe fertiger Drinks`
 			},
 			{
 				tag: 'Frisch und natürlich',
-				title: 'Vom Mixologen entwickelt. Zuverlässig geliefert.',
-				text: 'Hergestellt aus echten Früchten und Kräutern, frisch gemixt auf Anfrage. Signature Qualität, die euer Team in jeder Schicht reproduzieren kann.',
-				imageAlt: `${site.name} Pouch mit frischen Beeren, Zitrone, Passionsfrucht und Kräutern`
+				title: 'Von Mixologen entwickelt. Verlässlich geliefert.',
+				text: 'Echte Früchte und Kräuter als Hauptzutat, frisch angesetzt auf Bestellung. Barqualität, die euer Team jedes Mal wiederholen kann.',
+				imageAlt: `${site.name} Fragola Flasche zwischen frischen Erdbeeren, Himbeeren, Zitronen und Minze`
 			},
 			{
 				tag: 'Einfach',
-				title: 'Kein zusätzliches Training erforderlich',
-				text: 'Keine komplexe Vorbereitung, kein Fachwissen nötig. Euer Team mixt bei jedem Gast einen perfekten Cocktail, von der Eröffnungsschicht bis zur vollsten Nacht der Woche.',
-				imageAlt: `Ein Barkeeper gießt einen grünen Drink über Eis, daneben die ${site.name} Pouch`
+				title: 'Ohne Schulung einsatzbereit',
+				text: 'Keine aufwendige Vorbereitung, kein Spezialwissen. Jeder Gast bekommt denselben guten Cocktail, von der ersten Runde bis zum vollsten Moment des Abends.',
+				imageAlt: `${site.name} Yuzu Flasche neben einem Glas, das mit einem Barlöffel gerührt wird`
+			},
+			{
+				tag: 'Mit und ohne Alkohol',
+				title: 'Jede Base funktioniert alkoholfrei',
+				text: 'Dieselbe Base, einmal mit Spirituose und einmal ohne. Alle am Tisch bekommen einen Drink, der ernst gemeint ist, nicht nur eine Limonade als Notlösung.',
+				imageAlt: ''
 			},
 			{
 				tag: 'Zufriedene Gäste',
-				title: 'Drinks, zu denen man zurückkommt',
-				text: 'Gebt euren Gästen etwas, das sie in Erinnerung behalten. Handwerkliche Qualität, die nach einem zweiten Glas verlangt, und einem dritten.',
-				imageAlt: 'Gäste mit bunten Drinks in einer Bar, lachend'
+				title: 'Drinks, für die man wiederkommt',
+				text: 'Gebt euren Gästen etwas, das hängen bleibt. Handwerkliche Qualität, nach der man ein zweites Glas bestellt. Und ein drittes.',
+				imageAlt: 'Gäste im Gespräch an einem Stehtisch, mit bunten Drinks in der Hand'
 			}
 		]
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Den Geschmack für sich sprechen lassen',
-		lead: `Kontaktiert uns, um einen Tasting Termin zu vereinbaren. Wir bringen ${site.name} direkt zu eurem Betrieb.`,
+		title: 'Überzeugt euch selbst, am besten im Glas',
+		note: `Schreibt uns für einen Tasting Termin. Wir kommen mit ${site.name} zu euch, in die Bar, ins Büro oder direkt aufs Event.`,
 		form: {
-			name: 'Ihr Name',
-			company: 'Venue oder Unternehmensname',
+			name: 'Euer Name',
+			company: 'Unternehmen oder Venue',
 			email: 'E-Mail Adresse',
-			message: 'Was wir sonst noch wissen sollten',
-			messagePlaceholder: 'Anstehendes Event, bevorzugte Besprechungszeit, spezifische Fragen…',
+			businessType: 'Art des Betriebs',
+			businessTypePlaceholder: 'Bitte auswählen',
+			businessTypeOptions: [
+				{ value: 'bar', label: 'Bar oder Restaurant' },
+				{ value: 'caterer', label: 'Caterer oder Agentur' },
+				{ value: 'hotel', label: 'Hotel' },
+				{ value: 'company', label: 'Unternehmen' },
+				{ value: 'other', label: 'Sonstiges' }
+			],
+			message: 'Gibt es sonst etwas, das wir wissen sollten?',
+			messagePlaceholder: 'Anstehendes Event, Wunschtermin, konkrete Fragen …',
 			submit: 'Absenden',
-			sending: 'Wird gesendet…',
-			sentTitle: 'Danke, die Anfrage ist bei uns.',
-			sentText: 'Wir melden uns in Kürze, um einen Termin zu vereinbaren.',
+			sending: 'Wird gesendet …',
+			sentTitle: 'Danke, wir haben eure Anfrage.',
+			sentText: 'Wir melden uns in Kürze, um einen Termin zu finden.',
 			errors: {
-				name: 'Bitte einen Namen angeben.',
-				company: 'Bitte Venue oder Unternehmen angeben.',
-				email: 'Bitte eine gültige E-Mail Adresse angeben.',
+				name: 'Bitte tragt euren Namen ein.',
+				company: 'Bitte tragt euer Unternehmen oder Venue ein.',
+				email: 'Bitte tragt eine gültige E-Mail Adresse ein.',
+				businessType: 'Bitte wählt die Art des Betriebs.',
 				message: 'Die Nachricht ist zu lang.',
-				invalid: 'Bitte die markierten Felder prüfen.',
-				verification: 'Die Spam-Prüfung ist fehlgeschlagen. Bitte noch einmal versuchen.',
+				invalid: 'Bitte prüft die markierten Felder.',
+				verification: 'Die Spam Prüfung ist fehlgeschlagen. Bitte versucht es erneut.',
 				verificationLoad:
-					'Die Spam-Prüfung konnte nicht geladen werden. Bitte Inhaltsblocker deaktivieren und die Seite neu laden.',
-				network: 'Der Server ist nicht erreichbar. Bitte noch einmal versuchen.',
-				generic: 'Etwas ist schiefgelaufen. Bitte noch einmal versuchen.'
+					'Die Spam Prüfung konnte nicht geladen werden. Bitte deaktiviert Content Blocker und ladet die Seite neu.',
+				network: 'Der Server war nicht erreichbar. Bitte versucht es erneut.',
+				generic: 'Etwas ist schiefgelaufen. Bitte versucht es erneut.'
 			}
 		}
 	},
 	bases: {
 		meta: {
-			title: `Mocktail und Cocktail Basen | ${site.name}`,
+			title: `Cocktail und Mocktail Basen | ${site.name} Berlin`,
 			description:
-				'Fertige Mocktail und Cocktail Basen für Events, Bars und Veranstaltungen in Berlin. Echte Früchte, schnelle Zubereitung, gleichbleibender Geschmack. Die einfache Lösung für euren Betrieb.'
+				'Fünf Cocktail und Mocktail Basen in 400 ml und 1 L. Echte Früchte und Kräuter, schnelle Zubereitung, gleichbleibender Geschmack. Jede Base auch alkoholfrei.',
+			keywords: 'cocktail basen, mocktail basen, alkoholfreie Cocktails Event'
 		},
-		eyebrow: 'Unsere Basen',
-		title: 'Signature Cocktail- und Mocktail-Basen, entwickelt für Spitzenleistung.',
-		lead: 'Fünf Geschmacksrichtungen aus echten Früchten und Kräutern. Mit Spirituose oder alkoholfrei, in Sekunden im Glas.',
+		eyebrow: 'Cocktail Basen',
+		title: 'Cocktail- und Mocktail-Basen, gemacht für den Ausschank unter Zeitdruck.',
 		discover: 'Entdecken',
-		statsAlt: 'Freunde stoßen bei einem Abendessen mit Drinks an',
+		statsAlt: 'Gäste stoßen bei einem Abendessen mit Drinks an',
 		stats: [
 			{
 				value: '5',
 				label: 'Geschmacksrichtungen',
-				text: 'Jede entwickelt von einem zertifizierten Mixologen und Lebensmittelwissenschaftler'
+				text: 'Jede von einem zertifizierten Mixologen und Lebensmittelwissenschaftler entwickelt'
 			},
-			{ value: '3', label: 'Formate', text: '1L, 3L und 5L, passend für jeden Betrieb' },
-			{ value: '<10s', label: 'Servierdauer', text: 'Vom Zapfen ins Glas, ohne Vorbereitung' },
-			{ value: '65–85%', label: 'Echter Fruchtanteil', text: 'Frisch gemixt auf Anfrage' }
-		]
+			{
+				value: '2',
+				label: 'Formate',
+				text: '400 ml und 1 L, passend für Testlauf und Dauerbetrieb'
+			},
+			{ value: '<10s', label: 'Servierdauer', text: 'Direkt ins Glas, ohne Vorbereitung' },
+			{
+				value: 'Frucht zuerst',
+				label: 'Echte Zutaten',
+				text: 'Früchte und Kräuter sind die Hauptzutat jeder Base, frisch angesetzt auf Bestellung'
+			}
+		],
+		yield: {
+			title: 'Wie weit reicht eine Flasche?',
+			items: [
+				{ format: '400 ml', drinks: '5 bis 6 Drinks' },
+				{ format: '1 L', drinks: '12 bis 13 Drinks' }
+			],
+			note: 'Gerechnet mit 1,5 Shot Base pro Glas.'
+		},
+		range: {
+			title: 'Fünf Basen. Fünf Handschriften.',
+			lead: 'Jede Base funktioniert mit und ohne Spirituose.'
+		}
 	},
 	product: {
 		metaTitle: (name: string) => `${name} | Cocktail Base | ${site.name}`,
-		eyebrow: 'Cocktail- und Mocktail-Base',
+		eyebrow: 'Cocktail und Mocktail Base',
 		ingredients: 'Zutaten',
 		pairsWith: 'Passt zu',
-		garnish: 'Verfeinern mit',
+		garnish: 'Veredeln mit',
 		formats: 'Formate',
-		glasses: (count: number) => `ca. ${count} Gläser`,
+		glasses: (count: string) => `${count} Gläser`,
 		back: 'Alle Basen',
-		others: 'Weitere Geschmacksrichtungen'
+		others: 'Weitere Sorten'
 	},
 	cta: {
-		title: 'Wählt eure Geschmacksrichtungen, nennt uns euren Betrieb.',
-		lead: 'Wir melden uns in Kürze, um euer Tasting zu vereinbaren.',
+		title: 'Sagt uns, wo ausgeschenkt wird.',
+		lead: 'Wir melden uns in Kürze und bringen das Tasting zu euch.',
 		button: 'Tasting buchen'
 	},
 	about: {
 		meta: {
-			title: `Über ${site.name} | Berliner Getränkemarke`,
-			description: `Lernt ${site.name} kennen, eine Berliner Getränkemarke, die frische Cocktail und Mocktail Basen aus echten Früchten und Kräutern entwickelt, für Bars, Events und die Gastronomie.`
+			title: `Über ${site.name} | Getränkemarke aus Berlin`,
+			description: `${site.name} ist eine Berliner Getränkemarke für frische Cocktail und Mocktail Basen aus echten Früchten und Kräutern, für Gastronomie, Caterer und Firmenevents.`,
+			keywords: 'Getränkemarke Berlin, Cocktailmarke Berlin, Mocktailmarke Berlin'
 		},
 		eyebrow: `Über ${site.name}`,
-		title: 'Moderne Cocktail Basen. Entwickelt für die Menschen, die sie servieren.',
-		lead: 'Wir entwickeln Cocktail Basen für professionelle Umgebungen, in denen Geschwindigkeit, Konsistenz und Qualität zählen. Unser System reduziert Komplexität, ohne Kreativität einzuschränken, damit Teams sich auf das Erlebnis konzentrieren können, nicht auf die Vorbereitung.',
-		imageAlt: `${site.name} Pouch vor dunklem Marmor`,
+		title: 'Moderne Cocktail Basen. Für die Leute gemacht, die sie servieren.',
+		lead: 'Wir entwickeln Cocktail Basen für Situationen, in denen Tempo, Verlässlichkeit und Qualität zusammenkommen müssen. Unser System nimmt die Komplexität raus, ohne die Kreativität zu beschneiden, damit Teams sich um das Erlebnis kümmern können statt um die Vorbereitung.',
+		imageAlt: `${site.name} Flasche vor dunklem Marmor`,
 		features: [
 			{
 				title: 'Natürlich hergestellt',
-				text: 'Echte Früchte und Kräuter, bis zu 88 % Fruchtanteil'
+				text: 'Echte Früchte und Kräuter als Hauptzutat, ohne Abkürzungen'
 			},
 			{
-				title: 'Entwickelt für Geschwindigkeit',
-				text: 'Servierfähig in unter 10 Sekunden, keine Vorbereitung, kein Fachwissen nötig'
+				title: 'Auf Tempo gebaut',
+				text: 'Servierfähig in unter 10 Sekunden, ohne Vorbereitung und ohne Fachwissen'
 			},
 			{
-				title: 'Geboren in Berlin',
-				text: 'Entstanden in Berlin, wo Kultur auf Kreativität trifft.'
+				title: 'In Berlin entstanden',
+				text: 'Aus einer Stadt, in der Kultur und Kreativität ständig aufeinandertreffen'
 			}
 		],
 		story: {
 			eyebrow: 'Unsere Geschichte',
-			title: 'Es war nie nur ein Drink.',
-			imageAlt: `${site.name} Pouch mit zwei Drinks in einem Club mit buntem Licht`,
+			title: 'Es ging nie nur um den Drink.',
+			imageAlt: `${site.name} Flasche mit zwei Drinks in einem Club mit farbigem Licht`,
 			opening:
-				'Essen und Trinken verbinden Menschen auf eine Weise, die kaum etwas anderes kann. Sie schaffen Momente, die lange nach dem letzten Schluck, lange nach dem Ende des Abends, in Erinnerung bleiben.',
+				'Essen und Trinken bringen Menschen auf eine Art zusammen, die sonst kaum etwas schafft. Sie hinterlassen Momente, die noch lange nach dem letzten Schluck und dem Ende des Abends bleiben.',
 			paragraphs: [
-				'Ein guter Drink im richtigen Umfeld hat die Kraft, Menschen zusammenzubringen, Gespräche zu öffnen und eine Atmosphäre zu schaffen, die sich anfühlt wie ein eigener kleiner Ort in der Zeit.',
-				`${site.name} entstand aus dem Wunsch, diese Momente immer wieder möglich zu machen. Nicht einmal, nicht zufällig, sondern bewusst und zuverlässig. Nach Hunderten von Events und Tausenden von Gästen wurde eines klar: Was Menschen wirklich schätzen, ist nicht nur der Drink selbst, sondern das Erlebnis darum herum.`
+				'Ein guter Drink am richtigen Ort öffnet Gespräche, bringt Leute ins Gespräch miteinander und schafft eine Stimmung, die sich anfühlt wie ein eigener kleiner Ort in der Zeit.',
+				`${site.name} ist aus dem Wunsch entstanden, solche Momente planbar zu machen. Nicht einmal und nicht zufällig, sondern bewusst und jedes Mal. Nach Hunderten Events und Tausenden Gästen war eine Sache klar: Was zählt, ist nicht nur der Drink, sondern alles, was um ihn herum passiert.`
 			],
-			closing: `${site.name} ist nicht nur ein Cocktail. Es sind die Momente, die er schafft.`
+			closing: `${site.name} ist nicht nur ein Cocktail. Es sind die Momente, die daraus entstehen.`
 		},
 		cta: {
-			title: `Bereit, ${site.name} in euren Betrieb zu bringen?`,
-			lead: 'Tasting anfragen. Wir kommen zu euch.'
+			title: `Bereit, ${site.name} auf euren Tresen oder euer Event zu holen?`,
+			lead: 'Fragt ein Tasting an. Wir kommen zu euch.'
 		}
 	},
 	tastingPage: {
 		meta: {
 			title: `Cocktail Tasting in Berlin buchen | ${site.name}`,
-			description: `Cocktail und Mocktail Tasting in Berlin buchen. Testet ${site.name} direkt in eurem Betrieb, unverbindlich und ohne Druck. Jetzt anfragen.`
+			description: `Cocktail und Mocktail Tasting in Berlin buchen. Testet ${site.name} in eurer Bar, im Büro oder auf eurem Event, unverbindlich und ohne Druck.`,
+			keywords: 'Cocktail Tasting Berlin, Event Drinks Berlin, Cocktail Catering'
 		},
-		title: 'Den Geschmack für sich sprechen lassen.',
-		lead: 'Fünf vom Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch gemixt auf Anfrage. Für Betriebe, die ohne Kompromisse servieren.',
+		title: 'Lasst den Geschmack entscheiden.',
+		lead: 'Fünf von Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch angesetzt auf Bestellung. Für alle, die ohne Kompromisse ausschenken.',
 		steps: [
 			{
 				title: 'Formular ausfüllen',
-				text: 'Erzählt uns von eurem Betrieb und welche Geschmacksrichtungen euch interessieren.'
+				text: 'Erzählt uns kurz, wo ausgeschenkt wird und welche Sorten euch interessieren.'
 			},
 			{
 				title: 'Wir melden uns',
-				text: 'Wir kommen in Kürze auf euch zu, um einen Tasting Termin abzustimmen, der zu eurem Zeitplan passt.'
+				text: 'Wir kommen zeitnah auf euch zu und finden einen Termin, der in euren Ablauf passt.'
 			},
-			{ title: 'Probieren und entscheiden', text: 'Testet die Basen gemeinsam mit eurem Team.' }
+			{ title: 'Probieren und entscheiden', text: 'Testet die Basen zusammen mit eurem Team.' }
 		]
 	},
 	footer: {

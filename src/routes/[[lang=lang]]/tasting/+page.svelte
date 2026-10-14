@@ -15,6 +15,7 @@
 	lang={data.lang}
 	title={t.tastingPage.meta.title}
 	description={t.tastingPage.meta.description}
+	keywords={t.tastingPage.meta.keywords}
 />
 
 <section class="relative isolate overflow-hidden">

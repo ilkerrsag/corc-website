@@ -8,7 +8,7 @@
 	const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
 	type Status = 'idle' | 'sending' | 'sent' | 'error';
-	type FieldName = 'name' | 'company' | 'email' | 'message';
+	type FieldName = 'name' | 'company' | 'email' | 'businessType' | 'message';
 
 	let { lang, t }: { lang: Locale; t: Messages['tasting']['form'] } = $props();
 
@@ -120,6 +120,22 @@
 		<Field label={t.email} required error={fieldError('email')}>
 			{#snippet children({ attrs })}
 				<Input name="email" type="email" required maxlength={320} autocomplete="email" {...attrs} />
+			{/snippet}
+		</Field>
+
+		<Field label={t.businessType} required error={fieldError('businessType')}>
+			{#snippet children({ attrs })}
+				<select
+					name="businessType"
+					required
+					class="border-input bg-paper placeholder:text-faint focus-visible:border-ink focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 flex h-(--field-height) w-full min-w-0 rounded-md border px-3.5 py-1 text-sm outline-none transition-[color,box-shadow,border-color] enabled:hover:border-ink/35 focus-visible:ring-[3px]"
+					{...attrs}
+				>
+					<option value="">{t.businessTypePlaceholder}</option>
+					{#each t.businessTypeOptions as option (option.value)}
+						<option value={option.value}>{option.label}</option>
+					{/each}
+				</select>
 			{/snippet}
 		</Field>
 

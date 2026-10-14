@@ -18,6 +18,7 @@
 	<div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-[1fr_auto]">
 		<div>
 			<p class="text-lg font-semibold tracking-wide uppercase">{site.company}</p>
+			<p class="mt-1 font-display text-sm text-primary italic">{site.tagline}</p>
 			<address class="mt-4 space-y-1 text-sm text-muted-foreground not-italic">
 				<p>
 					<a class="transition-colors hover:text-foreground" href="mailto:{site.email}">
@@ -43,8 +44,11 @@
 	</div>
 
 	<div class="border-t border-line">
-		<p class="mx-auto max-w-6xl px-5 py-5 text-xs text-faint">
-			{site.company} · {year}. {t.footer.rights}
-		</p>
+		<div
+			class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-5 py-5 text-xs text-faint"
+		>
+			<p>{site.company} · {year}. {t.footer.rights}</p>
+			<p class="tracking-wide uppercase">{site.tagline}</p>
+		</div>
 	</div>
 </footer>

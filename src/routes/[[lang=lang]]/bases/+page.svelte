@@ -13,17 +13,21 @@
 	const t = $derived(messages[data.lang]);
 </script>
 
-<Seo lang={data.lang} title={t.bases.meta.title} description={t.bases.meta.description} />
+<Seo
+	lang={data.lang}
+	title={t.bases.meta.title}
+	description={t.bases.meta.description}
+	keywords={t.bases.meta.keywords}
+/>
 
 <section class="mx-auto max-w-6xl px-5 pt-16 pb-20 sm:pt-20">
 	<div class="mx-auto max-w-4xl text-center">
 		<p class="eyebrow text-primary">{t.bases.eyebrow}</p>
 		<h1
-			class="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance italic sm:text-5xl lg:text-6xl"
+			class="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl"
 		>
 			{t.bases.title}
 		</h1>
-		<p class="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">{t.bases.lead}</p>
 	</div>
 
 	<div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -56,11 +60,56 @@
 							{stat.text}
 						</span>
 					</dt>
-					<dd class="text-5xl font-semibold tracking-tight text-primary">{stat.value}</dd>
+					<dd
+						class="font-display text-5xl leading-[1.05] font-semibold tracking-tight text-balance text-primary"
+					>
+						{stat.value}
+					</dd>
 				</div>
 			{/each}
 		</dl>
+
+		<div
+			class="mx-auto mt-5 max-w-3xl rounded-2xl border border-line bg-card/95 p-6 backdrop-blur-sm sm:p-8"
+		>
+			<h2 class="text-center font-display text-2xl font-semibold tracking-tight text-balance">
+				{t.bases.yield.title}
+			</h2>
+			<dl class="mt-6 grid gap-4 sm:grid-cols-2">
+				{#each t.bases.yield.items as item (item.format)}
+					<div class="rounded-xl border border-line px-5 py-4 text-center">
+						<dt class="text-sm tracking-wide text-muted-foreground uppercase">{item.format}</dt>
+						<dd class="mt-1 text-xl font-medium text-primary">{item.drinks}</dd>
+					</div>
+				{/each}
+			</dl>
+			<p class="mt-4 text-center text-sm text-muted-foreground italic">{t.bases.yield.note}</p>
+		</div>
 	</div>
+</section>
+
+<section class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl"
+		>
+			{t.bases.range.title}
+		</h2>
+		<p class="mx-auto mt-4 max-w-xl leading-relaxed text-pretty text-muted-foreground">
+			{t.bases.range.lead}
+		</p>
+	</div>
+
+	<dl class="mx-auto mt-12 max-w-3xl divide-y divide-line border-y border-line">
+		{#each products as product (product.slug)}
+			<div class="grid gap-1 py-5 sm:grid-cols-[10rem_1fr] sm:gap-6">
+				<dt class="font-display text-xl font-semibold text-primary">{product.name}</dt>
+				<dd class="leading-relaxed text-pretty text-muted-foreground">
+					{product[data.lang].tagline}
+				</dd>
+			</div>
+		{/each}
+	</dl>
 </section>
 
 <CtaBand lang={data.lang} {t} />

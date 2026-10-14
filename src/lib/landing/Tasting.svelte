@@ -12,7 +12,7 @@
 		lead?: string;
 	}
 
-	let { lang, t, title = t.tasting.title, lead = t.tasting.lead }: Props = $props();
+	let { lang, t, title = t.tasting.title, lead }: Props = $props();
 </script>
 
 <section id="tasting" class="border-t border-line bg-card">
@@ -20,6 +20,9 @@
 		<SectionHeading eyebrow={t.tasting.eyebrow} {title} {lead} />
 		<div class="mx-auto mt-10 max-w-xl">
 			<ContactForm {lang} t={t.tasting.form} />
+			<p class="mt-6 text-center leading-relaxed text-pretty text-muted-foreground">
+				{t.tasting.note}
+			</p>
 		</div>
 	</div>
 </section>

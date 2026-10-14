@@ -6,6 +6,7 @@ interface Env {
 const MAX_BODY_BYTES = 20_000;
 const MAX_LENGTH = { name: 200, company: 200, email: 320, message: 5000 };
 const LANGUAGES = ['de', 'en'];
+const BUSINESS_TYPES = ['bar', 'caterer', 'hotel', 'company', 'other'];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
@@ -67,6 +68,7 @@ export default {
 		const company = field(data, 'company');
 		const email = field(data, 'email');
 		const message = field(data, 'message');
+		const businessType = field(data, 'businessType');
 		const lang = LANGUAGES.includes(field(data, 'lang')) ? field(data, 'lang') : null;
 
 		const fields: Record<string, string> = {};
@@ -77,6 +79,7 @@ export default {
 		if (!EMAIL_PATTERN.test(email) || email.length > MAX_LENGTH.email) {
 			fields.email = 'A valid email is required';
 		}
+		if (!BUSINESS_TYPES.includes(businessType)) fields.businessType = 'A business type is required';
 		if (message.length > MAX_LENGTH.message) fields.message = 'Message is too long';
 		if (Object.keys(fields).length > 0) {
 			return json({ error: 'Please check the form and try again', fields }, 422);
@@ -89,9 +92,9 @@ export default {
 		}
 
 		await env.DB.prepare(
-			'INSERT INTO submissions (name, company, email, message, lang) VALUES (?, ?, ?, ?, ?)'
+			'INSERT INTO submissions (name, company, email, business_type, message, lang) VALUES (?, ?, ?, ?, ?, ?)'
 		)
-			.bind(name, company, email, message, lang)
+			.bind(name, company, email, businessType, message, lang)
 			.run();
 
 		return json({ ok: true });

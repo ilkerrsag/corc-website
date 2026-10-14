@@ -63,12 +63,12 @@
 			<p class="mt-8 leading-relaxed text-muted-foreground">{copy.story}</p>
 
 			<h2 class="eyebrow mt-10 text-muted-foreground">{t.product.formats}</h2>
-			<ul class="mt-3 grid grid-cols-3 gap-3">
-				{#each formats as format (format.litres)}
+			<ul class="mt-3 grid grid-cols-2 gap-3">
+				{#each formats as format (format.size)}
 					<li class="rounded-xl border border-line bg-card px-3 py-4 text-center">
-						<span class="block text-2xl font-semibold text-primary">{format.litres}L</span>
+						<span class="block text-2xl font-semibold text-primary">{format.size}</span>
 						<span class="mt-1 block text-xs text-muted-foreground">
-							{t.product.glasses(format.glasses)}
+							{t.product.glasses(format.drinks[data.lang])}
 						</span>
 					</li>
 				{/each}

@@ -32,7 +32,13 @@
 <section id="how" class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
 	<SectionHeading eyebrow={t.how.eyebrow} title={t.how.title} lead={t.how.lead} />
 
-	<div class="mt-12 grid gap-5 lg:grid-cols-2">
+	<h3
+		class="mt-14 text-center font-display text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl"
+	>
+		{t.how.heading}
+	</h3>
+
+	<div class="mt-8 grid gap-5 lg:grid-cols-2">
 		{#each methods as method (method.title)}
 			<article class="flex flex-col rounded-2xl bg-cream p-5 text-charcoal sm:p-7">
 				<h3 class="text-center text-xl font-semibold tracking-wide uppercase">{method.title}</h3>
@@ -47,7 +53,7 @@
 					/>
 				</div>
 				<ol
-					class="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-charcoal/15 pt-5 text-sm sm:grid-cols-4"
+					class="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-charcoal/15 pt-5 text-sm sm:grid-cols-5"
 				>
 					{#each method.steps as step, i (step)}
 						<li class="flex gap-2 sm:flex-col sm:items-center sm:text-center">

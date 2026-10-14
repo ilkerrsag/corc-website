@@ -1,12 +1,12 @@
-import basilic from '#lib/assets/products/basilic.webp';
-import passionBlush from '#lib/assets/products/passion-blush.webp';
-import raspy from '#lib/assets/products/raspy.webp';
-import strawberryReserve from '#lib/assets/products/strawberry-reserve.webp';
-import yuzora from '#lib/assets/products/yuzora.webp';
 import type { Locale } from '#lib/i18n/index.js';
+import basilico from '#lib/assets/products/basilico.webp';
+import fragola from '#lib/assets/products/fragola.webp';
+import framboise from '#lib/assets/products/framboise.webp';
+import maracuja from '#lib/assets/products/maracuja.webp';
+import yuzu from '#lib/assets/products/yuzu.webp';
 
 export interface ProductCopy {
-	/** One or two sentences on how it tastes. */
+	/** One or two sentences on how it tastes. Doubles as the card and range blurb. */
 	tagline: string;
 	ingredients: string;
 	pairsWith: string;
@@ -20,128 +20,127 @@ export interface Product extends Record<Locale, ProductCopy> {
 	image: string;
 }
 
-/** Pouch sizes and roughly how many drinks each one pours. */
+/** Bottle sizes and roughly how many drinks each one pours at 1.5 shots per glass. */
 export const formats = [
-	{ litres: 1, glasses: 13 },
-	{ litres: 3, glasses: 40 },
-	{ litres: 5, glasses: 66 }
+	{ size: '400 ml', drinks: { de: '5 bis 6', en: '5 to 6' } },
+	{ size: '1 L', drinks: { de: '12 bis 13', en: '12 to 13' } }
 ];
 
 export const products: Product[] = [
 	{
-		slug: 'basilic',
-		name: 'Basilic',
-		image: basilic,
+		slug: 'basilico',
+		name: 'Basilico',
+		image: basilico,
 		de: {
 			tagline:
-				'Frisches Basilikum trifft auf lebendige Zitrusnoten in einer süß-sauren Balance. Kräuterig, erfrischend und knackig mit einem sauberen Abgang.',
-			ingredients: 'Basilikum, Zitrone, Limette, Orange, Zucker, Wasser',
+				'Frischer Basilikum und Zitrone, krautig und klar. Spielt mit Gin, funktioniert genauso gut ohne.',
+			ingredients: 'Basilikum, Zitrone, Limette, Orange',
 			pairsWith: 'Gin, Wodka, alkoholfrei (mit oder ohne Sprudelwasser)',
-			garnish: 'Frische Basilikumblätter und eine Limetten- oder Zitronenscheibe.',
+			garnish: 'Frische Basilikumblätter und eine Limettenscheibe.',
 			story:
-				'Basilic vereint das lebendige Aroma von frischem Basilikum mit hellen Zitrusnoten zu einer ausgewogenen süß-sauren Komposition. Sauber, grün und mühelos trinkbar, ein Profil mit botanischem Charakter.'
+				'Basilico verbindet das lebendige Aroma von frischem Basilikum mit hellen Zitrusnoten zu einer ausgewogenen süß-sauren Komposition. Sauber, grün und mühelos trinkbar, ein Profil mit botanischem Charakter, das im Glas sofort erkennbar bleibt.'
 		},
 		en: {
 			tagline:
-				'Fresh basil meets lively citrus in a sweet-and-sour balance. Herbal, refreshing and crisp with a clean finish.',
-			ingredients: 'Basil, lemon, lime, orange, sugar, water',
+				'Fresh basil and lemon, herbal and clean. Plays with gin, works just as well without it.',
+			ingredients: 'Basil, lemon, lime, orange',
 			pairsWith: 'Gin, vodka, alcohol-free (with or without sparkling water)',
-			garnish: 'Fresh basil leaves and a slice of lime or lemon.',
+			garnish: 'Fresh basil leaves and a slice of lime.',
 			story:
-				'Basilic combines the lively aroma of fresh basil with bright citrus notes in a balanced sweet-and-sour composition. Clean, green and effortlessly drinkable, a profile with botanical character.'
+				'Basilico combines the lively aroma of fresh basil with bright citrus notes in a balanced sweet-and-sour composition. Clean, green and effortlessly drinkable, a profile with botanical character that stays recognisable in the glass.'
 		}
 	},
 	{
-		slug: 'strawberry-reserve',
-		name: 'Strawberry Reserve',
-		image: strawberryReserve,
+		slug: 'fragola',
+		name: 'Fragola',
+		image: fragola,
 		de: {
 			tagline:
-				'Reife Erdbeere liefert einen saftigen, runden Fruchtcharakter mit sanfter Zitrushelligkeit und weicher Textur.',
-			ingredients: 'Erdbeere, Zitrone, Limette, Orange, Zucker, Wasser',
+				'Reife Erdbeere mit einer sauberen Säure dahinter. Der Drink, den alle am Tisch verstehen.',
+			ingredients: 'Erdbeere, Minze, Zitrone, Limette, Orange',
 			pairsWith: 'Wodka, Gin, alkoholfrei (mit oder ohne Sprudelwasser)',
-			garnish: 'Minze und frische oder getrocknete Erdbeere.',
+			garnish: 'Minze und frische Erdbeere.',
 			story:
-				'Erdbeere ist ein Geschmack, der Erinnerungen weckt: großzügig im Aroma und von Natur aus einladend. In Strawberry Reserve verstärkt Zitrusspannung die Beere, während dezente Süße die Kanten glättet. Das Ergebnis ist voll, lebendig und ausdrucksstark modern.'
+				'Erdbeere ist ein Geschmack, der Erinnerungen weckt: großzügig im Aroma und von Natur aus einladend. In Fragola hebt Zitrusspannung die Beere an, Minze gibt dem Ganzen einen kühlen Zug, und dezente Süße glättet die Kanten. Das Ergebnis ist voll, lebendig und ausdrucksstark modern.'
 		},
 		en: {
 			tagline:
-				'Ripe strawberry delivers a juicy, rounded fruit character with gentle citrus brightness and a soft texture.',
-			ingredients: 'Strawberry, lemon, lime, orange, sugar, water',
+				'Ripe strawberry with a clean acidity behind it. The drink everyone at the table understands.',
+			ingredients: 'Strawberry, mint, lemon, lime, orange',
 			pairsWith: 'Vodka, gin, alcohol-free (with or without sparkling water)',
-			garnish: 'Mint and fresh or dried strawberry.',
+			garnish: 'Mint and fresh strawberry.',
 			story:
-				'Strawberry is a flavour that stirs memories: generous in aroma and naturally inviting. In Strawberry Reserve, citrus tension lifts the berry while subtle sweetness smooths the edges. The result is full, lively and expressively modern.'
+				'Strawberry is a flavour that stirs memories: generous in aroma and naturally inviting. In Fragola, citrus tension lifts the berry, mint pulls a cool line through the middle, and subtle sweetness smooths the edges. The result is full, lively and expressively modern.'
 		}
 	},
 	{
-		slug: 'passion-blush',
-		name: 'Passion Blush',
-		image: passionBlush,
+		slug: 'maracuja',
+		name: 'Maracuja',
+		image: maracuja,
 		de: {
 			tagline:
-				'Passionsfrucht, getragen von Erdbeere und dezenten Vanillenoten, aufgehellt durch Zitrus. Tropisch und fruchtbetont mit sanfter Süße und einem sauberen Abgang.',
-			ingredients: 'Passionsfrucht, Erdbeere, Vanille, Zitrone, Limette, Orange, Zucker, Wasser',
-			pairsWith: 'Tequila, Wodka, Rum, alkoholfrei (mit oder ohne Sprudelwasser)',
-			garnish: 'Getrocknete Zitrusfrucht oder eine zarte essbare Blüte.',
+				'Volle Passionsfrucht, tropisch und gerade süß genug. Rum und Wodka sind die naheliegenden Partner.',
+			ingredients: 'Passionsfrucht, Erdbeere, Vanille, Zitrone, Limette, Orange',
+			pairsWith: 'Rum, Wodka, Tequila, alkoholfrei (mit oder ohne Sprudelwasser)',
+			garnish: 'Eine Limettenscheibe und eine zarte essbare Blüte.',
 			story:
-				'Passion Blush entstand in Brasilien, wo die unerwartete Kombination aus Passionsfrucht und Erdbeere auf einem Straßenmarkt eine lebendige, genussvolle Harmonie offenbarte. Tropische Intensität trifft auf Zitrusfrische und sanfte Süße, exotisch und dennoch einladend. Ein Geschmack, geprägt durch Erfahrung.'
+				'Maracuja entstand in Brasilien, wo die unerwartete Kombination aus Passionsfrucht und Erdbeere auf einem Straßenmarkt eine lebendige, genussvolle Harmonie offenbarte. Tropische Intensität trifft auf Zitrusfrische und sanfte Süße, exotisch und dennoch einladend. Ein Geschmack, geprägt durch Erfahrung.'
 		},
 		en: {
 			tagline:
-				'Passion fruit carried by strawberry and subtle vanilla notes, brightened with citrus. Tropical and fruit-forward with gentle sweetness and a clean finish.',
-			ingredients: 'Passion fruit, strawberry, vanilla, lemon, lime, orange, sugar, water',
-			pairsWith: 'Tequila, vodka, rum, alcohol-free (with or without sparkling water)',
-			garnish: 'Dried citrus or a delicate edible flower.',
+				'Full passion fruit, tropical and just sweet enough. Rum and vodka are the obvious partners.',
+			ingredients: 'Passion fruit, strawberry, vanilla, lemon, lime, orange',
+			pairsWith: 'Rum, vodka, tequila, alcohol-free (with or without sparkling water)',
+			garnish: 'A slice of lime and a delicate edible flower.',
 			story:
-				'Passion Blush began in Brazil, where the unexpected pairing of passion fruit and strawberry at a street market revealed a lively, indulgent harmony. Tropical intensity meets citrus freshness and gentle sweetness, exotic yet inviting. A flavour shaped by experience.'
+				'Maracuja began in Brazil, where the unexpected pairing of passion fruit and strawberry at a street market revealed a lively, indulgent harmony. Tropical intensity meets citrus freshness and gentle sweetness, exotic yet inviting. A flavour shaped by experience.'
 		}
 	},
 	{
-		slug: 'yuzora',
-		name: 'Yuzora',
-		image: yuzora,
+		slug: 'framboise',
+		name: 'Framboise',
+		image: framboise,
 		de: {
 			tagline:
-				'Yuzu-betonte Zitrusnoten mit runder Ananas und leichter Ingwerwärme. Hell, erfrischend und leicht spritzig.',
-			ingredients: 'Yuzu, Ananas, Ingwer, Zitrone, Orange, Zucker, Wasser',
-			pairsWith: 'Sprudelnder Mate-Tee zum Auffüllen (empfohlen), Wodka, Whiskey, Gin',
-			garnish: 'Getrocknete Zitrone oder frische Zitrusschale.',
-			story:
-				'Yuzu ist seit Jahrhunderten Teil der japanischen Küche, geschätzt für seine aromatische Intensität und seinen unverwechselbaren Zitruscharakter. Als die japanische Cocktailkultur die internationale Barszene zu prägen begann, wurde Yuzu weltweit bekannt. Yuzora verbindet diesen lebendigen Zitrusausdruck mit tropischer Weichheit und sanfter Würze. Eine Zutat mit Tradition, neu entdeckt durch die moderne Cocktailkultur.'
-		},
-		en: {
-			tagline:
-				'Yuzu-led citrus with pineapple roundness and light ginger warmth. Bright, refreshing and slightly zesty.',
-			ingredients: 'Yuzu, pineapple, ginger, lemon, orange, sugar, water',
-			pairsWith: 'Sparkling mate tea top-up (recommended), vodka, whiskey, gin',
-			garnish: 'Dried lemon or fresh citrus peel.',
-			story:
-				'Yuzu has been part of Japanese culinary heritage for centuries, valued for its aromatic intensity and distinctive citrus character. As Japanese cocktail culture began influencing the global bar scene, yuzu gained international attention. Yuzora combines this vivid citrus expression with tropical softness and gentle spice. An ingredient rooted in tradition, rediscovered through contemporary cocktail culture.'
-		}
-	},
-	{
-		slug: 'raspy',
-		name: 'Raspy',
-		image: raspy,
-		de: {
-			tagline:
-				'Lebendige Himbeernoten mit natürlicher Herbe und leichter Süße ergeben ein strahlendes, ausdrucksstarkes Beerenprofil.',
-			ingredients: 'Himbeere, Zitrone, Orange, Zucker, Wasser',
+				'Himbeere mit Tiefe, mehr dunkle Beere als Bonbon. Ein Klassiker, der auch im Winter funktioniert.',
+			ingredients: 'Himbeere, Zitrone, Orange',
 			pairsWith: 'Gin (Pink Gin empfohlen), Wodka, alkoholfrei (mit oder ohne Sprudelwasser)',
-			garnish: 'Eine Zimtstange (empfohlen) und frische Himbeere.',
+			garnish: 'Eine Zimtstange und frische Himbeere.',
 			story:
-				'Raspy schöpft aus den nostalgischen Himbeertönen klassischer europäischer Desserts: aromatisch, großzügig und sofort vertraut. Wir haben dies in eine moderne Cocktailform übertragen, der natürliche Beerencharakter verfeinert mit Frische und Präzision. Vertraut, neu interpretiert.'
+				'Framboise schöpft aus den nostalgischen Himbeertönen klassischer europäischer Desserts: aromatisch, großzügig und sofort vertraut. Wir haben das in eine moderne Cocktailform übertragen, der natürliche Beerencharakter verfeinert mit Frische und Präzision. Vertraut, neu interpretiert.'
 		},
 		en: {
 			tagline:
-				'Lively raspberry notes with natural tartness and light sweetness make for a bright, expressive berry profile.',
-			ingredients: 'Raspberry, lemon, orange, sugar, water',
+				'Raspberry with depth, more dark berry than candy. A classic that holds up in winter too.',
+			ingredients: 'Raspberry, lemon, orange',
 			pairsWith:
 				'Gin (pink gin recommended), vodka, alcohol-free (with or without sparkling water)',
-			garnish: 'A cinnamon stick (recommended) and fresh raspberry.',
+			garnish: 'A cinnamon stick and fresh raspberry.',
 			story:
-				'Raspy draws on the nostalgic raspberry notes of classic European desserts: aromatic, generous and instantly familiar. We carried this into a modern cocktail form, the natural berry character refined with freshness and precision. Familiar, reinterpreted.'
+				'Framboise draws on the nostalgic raspberry notes of classic European desserts: aromatic, generous and instantly familiar. We carried that into a modern cocktail form, the natural berry character refined with freshness and precision. Familiar, reinterpreted.'
+		}
+	},
+	{
+		slug: 'yuzu',
+		name: 'Yuzu',
+		image: yuzu,
+		de: {
+			tagline:
+				'Japanische Zitrusfrucht, zwischen Limette und Mandarine. Die eleganteste Base der Reihe.',
+			ingredients: 'Yuzu, Ananas, Ingwer, Zitrone, Orange',
+			pairsWith: 'Sprudelnder Mate-Tee zum Auffüllen (empfohlen), Wodka, Whiskey, Gin',
+			garnish: 'Getrocknete Zitronenscheibe oder frische Zitrusschale.',
+			story:
+				'Yuzu ist seit Jahrhunderten Teil der japanischen Küche, geschätzt für ihre aromatische Intensität und ihren unverwechselbaren Zitruscharakter. Als die japanische Cocktailkultur die internationale Barszene zu prägen begann, wurde Yuzu weltweit bekannt. Diese Base verbindet den lebendigen Zitrusausdruck mit tropischer Weichheit und sanfter Würze.'
+		},
+		en: {
+			tagline:
+				'Japanese citrus, somewhere between lime and mandarin. The most elegant base in the range.',
+			ingredients: 'Yuzu, pineapple, ginger, lemon, orange',
+			pairsWith: 'Sparkling mate tea top-up (recommended), vodka, whiskey, gin',
+			garnish: 'Dried lemon slice or fresh citrus peel.',
+			story:
+				'Yuzu has been part of Japanese culinary heritage for centuries, valued for its aromatic intensity and distinctive citrus character. As Japanese cocktail culture began influencing the global bar scene, yuzu gained international attention. This base combines that vivid citrus expression with tropical softness and gentle spice.'
 		}
 	}
 ];

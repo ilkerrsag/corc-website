@@ -12,7 +12,11 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			adapter: adapter(),
+			// Start from the two home pages and follow the links. Crawling from here only
+			// ever reaches the translated addresses, so the internal route paths
+			// (`/bases`, `/about`, `/tasting`) never get written out as duplicates.
+			prerender: { entries: ['/', '/en'] }
 		})
 	],
 	server: {
