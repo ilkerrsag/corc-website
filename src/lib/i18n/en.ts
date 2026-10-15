@@ -190,6 +190,8 @@ const en: Messages = {
 		ingredients: 'Ingredients',
 		pairsWith: 'Pairs with',
 		garnish: 'Elevate with',
+		storage: 'Storage',
+		storageText: 'Keep refrigerated and consume within 5 days.',
 		formats: 'Formats',
 		glasses: (count: string) => `${count} glasses`,
 		back: 'All bases',
@@ -224,6 +226,11 @@ const en: Messages = {
 				text: 'From a city where culture and creativity keep running into each other'
 			}
 		],
+		makers: {
+			eyebrow: 'Who is behind it',
+			title: 'Built by people who have done the pouring.',
+			text: `${site.name} did not come out of a lab. The recipes come from a mixologist who spent years behind the bar and worked with major spirits brands, shaped across hundreds of events and thousands of guests. Every base is built the way a team actually needs it in service.`
+		},
 		story: {
 			eyebrow: 'Our story',
 			title: 'It was never only about the drink.',

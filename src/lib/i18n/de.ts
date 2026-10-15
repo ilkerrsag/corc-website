@@ -196,6 +196,8 @@ const de = {
 		ingredients: 'Zutaten',
 		pairsWith: 'Passt zu',
 		garnish: 'Veredeln mit',
+		storage: 'Lagerung',
+		storageText: 'Gekühlt lagern und innerhalb von 5 Tagen verbrauchen.',
 		formats: 'Formate',
 		glasses: (count: string) => `${count} Gläser`,
 		back: 'Alle Basen',
@@ -230,6 +232,11 @@ const de = {
 				text: 'Aus einer Stadt, in der Kultur und Kreativität ständig aufeinandertreffen'
 			}
 		],
+		makers: {
+			eyebrow: 'Wer dahinter steht',
+			title: 'Entwickelt von Leuten, die selbst ausgeschenkt haben.',
+			text: `${site.name} kommt nicht aus einem Labor. Die Rezepturen stammen von einem Mixologen, der Jahre hinter der Bar und mit großen Spirituosenmarken gearbeitet hat, entstanden über Hunderte Events und Tausende Gäste. Jede Base ist so gebaut, wie ein Team sie im Betrieb wirklich braucht.`
+		},
 		story: {
 			eyebrow: 'Unsere Geschichte',
 			title: 'Es ging nie nur um den Drink.',

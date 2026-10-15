@@ -19,7 +19,8 @@
 	const facts = $derived([
 		{ label: t.product.ingredients, value: copy.ingredients },
 		{ label: t.product.pairsWith, value: copy.pairsWith },
-		{ label: t.product.garnish, value: copy.garnish }
+		{ label: t.product.garnish, value: copy.garnish },
+		{ label: t.product.storage, value: t.product.storageText }
 	]);
 </script>
 

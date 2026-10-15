@@ -66,7 +66,17 @@
 	</ul>
 </section>
 
-<section class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
+<section class="mx-auto max-w-3xl px-5 py-20 text-center sm:py-24">
+	<p class="eyebrow text-primary">{t.about.makers.eyebrow}</p>
+	<h2
+		class="mt-3 font-display text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
+	>
+		{t.about.makers.title}
+	</h2>
+	<p class="mt-5 leading-relaxed text-pretty text-muted-foreground">{t.about.makers.text}</p>
+</section>
+
+<section class="mx-auto max-w-6xl border-t border-line px-5 py-20 sm:py-24">
 	<p class="eyebrow text-primary">{t.about.story.eyebrow}</p>
 	<h2 class="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight sm:text-5xl">
 		{t.about.story.title}
