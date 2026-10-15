@@ -18,7 +18,10 @@
 	 * refuses to autoplay, or a visitor who asks for reduced motion, sees no gap.
 	 */
 	function intro(node: HTMLVideoElement) {
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		// The clip is framed wide. On a phone it crops down to a single bottle, so
+		// there the vertical photograph carries the hero on its own.
+		const skip = '(prefers-reduced-motion: reduce), (max-width: 640px)';
+		if (window.matchMedia(skip).matches) {
 			settled = true;
 			return;
 		}
@@ -51,7 +54,7 @@
 		onended={() => (settled = true)}
 		onerror={() => (settled = true)}
 		class={[
-			'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000',
+			'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000 max-sm:hidden',
 			settled ? 'opacity-0' : 'opacity-100'
 		]}
 	>
@@ -65,7 +68,7 @@
 		near solid: the headline needs its own ground, not a label behind it.
 	-->
 	<div
-		class="absolute inset-0 -z-10 bg-linear-to-r from-background via-background/75 to-background/15 max-sm:via-background/85 max-sm:to-background/55"
+		class="absolute inset-0 -z-10 bg-linear-to-r from-background via-background/75 to-background/15 max-sm:via-background/80 max-sm:to-background/40"
 	></div>
 	<div
 		class="absolute inset-x-0 bottom-0 -z-10 h-20 bg-linear-to-t from-background to-transparent"

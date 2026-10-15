@@ -4,13 +4,27 @@
 	import SectionHeading from './SectionHeading.svelte';
 
 	import step1 from '#lib/assets/landing/step-1.webp';
+	import step1Tight from '#lib/assets/landing/step-1-tight.webp';
 	import step2 from '#lib/assets/landing/step-2.webp';
+	import step2Tight from '#lib/assets/landing/step-2-tight.webp';
 	import step3 from '#lib/assets/landing/step-3.webp';
+	import step3Tight from '#lib/assets/landing/step-3-tight.webp';
 	import type { Messages } from '#lib/i18n/index.js';
 
 	let { t }: { t: Messages } = $props();
 
-	const images = [step1, step2, step3];
+	/**
+	 * Two cuts of the same three drawings. The wide one shares a canvas, so the
+	 * glasses line up across the row on a desktop. The tight one is trimmed to the
+	 * ink, for the phone, where the row becomes a stack and that shared canvas is
+	 * mostly air. `width` is each tight cut measured against the widest of them, so
+	 * giving them one column and that share of it keeps every glass the same size.
+	 */
+	const steps = [
+		{ wide: step1, tight: step1Tight, width: '52.6%' },
+		{ wide: step2, tight: step2Tight, width: '100%' },
+		{ wide: step3, tight: step3Tight, width: '52.9%' }
+	];
 </script>
 
 {#snippet jigger()}
@@ -35,23 +49,34 @@
 		claim is that this takes ten seconds, so the section that explains it should
 		not be the most involved thing on the page.
 	-->
-	<ol class="mt-12 grid gap-6 sm:grid-cols-3 sm:gap-5">
+	<!--
+		Stacked on a phone the wide frame leaves a lot of air around each glass, so
+		there the picture sits beside its label and is cropped to the drawing: the
+		same crop box for all three, which keeps the glasses the same size and on
+		the same line. From the small breakpoint up the full frame comes back and
+		the three sit in a row.
+	-->
+	<ol class="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-3">
 		{#each t.how.steps as step, i (step.title)}
-			<li class="flex flex-col items-center text-center">
-				<img
-					src={images[i]}
-					alt={step.imageAlt}
-					width="960"
-					height="850"
-					loading="lazy"
-					class="h-auto w-full object-contain"
-				/>
-				<span
-					class="mt-2 grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
-				>
-					{i + 1}
-				</span>
-				<h3 class="mt-3 max-w-56 text-lg leading-snug font-medium text-balance">{step.title}</h3>
+			<li class="flex items-center gap-4 sm:flex-col sm:gap-0 sm:text-center">
+				<picture class="flex w-[55%] shrink-0 justify-end sm:block sm:w-full">
+					<source media="(min-width: 640px)" srcset={steps[i].wide} />
+					<img
+						src={steps[i].tight}
+						alt={step.imageAlt}
+						loading="lazy"
+						style="--step-width: {steps[i].width}"
+						class="h-auto w-[var(--step-width)] object-contain sm:w-full"
+					/>
+				</picture>
+				<div class="flex min-w-0 flex-col items-start sm:items-center">
+					<span
+						class="grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground sm:mt-2"
+					>
+						{i + 1}
+					</span>
+					<h3 class="mt-3 max-w-56 text-lg leading-snug font-medium text-balance">{step.title}</h3>
+				</div>
 			</li>
 		{/each}
 	</ol>
