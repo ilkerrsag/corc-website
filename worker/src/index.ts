@@ -2,11 +2,11 @@ interface Env {
 	DB: D1Database;
 	TURNSTILE_SECRET_KEY: string;
 	/**
-	 * Email Routing binding, used to tell us a request came in. It only exists in
-	 * production: locally there is nothing to send with, and the row in the
-	 * database is the record either way.
+	 * Brevo sends the notification that a request came in. The domain's mail is
+	 * on Google Workspace, so Cloudflare's own Email Routing cannot have the MX
+	 * record. Unset locally: there the row in the database is the whole record.
 	 */
-	NOTIFY?: SendEmail;
+	BREVO_API_KEY?: string;
 	NOTIFY_FROM?: string;
 	NOTIFY_TO?: string;
 }
@@ -26,6 +26,7 @@ const LANGUAGES = ['de', 'en'];
 const BUSINESS_TYPES = ['bar', 'caterer', 'hotel', 'company', 'other'];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+const BREVO_SEND_URL = 'https://api.brevo.com/v3/smtp/email';
 
 function json(body: unknown, status = 200, headers: HeadersInit = {}): Response {
 	return Response.json(body, { status, headers: { 'Cache-Control': 'no-store', ...headers } });
@@ -65,7 +66,7 @@ function oneLine(value: string): string {
  * in the database.
  */
 async function notify(env: Env, submission: Submission): Promise<void> {
-	if (!env.NOTIFY || !env.NOTIFY_FROM || !env.NOTIFY_TO) return;
+	if (!env.BREVO_API_KEY || !env.NOTIFY_FROM || !env.NOTIFY_TO) return;
 
 	const lines = [
 		`Name:      ${submission.name}`,
@@ -77,13 +78,26 @@ async function notify(env: Env, submission: Submission): Promise<void> {
 		submission.message || '(keine Nachricht)'
 	];
 
-	await env.NOTIFY.send({
-		from: { name: 'CORC Website', email: env.NOTIFY_FROM },
-		to: env.NOTIFY_TO,
-		replyTo: { name: oneLine(submission.name), email: submission.email },
-		subject: `Tasting-Anfrage: ${oneLine(submission.company)}`,
-		text: lines.join('\n')
+	const response = await fetch(BREVO_SEND_URL, {
+		method: 'POST',
+		headers: {
+			'api-key': env.BREVO_API_KEY,
+			'content-type': 'application/json',
+			accept: 'application/json'
+		},
+		body: JSON.stringify({
+			sender: { name: 'CORC Website', email: env.NOTIFY_FROM },
+			to: [{ email: env.NOTIFY_TO }],
+			replyTo: { name: oneLine(submission.name), email: submission.email },
+			subject: `Tasting-Anfrage: ${oneLine(submission.company)}`,
+			textContent: lines.join('\n')
+		}),
+		signal: AbortSignal.timeout(10_000)
 	});
+
+	if (!response.ok) {
+		throw new Error(`Brevo answered ${response.status}: ${await response.text()}`);
+	}
 }
 
 export default {

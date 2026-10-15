@@ -164,7 +164,8 @@ export const privacy: Record<Locale, LegalDocument> = {
 			{
 				heading: 'Tasting-Anfragen über das Formular',
 				body: [
-					'Wenn ihr das Formular ausfüllt, verarbeiten wir die Angaben, die ihr eintragt: Name, Unternehmen oder Venue, Art des Betriebs, E-Mail-Adresse, eure Nachricht sowie die Sprache der Seite. Diese Angaben werden in einer Datenbank von Cloudflare (D1) mit Speicherort in der Europäischen Union gespeichert und zusätzlich als Benachrichtigung an unsere E-Mail-Adresse weitergeleitet, damit wir antworten können.',
+					'Wenn ihr das Formular ausfüllt, verarbeiten wir die Angaben, die ihr eintragt: Name, Unternehmen oder Venue, Art des Betriebs, E-Mail-Adresse, eure Nachricht sowie die Sprache der Seite. Diese Angaben werden in einer Datenbank von Cloudflare (D1) mit Speicherort in der Europäischen Union gespeichert und zusätzlich als Benachrichtigung an unsere E-Mail-Adresse geschickt, damit wir antworten können.',
+					'Für den Versand dieser Benachrichtigung nutzen wir Brevo (Brevo GmbH, Köpenicker Straße 126, 10179 Berlin, Teil der französischen Brevo SAS). Brevo verarbeitet dabei die Angaben aus eurer Anfrage in unserem Auftrag; es besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Die Daten werden innerhalb der Europäischen Union verarbeitet.',
 					'Zweck ist ausschließlich die Bearbeitung eurer Anfrage und die Vorbereitung eines möglichen Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Maßnahmen und Art. 6 Abs. 1 lit. f DSGVO für unser berechtigtes Interesse, Anfragen beantworten zu können. Die Angabe der Daten ist freiwillig, ohne sie können wir die Anfrage jedoch nicht bearbeiten.',
 					'Wir speichern die Anfrage, solange es für die Bearbeitung erforderlich ist, längstens 24 Monate nach dem letzten Kontakt, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen. Auf Wunsch löschen wir sie früher.'
 				]
@@ -228,7 +229,8 @@ export const privacy: Record<Locale, LegalDocument> = {
 			{
 				heading: 'Tasting requests through the form',
 				body: [
-					'When you fill in the form we process what you enter: name, company or venue, type of business, email address, your message and the language of the page. This is stored in a Cloudflare database (D1) located in the European Union and also forwarded as a notification to our email address so that we can answer.',
+					'When you fill in the form we process what you enter: name, company or venue, type of business, email address, your message and the language of the page. This is stored in a Cloudflare database (D1) located in the European Union and also sent as a notification to our email address so that we can answer.',
+					'We use Brevo (Brevo GmbH, Köpenicker Straße 126, 10179 Berlin, part of the French Brevo SAS) to send that notification. Brevo processes the details of your request on our behalf under a data processing agreement according to Art. 28 GDPR. The data is processed within the European Union.',
 					'The purpose is solely to handle your request and prepare a possible contract. The legal basis is Art. 6 (1) (b) GDPR for pre-contractual measures and Art. 6 (1) (f) GDPR for our legitimate interest in being able to answer enquiries. Providing the data is voluntary, but without it we cannot deal with the request.',
 					'We keep the request as long as it is needed to handle it, at most 24 months after the last contact, unless statutory retention periods say otherwise. We delete it sooner on request.'
 				]

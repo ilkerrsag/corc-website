@@ -5,7 +5,7 @@ and a D1 database. Everything runs in one Cloudflare account.
 
 ```
 browser ── Cloudflare ──┬── /api/contact ──> Worker (worker/) ──┬─> D1 `submissions` table
-                        │                                       └─> Email Routing ──> inbox
+                        │                                       └─> Brevo ──> inbox
                         └── everything else ──> Pages (static build/)
 ```
 
@@ -52,18 +52,21 @@ The example env files use Cloudflare's Turnstile test keys, which always pass.
 ### Worker (once)
 
 1. Cloudflare dashboard → Turnstile → add a widget for the domain; note the site key and secret.
-2. Email → Email Routing → enable it for the zone, and verify the destination address that
-   `send_email` in `worker/wrangler.jsonc` points at. The worker can only send to that address.
+2. Brevo → authenticate the sender subdomain in `NOTIFY_FROM` (`notify.corcdrinks.com`) with the
+   DKIM and DMARC records it gives you, then create an API key. The subdomain keeps the domain's
+   own Google Workspace SPF and DKIM records untouched.
 3. In `worker/`:
    ```sh
    pnpm wrangler login
    pnpm wrangler d1 create corc-contact --location weur   # paste the id into wrangler.jsonc
    pnpm db:migrate:remote
    pnpm wrangler secret put TURNSTILE_SECRET_KEY
+   pnpm wrangler secret put BREVO_API_KEY
    pnpm run deploy
    ```
 
-`--location weur` keeps the submissions in the EU, which is what the privacy policy says.
+`--location weur` keeps the submissions in the EU, which is what the privacy policy says. Without
+`BREVO_API_KEY` the form still works and still stores the row; only the notification is skipped.
 
 ### Site
 

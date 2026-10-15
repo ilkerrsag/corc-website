@@ -15,12 +15,11 @@
 			"database_id": "00000000-0000-0000-0000-000000000000"
 		}
 	],
-	// Email Routing does the sending, so there is no mail provider and no API key.
-	// The address has to be a verified destination in Email Routing, and the
-	// binding can reach that one address only.
-	"send_email": [{ "name": "NOTIFY", "destination_address": "ilkersag96@gmail.com" }],
+	// Notifications go out through Brevo. The sender sits on its own subdomain so
+	// the SPF and DKIM records of the domain's Google Workspace mail stay as they
+	// are. The key itself is a secret: `wrangler secret put BREVO_API_KEY`.
 	"vars": {
-		"NOTIFY_FROM": "website@corcdrinks.com",
+		"NOTIFY_FROM": "website@notify.corcdrinks.com",
 		"NOTIFY_TO": "ilkersag96@gmail.com"
 	}
 }
