@@ -1,10 +1,29 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
+
 	import heroMobile from '#lib/assets/landing/hero-mobile.webp';
 	import hero from '#lib/assets/landing/hero.webp';
 	import type { Messages } from '#lib/i18n/index.js';
 	import Button from '#ui/wrapped/Button.svelte';
 
 	let { t }: { t: Messages } = $props();
+
+	/** True once the clip has finished, or has decided not to play at all. */
+	let settled = $state(false);
+
+	/**
+	 * The clip is the photograph in motion: the same five bottles, panned across once.
+	 * It runs behind the headline and then fades off, leaving the still underneath,
+	 * which is what the page keeps. The still is always there, so a browser that
+	 * refuses to autoplay, or a visitor who asks for reduced motion, sees no gap.
+	 */
+	function intro(node: HTMLVideoElement) {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			settled = true;
+			return;
+		}
+		node.play().catch(() => (settled = true));
+	}
 </script>
 
 <section class="relative isolate overflow-hidden">
@@ -16,9 +35,30 @@
 			width="2000"
 			height="848"
 			fetchpriority="high"
-			class="absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center]"
+			class={[
+				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out',
+				settled ? 'scale-100' : 'scale-105'
+			]}
 		/>
 	</picture>
+
+	<video
+		{@attach intro}
+		muted
+		playsinline
+		preload="auto"
+		aria-hidden="true"
+		onended={() => (settled = true)}
+		onerror={() => (settled = true)}
+		class={[
+			'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000',
+			settled ? 'opacity-0' : 'opacity-100'
+		]}
+	>
+		<source src={asset('intro.webm')} type="video/webm" />
+		<source src={asset('intro.mp4')} type="video/mp4" />
+	</video>
+
 	<!--
 		Darkens the side the text sits on, and fades the photo into the page below. The
 		bottles run the whole width of the photograph, so the left end of the gradient is
