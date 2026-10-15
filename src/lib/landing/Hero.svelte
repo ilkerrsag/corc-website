@@ -12,24 +12,22 @@
 	let settled = $state(false);
 
 	/**
-	 * The clip is the photograph in motion: the same five bottles, panned across once.
+	 * The clip is the photograph in motion: the same bottles, moved through once.
 	 * It runs behind the headline and then fades off, leaving the still underneath,
 	 * which is what the page keeps. The still is always there, so a browser that
 	 * refuses to autoplay, or a visitor who asks for reduced motion, sees no gap.
+	 *
+	 * There are two cuts, wide and upright, and the right one is chosen here rather
+	 * than with a `media` source so a phone never spends its data on the wide one.
 	 */
 	function intro(node: HTMLVideoElement) {
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			settled = true;
 			return;
 		}
-		// The clip is framed wide. On a phone it crops down to a single bottle, so
-		// there the vertical photograph opens on its own instead, easing out of the
-		// same slight zoom the clip hands over at. The wait lets the browser paint
-		// the first frame, otherwise there is nothing to ease from.
-		if (window.matchMedia('(max-width: 640px)').matches) {
-			setTimeout(() => (settled = true), 120);
-			return;
-		}
+		const cut = window.matchMedia('(max-width: 640px)').matches ? 'intro-mobile' : 'intro';
+		const webm = node.canPlayType('video/webm; codecs="vp9"') !== '';
+		node.src = asset(`${cut}.${webm ? 'webm' : 'mp4'}`);
 		node.play().catch(() => (settled = true));
 	}
 </script>
@@ -44,8 +42,8 @@
 			height="784"
 			fetchpriority="high"
 			class={[
-				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out max-sm:duration-[2500ms]',
-				settled ? 'scale-100' : 'scale-105 max-sm:scale-110'
+				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out',
+				settled ? 'scale-100' : 'scale-105'
 			]}
 		/>
 	</picture>
@@ -54,18 +52,15 @@
 		{@attach intro}
 		muted
 		playsinline
-		preload="auto"
+		preload="none"
 		aria-hidden="true"
 		onended={() => (settled = true)}
 		onerror={() => (settled = true)}
 		class={[
-			'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000 max-sm:hidden',
+			'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000',
 			settled ? 'opacity-0' : 'opacity-100'
 		]}
-	>
-		<source src={asset('intro.webm')} type="video/webm" />
-		<source src={asset('intro.mp4')} type="video/mp4" />
-	</video>
+	></video>
 
 	<!--
 		Darkens the side the text sits on, and fades the photo into the page below. The
