@@ -145,7 +145,7 @@ const de = {
 		eyebrow: 'Cocktail Basen',
 		title: 'Cocktail- und Mocktail-Basen, gemacht für den Ausschank unter Zeitdruck.',
 		discover: 'Entdecken',
-		statsAlt: 'Gäste stoßen bei einem Abendessen mit Drinks an',
+		statsAlt: 'Eine Base wird aus dem Barsieb in ein Glas gegossen',
 		stats: [
 			{
 				value: '5',

@@ -146,7 +146,7 @@ const en: Messages = {
 		eyebrow: 'Cocktail Bases',
 		title: 'Cocktail and mocktail bases, made for pouring under pressure.',
 		discover: 'Discover',
-		statsAlt: 'Guests toasting with drinks at a dinner',
+		statsAlt: 'A base being strained from the shaker into a glass',
 		stats: [
 			{
 				value: '5',

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import friends from '#lib/assets/pages/bases-friends.webp';
+	import pour from '#lib/assets/pages/bases-pour.webp';
 	import CtaBand from '#lib/components/CtaBand.svelte';
 	import ProductCard from '#lib/components/ProductCard.svelte';
 	import Seo from '#lib/components/Seo.svelte';
@@ -39,14 +39,14 @@
 
 <section class="relative isolate overflow-hidden">
 	<img
-		src={friends}
+		src={pour}
 		alt={t.bases.statsAlt}
-		width="1600"
-		height="1073"
+		width="1376"
+		height="768"
 		loading="lazy"
-		class="absolute inset-0 -z-10 h-full w-full object-cover"
+		class="absolute inset-0 -z-10 h-full w-full object-cover object-[78%_center]"
 	/>
-	<div class="absolute inset-0 -z-10 bg-background/55"></div>
+	<div class="absolute inset-0 -z-10 bg-background/40"></div>
 
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:py-28">
 		<dl

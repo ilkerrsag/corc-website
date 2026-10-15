@@ -1,5 +1,6 @@
 <script lang="ts">
 	import background from '#lib/assets/pages/tasting-bg.webp';
+	import Mark from '#lib/components/Mark.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import ContactForm from '#lib/ContactForm.svelte';
 	import { messages } from '#lib/i18n/index.js';
@@ -31,6 +32,7 @@
 
 	<div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-5 sm:py-24 lg:grid-cols-2 lg:gap-16">
 		<div class="min-w-0">
+			<Mark class="mb-6 size-16" />
 			<h1
 				class="font-display text-5xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl"
 			>
