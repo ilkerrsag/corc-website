@@ -42,7 +42,7 @@
 					src={images[i]}
 					alt={step.imageAlt}
 					width="620"
-					height="700"
+					height="830"
 					loading="lazy"
 					class="h-auto w-full max-w-64 object-contain"
 				/>
