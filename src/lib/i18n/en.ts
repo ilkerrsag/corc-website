@@ -40,23 +40,18 @@ const en: Messages = {
 		eyebrow: 'How it works',
 		title: `That’s how simple ${site.name} is`,
 		lead: 'Pour the base, top up or give it a quick shake, and serve. The same drink every time, with no prep behind it.',
-		heading: `Two ways to mix your ${site.name}`,
-		shake: {
-			title: 'shake',
-			imageAlt: 'Illustration: shaker with ice, add base and spirit, shake, serve in a glass',
-			steps: ['Fill shaker with ice', 'Add base', '+ spirit (optional)', 'Shake well', 'Serve']
-		},
-		stir: {
-			title: 'stir',
-			imageAlt: 'Illustration: glass with ice, add base, spirit and water, stir, serve',
-			steps: [
-				'Fill glass with ice',
-				'Add base',
-				'+ spirit (optional) + water',
-				'Stir well',
-				'Serve'
-			]
-		},
+		steps: [
+			{ title: 'Fill the glass with ice', imageAlt: 'A glass filled to the rim with ice' },
+			{
+				title: 'Add base and spirit',
+				imageAlt: 'A CORC bottle pouring green base over the ice'
+			},
+			{
+				title: 'Stir briefly and serve',
+				imageAlt: 'The finished drink with lime and basil'
+			}
+		],
+		note: 'Shaken or stirred, whichever your team is used to.',
 		ratio: {
 			title: 'Recommended ratio',
 			items: [

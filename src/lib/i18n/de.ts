@@ -39,30 +39,18 @@ const de = {
 		eyebrow: 'So funktioniert’s',
 		title: `So einfach läuft ${site.name}`,
 		lead: 'Base ins Glas, auffüllen oder kurz shaken, servieren. Gleichbleibende Drinks, ganz ohne Vorbereitung.',
-		heading: `Zwei Wege, euren ${site.name} zu mixen`,
-		shake: {
-			title: 'shaken',
-			imageAlt:
-				'Illustration: Shaker mit Eis, Base und Spirituose dazu, schütteln, im Glas servieren',
-			steps: [
-				'Shaker mit Eis füllen',
-				'Base dazugeben',
-				'+ Spirituose (optional)',
-				'Kräftig shaken',
-				'Servieren'
-			]
-		},
-		stir: {
-			title: 'rühren',
-			imageAlt: 'Illustration: Glas mit Eis, Base, Spirituose und Wasser dazu, umrühren, servieren',
-			steps: [
-				'Glas mit Eis füllen',
-				'Base dazugeben',
-				'+ Spirituose (optional) + Wasser',
-				'Gut umrühren',
-				'Servieren'
-			]
-		},
+		steps: [
+			{ title: 'Glas mit Eis füllen', imageAlt: 'Ein Glas, bis zum Rand mit Eis gefüllt' },
+			{
+				title: 'Base und Spirituose dazugeben',
+				imageAlt: 'Eine CORC Flasche gießt grüne Base über das Eis'
+			},
+			{
+				title: 'Kurz rühren und servieren',
+				imageAlt: 'Der fertige Drink mit Limette und Basilikum'
+			}
+		],
+		note: 'Geschüttelt oder gerührt, ganz wie euer Team es gewohnt ist.',
 		ratio: {
 			title: 'Empfohlenes Verhältnis',
 			items: [

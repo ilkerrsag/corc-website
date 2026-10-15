@@ -3,16 +3,14 @@
 
 	import SectionHeading from './SectionHeading.svelte';
 
-	import shakeImage from '#lib/assets/landing/how-shake.webp';
-	import stirImage from '#lib/assets/landing/how-stir.webp';
+	import step1 from '#lib/assets/landing/step-1.webp';
+	import step2 from '#lib/assets/landing/step-2.webp';
+	import step3 from '#lib/assets/landing/step-3.webp';
 	import type { Messages } from '#lib/i18n/index.js';
 
 	let { t }: { t: Messages } = $props();
 
-	const methods = $derived([
-		{ ...t.how.shake, image: shakeImage, width: 1200, height: 895 },
-		{ ...t.how.stir, image: stirImage, width: 1400, height: 727 }
-	]);
+	const images = [step1, step2, step3];
 </script>
 
 {#snippet jigger()}
@@ -32,43 +30,33 @@
 <section id="how" class="mx-auto max-w-6xl px-5 pt-20 pb-12 sm:pt-24 sm:pb-14">
 	<SectionHeading eyebrow={t.how.eyebrow} title={t.how.title} lead={t.how.lead} />
 
-	<h3
-		class="mt-14 text-center font-display text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl"
-	>
-		{t.how.heading}
-	</h3>
-
-	<div class="mt-8 grid gap-5 lg:grid-cols-2">
-		{#each methods as method (method.title)}
-			<article class="flex flex-col rounded-2xl bg-cream p-5 text-charcoal sm:p-7">
-				<h3 class="text-center text-xl font-semibold tracking-wide uppercase">{method.title}</h3>
-				<div class="mt-4 flex flex-1 items-center">
-					<img
-						src={method.image}
-						alt={method.imageAlt}
-						width={method.width}
-						height={method.height}
-						loading="lazy"
-						class="h-auto w-full"
-					/>
-				</div>
-				<ol
-					class="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-charcoal/15 pt-5 text-sm sm:grid-cols-5"
+	<!--
+		Three steps in one row rather than two parallel diagrams. The product's whole
+		claim is that this takes ten seconds, so the section that explains it should
+		not be the most involved thing on the page.
+	-->
+	<ol class="mt-12 grid gap-6 sm:grid-cols-3 sm:gap-5">
+		{#each t.how.steps as step, i (step.title)}
+			<li class="flex flex-col items-center text-center">
+				<img
+					src={images[i]}
+					alt={step.imageAlt}
+					width="620"
+					height="700"
+					loading="lazy"
+					class="h-auto w-full max-w-64 object-contain"
+				/>
+				<span
+					class="mt-2 grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
 				>
-					{#each method.steps as step, i (step)}
-						<li class="flex gap-2 sm:flex-col sm:items-center sm:text-center">
-							<span
-								class="grid size-6 shrink-0 place-items-center rounded-full bg-charcoal text-xs font-semibold text-cream"
-							>
-								{i + 1}
-							</span>
-							<span class="leading-snug">{step}</span>
-						</li>
-					{/each}
-				</ol>
-			</article>
+					{i + 1}
+				</span>
+				<h3 class="mt-3 max-w-56 text-lg leading-snug font-medium text-balance">{step.title}</h3>
+			</li>
 		{/each}
-	</div>
+	</ol>
+
+	<p class="mt-8 text-center text-sm text-muted-foreground italic">{t.how.note}</p>
 
 	<div class="mx-auto mt-12 max-w-3xl">
 		<h3 class="eyebrow text-center text-primary">{t.how.ratio.title}</h3>
