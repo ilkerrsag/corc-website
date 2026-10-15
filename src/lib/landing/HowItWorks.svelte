@@ -41,10 +41,10 @@
 				<img
 					src={images[i]}
 					alt={step.imageAlt}
-					width="620"
-					height="830"
+					width="960"
+					height="850"
 					loading="lazy"
-					class="h-auto w-full max-w-64 object-contain"
+					class="h-auto w-full object-contain"
 				/>
 				<span
 					class="mt-2 grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
