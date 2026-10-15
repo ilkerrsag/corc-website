@@ -35,7 +35,7 @@ export const products: Product[] = [
 			tagline:
 				'Frischer Basilikum und Zitrone, krautig und klar. Spielt mit Gin, funktioniert genauso gut ohne.',
 			ingredients: 'Basilikum, Zitrone, Limette, Orange',
-			pairsWith: 'Gin, Wodka, alkoholfrei (mit oder ohne Sprudelwasser)',
+			pairsWith: 'Gin, Wodka, alkoholfrei (mit oder ohne Tonic / Sprudelwasser)',
 			garnish: 'Frische Basilikumblätter und eine Limettenscheibe.',
 			story:
 				'Basilico verbindet das lebendige Aroma von frischem Basilikum mit hellen Zitrusnoten zu einer ausgewogenen süß-sauren Komposition. Sauber, grün und mühelos trinkbar, ein Profil mit botanischem Charakter, das im Glas sofort erkennbar bleibt.'
@@ -44,7 +44,7 @@ export const products: Product[] = [
 			tagline:
 				'Fresh basil and lemon, herbal and clean. Plays with gin, works just as well without it.',
 			ingredients: 'Basil, lemon, lime, orange',
-			pairsWith: 'Gin, vodka, alcohol-free (with or without sparkling water)',
+			pairsWith: 'Gin, vodka, alcohol-free (with or without tonic / sparkling water)',
 			garnish: 'Fresh basil leaves and a slice of lime.',
 			story:
 				'Basilico combines the lively aroma of fresh basil with bright citrus notes in a balanced sweet-and-sour composition. Clean, green and effortlessly drinkable, a profile with botanical character that stays recognisable in the glass.'
@@ -58,7 +58,7 @@ export const products: Product[] = [
 			tagline:
 				'Reife Erdbeere mit einer sauberen Säure dahinter. Der Drink, den alle am Tisch verstehen.',
 			ingredients: 'Erdbeere, Minze, Zitrone, Limette, Orange',
-			pairsWith: 'Wodka, Gin, alkoholfrei (mit oder ohne Sprudelwasser)',
+			pairsWith: 'Wodka, Gin, Sekt, alkoholfrei (mit oder ohne Tonic / Sprudelwasser)',
 			garnish: 'Minze und frische Erdbeere.',
 			story:
 				'Erdbeere ist ein Geschmack, der Erinnerungen weckt: großzügig im Aroma und von Natur aus einladend. In Fragola hebt Zitrusspannung die Beere an, Minze gibt dem Ganzen einen kühlen Zug, und dezente Süße glättet die Kanten. Das Ergebnis ist voll, lebendig und ausdrucksstark modern.'
@@ -67,7 +67,8 @@ export const products: Product[] = [
 			tagline:
 				'Ripe strawberry with a clean acidity behind it. The drink everyone at the table understands.',
 			ingredients: 'Strawberry, mint, lemon, lime, orange',
-			pairsWith: 'Vodka, gin, alcohol-free (with or without sparkling water)',
+			pairsWith:
+				'Vodka, gin, sparkling wine, alcohol-free (with or without tonic / sparkling water)',
 			garnish: 'Mint and fresh strawberry.',
 			story:
 				'Strawberry is a flavour that stirs memories: generous in aroma and naturally inviting. In Fragola, citrus tension lifts the berry, mint pulls a cool line through the middle, and subtle sweetness smooths the edges. The result is full, lively and expressively modern.'
@@ -81,7 +82,7 @@ export const products: Product[] = [
 			tagline:
 				'Volle Passionsfrucht, tropisch und gerade süß genug. Rum und Wodka sind die naheliegenden Partner.',
 			ingredients: 'Passionsfrucht, Erdbeere, Vanille, Zitrone, Limette, Orange',
-			pairsWith: 'Rum, Wodka, Tequila, alkoholfrei (mit oder ohne Sprudelwasser)',
+			pairsWith: 'Tequila, Wodka, Rum, alkoholfrei (mit oder ohne Sprudelwasser)',
 			garnish: 'Eine Limettenscheibe und eine zarte essbare Blüte.',
 			story:
 				'Maracuja entstand in Brasilien, wo die unerwartete Kombination aus Passionsfrucht und Erdbeere auf einem Straßenmarkt eine lebendige, genussvolle Harmonie offenbarte. Tropische Intensität trifft auf Zitrusfrische und sanfte Süße, exotisch und dennoch einladend. Ein Geschmack, geprägt durch Erfahrung.'
@@ -90,7 +91,7 @@ export const products: Product[] = [
 			tagline:
 				'Full passion fruit, tropical and just sweet enough. Rum and vodka are the obvious partners.',
 			ingredients: 'Passion fruit, strawberry, vanilla, lemon, lime, orange',
-			pairsWith: 'Rum, vodka, tequila, alcohol-free (with or without sparkling water)',
+			pairsWith: 'Tequila, vodka, rum, alcohol-free (with or without sparkling water)',
 			garnish: 'A slice of lime and a delicate edible flower.',
 			story:
 				'Maracuja began in Brazil, where the unexpected pairing of passion fruit and strawberry at a street market revealed a lively, indulgent harmony. Tropical intensity meets citrus freshness and gentle sweetness, exotic yet inviting. A flavour shaped by experience.'
