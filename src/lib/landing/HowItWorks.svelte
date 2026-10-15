@@ -19,11 +19,17 @@
 	 * ink, for the phone, where the row becomes a stack and that shared canvas is
 	 * mostly air. `width` is each tight cut measured against the widest of them, so
 	 * giving them one column and that share of it keeps every glass the same size.
+	 *
+	 * `pull` fixes the rhythm of the stack. The eye measures the distance between
+	 * the glasses, not between the boxes, and the second drawing carries a bottle
+	 * leaning up and to the left, which puts its glass far below the one above.
+	 * Lifting that one row by a share of the column width evens the two gaps out,
+	 * and because it is a percentage it keeps doing so at any phone size.
 	 */
 	const steps = [
-		{ wide: step1, tight: step1Tight, width: '52.6%' },
-		{ wide: step2, tight: step2Tight, width: '100%' },
-		{ wide: step3, tight: step3Tight, width: '52.9%' }
+		{ wide: step1, tight: step1Tight, width: '52.6%', pull: '' },
+		{ wide: step2, tight: step2Tight, width: '100%', pull: '-mt-[16%] sm:mt-0' },
+		{ wide: step3, tight: step3Tight, width: '52.9%', pull: 'mt-[14%] sm:mt-0' }
 	];
 </script>
 
@@ -58,7 +64,12 @@
 	-->
 	<ol class="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-3">
 		{#each t.how.steps as step, i (step.title)}
-			<li class="flex items-center gap-4 sm:flex-col sm:gap-0 sm:text-center">
+			<li
+				class={[
+					'flex items-end gap-4 sm:flex-col sm:items-center sm:gap-0 sm:text-center',
+					steps[i].pull
+				]}
+			>
 				<picture class="flex w-[55%] shrink-0 justify-end sm:block sm:w-full">
 					<source media="(min-width: 640px)" srcset={steps[i].wide} />
 					<img

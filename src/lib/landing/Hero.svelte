@@ -18,11 +18,16 @@
 	 * refuses to autoplay, or a visitor who asks for reduced motion, sees no gap.
 	 */
 	function intro(node: HTMLVideoElement) {
-		// The clip is framed wide. On a phone it crops down to a single bottle, so
-		// there the vertical photograph carries the hero on its own.
-		const skip = '(prefers-reduced-motion: reduce), (max-width: 640px)';
-		if (window.matchMedia(skip).matches) {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			settled = true;
+			return;
+		}
+		// The clip is framed wide. On a phone it crops down to a single bottle, so
+		// there the vertical photograph opens on its own instead, easing out of the
+		// same slight zoom the clip hands over at. The wait lets the browser paint
+		// the first frame, otherwise there is nothing to ease from.
+		if (window.matchMedia('(max-width: 640px)').matches) {
+			setTimeout(() => (settled = true), 120);
 			return;
 		}
 		node.play().catch(() => (settled = true));
@@ -39,8 +44,8 @@
 			height="784"
 			fetchpriority="high"
 			class={[
-				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out',
-				settled ? 'scale-100' : 'scale-105'
+				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out max-sm:duration-[2500ms]',
+				settled ? 'scale-100' : 'scale-105 max-sm:scale-110'
 			]}
 		/>
 	</picture>
