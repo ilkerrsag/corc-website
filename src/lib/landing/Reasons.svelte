@@ -14,35 +14,28 @@
 	const images = [speed, fresh, easy, alcohol, guests];
 </script>
 
-<section id="why" class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
-	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} lead={t.why.lead} />
+<section id="why" class="mx-auto max-w-6xl px-5 pt-12 pb-20 sm:pt-14 sm:pb-24">
+	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} />
 
-	<div class="mt-12 space-y-5">
+	<div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		{#each t.why.reasons as reason, i (reason.title)}
-			<article
-				class="grid items-center gap-6 rounded-2xl border border-line bg-card p-4 sm:p-6 md:grid-cols-2 md:gap-10"
-			>
+			<article class="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
 				<img
 					src={images[i]}
 					alt={reason.imageAlt}
 					width="1264"
 					height="848"
 					loading="lazy"
-					class={[
-						'aspect-[3/2] h-auto w-full rounded-xl object-cover',
-						i % 2 === 1 && 'md:order-2'
-					]}
+					class="aspect-[3/2] h-auto w-full object-cover"
 				/>
-				<div class="px-1 pb-2 md:px-4 md:pb-0">
+				<div class="flex flex-1 flex-col p-5 sm:p-6">
 					<span
-						class="inline-block rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold tracking-wide text-primary uppercase"
+						class="self-start rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold tracking-wide text-primary uppercase"
 					>
 						{reason.tag}
 					</span>
-					<h3 class="mt-4 text-2xl leading-tight font-medium text-balance sm:text-3xl">
-						{reason.title}
-					</h3>
-					<p class="mt-4 leading-relaxed text-muted-foreground">{reason.text}</p>
+					<h3 class="mt-4 text-xl leading-snug font-medium text-balance">{reason.title}</h3>
+					<p class="mt-3 text-sm leading-relaxed text-muted-foreground">{reason.text}</p>
 				</div>
 			</article>
 		{/each}

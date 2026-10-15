@@ -66,17 +66,16 @@ const de = {
 		ratio: {
 			title: 'Empfohlenes Verhältnis',
 			items: [
-				{ amount: '1,5 Shot', label: `${site.name} Base` },
-				{ amount: '1 Shot', label: 'Spirituose (optional)' },
-				{ amount: '½ Shot', label: 'Wasser (ohne Shaker)' }
+				{ amount: '3 Shot', label: `${site.name} Base` },
+				{ amount: '2 Shot', label: 'Spirituose (optional)' },
+				{ amount: '1 Shot', label: 'Wasser (ohne Shaker)' }
 			],
-			note: '1 Shot entspricht 5 cl. Ohne Spirituose wird daraus ein Mocktail. Stärke und Geschmack könnt ihr frei anpassen. Bitte genießt verantwortungsvoll.'
+			note: '1 Shot entspricht 2,5 cl. Ohne Spirituose wird daraus ein Mocktail. Stärke und Geschmack könnt ihr frei anpassen. Bitte genießt verantwortungsvoll.'
 		}
 	},
 	why: {
 		eyebrow: `Warum ${site.name}`,
-		title: 'Für alle, die ausschenken und dabei keine Abstriche machen.',
-		lead: `Fünf Gründe, warum Bars, Caterer und Unternehmen in Berlin mit ${site.name} arbeiten.`,
+		title: `Fünf Gründe, warum Bars, Caterer und Unternehmen in Berlin mit ${site.name} arbeiten.`,
 		reasons: [
 			{
 				tag: 'Schnell',
@@ -183,7 +182,7 @@ const de = {
 				{ format: '400 ml', drinks: '5 bis 6 Drinks' },
 				{ format: '1 L', drinks: '12 bis 13 Drinks' }
 			],
-			note: 'Gerechnet mit 1,5 Shot Base pro Glas.'
+			note: 'Gerechnet mit 3 Shot Base pro Glas.'
 		},
 		range: {
 			title: 'Fünf Basen. Fünf Handschriften.',

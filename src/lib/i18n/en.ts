@@ -60,17 +60,16 @@ const en: Messages = {
 		ratio: {
 			title: 'Recommended ratio',
 			items: [
-				{ amount: '1.5 Shot', label: `${site.name} Base` },
-				{ amount: '1 Shot', label: 'Spirit (optional)' },
-				{ amount: '½ Shot', label: 'Water (without shaker)' }
+				{ amount: '3 Shot', label: `${site.name} Base` },
+				{ amount: '2 Shot', label: 'Spirit (optional)' },
+				{ amount: '1 Shot', label: 'Water (without shaker)' }
 			],
-			note: 'One shot equals 5 cl. Leave out the spirit and it becomes a mocktail. Adjust it to taste. Please enjoy responsibly.'
+			note: 'One shot equals 2.5 cl. Leave out the spirit and it becomes a mocktail. Adjust it to taste. Please enjoy responsibly.'
 		}
 	},
 	why: {
 		eyebrow: `Why ${site.name}`,
-		title: 'For everyone who pours and refuses to compromise.',
-		lead: `Five reasons bars, caterers and companies in Berlin work with ${site.name}.`,
+		title: `Five reasons bars, caterers and companies in Berlin work with ${site.name}.`,
 		reasons: [
 			{
 				tag: 'Speed',
@@ -177,7 +176,7 @@ const en: Messages = {
 				{ format: '400 ml', drinks: '5 to 6 drinks' },
 				{ format: '1 L', drinks: '12 to 13 drinks' }
 			],
-			note: 'Based on 1.5 shots of base per glass.'
+			note: 'Based on 3 shots of base per glass.'
 		},
 		range: {
 			title: 'Five bases. Five signatures.',

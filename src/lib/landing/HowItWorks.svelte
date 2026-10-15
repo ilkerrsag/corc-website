@@ -29,7 +29,7 @@
 	</svg>
 {/snippet}
 
-<section id="how" class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
+<section id="how" class="mx-auto max-w-6xl px-5 pt-20 pb-12 sm:pt-24 sm:pb-14">
 	<SectionHeading eyebrow={t.how.eyebrow} title={t.how.title} lead={t.how.lead} />
 
 	<h3
