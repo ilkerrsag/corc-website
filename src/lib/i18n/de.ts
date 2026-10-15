@@ -50,7 +50,7 @@ const de = {
 				imageAlt: 'Der fertige Drink mit Limette und Basilikum'
 			}
 		],
-		note: 'Geschüttelt oder gerührt, ganz wie euer Team es gewohnt ist.',
+		note: 'Mit oder ohne Spirituose, geschüttelt oder gerührt, ganz wie euer Team es gewohnt ist.',
 		ratio: {
 			title: 'Empfohlenes Verhältnis',
 			items: [

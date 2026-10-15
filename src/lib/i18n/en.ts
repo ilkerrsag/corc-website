@@ -51,7 +51,7 @@ const en: Messages = {
 				imageAlt: 'The finished drink with lime and basil'
 			}
 		],
-		note: 'Shaken or stirred, whichever your team is used to.',
+		note: 'With or without spirit, shaken or stirred, whichever your team is used to.',
 		ratio: {
 			title: 'Recommended ratio',
 			items: [
