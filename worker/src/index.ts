@@ -1,6 +1,23 @@
 interface Env {
 	DB: D1Database;
 	TURNSTILE_SECRET_KEY: string;
+	/**
+	 * Email Routing binding, used to tell us a request came in. It only exists in
+	 * production: locally there is nothing to send with, and the row in the
+	 * database is the record either way.
+	 */
+	NOTIFY?: SendEmail;
+	NOTIFY_FROM?: string;
+	NOTIFY_TO?: string;
+}
+
+interface Submission {
+	name: string;
+	company: string;
+	email: string;
+	businessType: string;
+	message: string;
+	lang: string | null;
 }
 
 const MAX_BODY_BYTES = 20_000;
@@ -36,8 +53,41 @@ async function verifyTurnstile(token: string, secret: string, ip: string | null)
 	return result.success;
 }
 
+/** Anything that reaches a mail header has its line breaks taken out first. */
+function oneLine(value: string): string {
+	return value.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Sends the request on to whoever answers it. Reply-to is the person who filled
+ * the form in, so answering is one tap. Called after the row is written and
+ * never awaited by the response: a mail that fails is a mail we can still read
+ * in the database.
+ */
+async function notify(env: Env, submission: Submission): Promise<void> {
+	if (!env.NOTIFY || !env.NOTIFY_FROM || !env.NOTIFY_TO) return;
+
+	const lines = [
+		`Name:      ${submission.name}`,
+		`Betrieb:   ${submission.company}`,
+		`Art:       ${submission.businessType}`,
+		`E-Mail:    ${submission.email}`,
+		`Sprache:   ${submission.lang ?? 'unbekannt'}`,
+		'',
+		submission.message || '(keine Nachricht)'
+	];
+
+	await env.NOTIFY.send({
+		from: { name: 'CORC Website', email: env.NOTIFY_FROM },
+		to: env.NOTIFY_TO,
+		replyTo: { name: oneLine(submission.name), email: submission.email },
+		subject: `Tasting-Anfrage: ${oneLine(submission.company)}`,
+		text: lines.join('\n')
+	});
+}
+
 export default {
-	async fetch(request, env): Promise<Response> {
+	async fetch(request, env, ctx): Promise<Response> {
 		if (new URL(request.url).pathname !== '/api/contact') {
 			return json({ error: 'Not found' }, 404);
 		}
@@ -96,6 +146,12 @@ export default {
 		)
 			.bind(name, company, email, businessType, message, lang)
 			.run();
+
+		ctx.waitUntil(
+			notify(env, { name, company, email, businessType, message, lang }).catch((error: unknown) => {
+				console.error('notification failed', error);
+			})
+		);
 
 		return json({ ok: true });
 	}

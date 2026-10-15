@@ -116,6 +116,9 @@ const de = {
 			],
 			message: 'Gibt es sonst etwas, das wir wissen sollten?',
 			messagePlaceholder: 'Anstehendes Event, Wunschtermin, konkrete Fragen …',
+			privacyNote:
+				'Mit dem Absenden verarbeiten wir eure Angaben, um die Anfrage zu beantworten. Mehr dazu in der',
+			privacyLink: 'Datenschutzerklärung',
 			submit: 'Absenden',
 			sending: 'Wird gesendet …',
 			sentTitle: 'Danke, wir haben eure Anfrage.',
@@ -260,6 +263,11 @@ const de = {
 			},
 			{ title: 'Probieren und entscheiden', text: 'Testet die Basen zusammen mit eurem Team.' }
 		]
+	},
+	legal: {
+		updated: 'Stand:',
+		imprint: 'Impressum',
+		privacy: 'Datenschutz'
 	},
 	footer: {
 		navigate: 'Navigation',

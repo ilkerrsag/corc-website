@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Locale, Messages } from '#lib/i18n/index.js';
+	import { type Locale, type Messages, pagePath } from '#lib/i18n/index.js';
 	import Input from '#ui/primitives-new/input/input.svelte';
 	import Textarea from '#ui/primitives-new/textarea/textarea.svelte';
 	import Button from '#ui/wrapped/Button.svelte';
@@ -163,6 +163,16 @@
 		<div {@attach turnstile}></div>
 
 		{#if error}<p class="text-sm font-medium text-destructive" role="alert">{error}</p>{/if}
+
+		<p class="text-sm leading-relaxed text-muted-foreground">
+			{t.privacyNote}
+			<a
+				class="underline underline-offset-4 transition-colors hover:text-foreground"
+				href={pagePath(lang, 'privacy')}
+			>
+				{t.privacyLink}
+			</a>.
+		</p>
 
 		<Button
 			type="submit"

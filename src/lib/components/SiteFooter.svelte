@@ -48,7 +48,15 @@
 			class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-5 py-5 text-xs text-faint"
 		>
 			<p>{site.company} · {year}. {t.footer.rights}</p>
-			<p class="tracking-wide uppercase">{site.tagline}</p>
+			<!-- Both are required by German law to be reachable from every page. -->
+			<nav class="flex gap-4">
+				<a class="transition-colors hover:text-foreground" href={pagePath(lang, 'imprint')}>
+					{t.legal.imprint}
+				</a>
+				<a class="transition-colors hover:text-foreground" href={pagePath(lang, 'privacy')}>
+					{t.legal.privacy}
+				</a>
+			</nav>
 		</div>
 	</div>
 </footer>

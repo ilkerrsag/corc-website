@@ -17,7 +17,9 @@ export const routes = {
 	bases: '/[[lang=lang]]/bases',
 	base: '/[[lang=lang]]/bases/[slug]',
 	about: '/[[lang=lang]]/about',
-	tasting: '/[[lang=lang]]/tasting'
+	tasting: '/[[lang=lang]]/tasting',
+	imprint: '/[[lang=lang]]/imprint',
+	privacy: '/[[lang=lang]]/privacy'
 } as const;
 export type PageName = keyof typeof routes;
 
@@ -33,7 +35,9 @@ const pageByRoute = Object.fromEntries(
 const segments: Record<Exclude<PageName, 'home' | 'base'>, Record<Locale, string>> = {
 	bases: { de: 'cocktail-basen', en: 'cocktail-bases' },
 	about: { de: 'ueber-corc', en: 'about' },
-	tasting: { de: 'tasting-buchen', en: 'book-a-tasting' }
+	tasting: { de: 'tasting-buchen', en: 'book-a-tasting' },
+	imprint: { de: 'impressum', en: 'imprint' },
+	privacy: { de: 'datenschutz', en: 'privacy' }
 };
 
 /** German lives at the root, every other language under its code: `/ueber-corc` and `/en/about`. */

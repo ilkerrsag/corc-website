@@ -4,15 +4,23 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2026-10-01",
 	"workers_dev": false,
-	// Replace with the real domain. The DNS record must be proxied (orange cloud) so
-	// Cloudflare runs the worker for this path instead of forwarding it to Vercel.
-	"routes": [{ "pattern": "example.com/api/contact", "zone_name": "example.com" }],
+	// The DNS record for the site must be proxied (orange cloud) so Cloudflare runs
+	// the worker for this path instead of handing it to the static site.
+	"routes": [{ "pattern": "corcdrinks.com/api/contact", "zone_name": "corcdrinks.com" }],
 	"d1_databases": [
 		{
 			"binding": "DB",
 			"database_name": "corc-contact",
-			// Paste the id printed by `pnpm wrangler d1 create corc-contact`.
+			// Paste the id printed by `pnpm wrangler d1 create corc-contact --location weur`.
 			"database_id": "00000000-0000-0000-0000-000000000000"
 		}
-	]
+	],
+	// Email Routing does the sending, so there is no mail provider and no API key.
+	// The address has to be a verified destination in Email Routing, and the
+	// binding can reach that one address only.
+	"send_email": [{ "name": "NOTIFY", "destination_address": "ilkersag96@gmail.com" }],
+	"vars": {
+		"NOTIFY_FROM": "website@corcdrinks.com",
+		"NOTIFY_TO": "ilkersag96@gmail.com"
+	}
 }

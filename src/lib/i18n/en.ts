@@ -117,6 +117,9 @@ const en: Messages = {
 			],
 			message: 'Anything else we should know?',
 			messagePlaceholder: 'Upcoming event, preferred meeting time, specific questions …',
+			privacyNote:
+				'By sending this you agree that we process your details to answer the request. More in our',
+			privacyLink: 'privacy policy',
 			submit: 'Send',
 			sending: 'Sending …',
 			sentTitle: 'Thanks, we have your request.',
@@ -261,6 +264,11 @@ const en: Messages = {
 			},
 			{ title: 'Taste and decide', text: 'Try the bases together with your team.' }
 		]
+	},
+	legal: {
+		updated: 'Last updated:',
+		imprint: 'Legal notice',
+		privacy: 'Privacy'
 	},
 	footer: {
 		navigate: 'Navigate',
