@@ -33,7 +33,7 @@
 			src={hero}
 			alt={t.hero.imageAlt}
 			width="2000"
-			height="848"
+			height="784"
 			fetchpriority="high"
 			class={[
 				'absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] transition-transform duration-1000 ease-out',
@@ -68,7 +68,7 @@
 		class="absolute inset-0 -z-10 bg-linear-to-r from-background via-background/75 to-background/15 max-sm:via-background/85 max-sm:to-background/55"
 	></div>
 	<div
-		class="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent"
+		class="absolute inset-x-0 bottom-0 -z-10 h-20 bg-linear-to-t from-background to-transparent"
 	></div>
 
 	<div class="mx-auto flex min-h-[min(44rem,82svh)] max-w-6xl items-center px-5 py-20">
