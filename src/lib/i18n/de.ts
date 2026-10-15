@@ -23,7 +23,7 @@ const de = {
 		title: ['Barqualität.', 'In Sekunden im Glas.'],
 		cta: 'Tasting vereinbaren',
 		secondary: 'So funktioniert’s',
-		imageAlt: `${site.name} Flasche auf einem Bartresen, im Hintergrund ein Barkeeper`
+		imageAlt: `Fünf ${site.name} Flaschen nebeneinander auf einem Bartresen`
 	},
 	audience: {
 		title: `Wo ${site.name} ausgeschenkt wird`,
@@ -215,7 +215,7 @@ const de = {
 		eyebrow: `Über ${site.name}`,
 		title: 'Moderne Cocktail Basen. Für die Leute gemacht, die sie servieren.',
 		lead: 'Wir entwickeln Cocktail Basen für Situationen, in denen Tempo, Verlässlichkeit und Qualität zusammenkommen müssen. Unser System nimmt die Komplexität raus, ohne die Kreativität zu beschneiden, damit Teams sich um das Erlebnis kümmern können statt um die Vorbereitung.',
-		imageAlt: `${site.name} Flasche vor dunklem Marmor`,
+		imageAlt: `Barkeeper hinter dem Tresen mit drei ${site.name} Flaschen`,
 		features: [
 			{
 				title: 'Natürlich hergestellt',
@@ -233,7 +233,7 @@ const de = {
 		story: {
 			eyebrow: 'Unsere Geschichte',
 			title: 'Es ging nie nur um den Drink.',
-			imageAlt: `${site.name} Flasche mit zwei Drinks in einem Club mit farbigem Licht`,
+			imageAlt: 'Zwei Hände stoßen mit Drinks an einer Bar an',
 			opening:
 				'Essen und Trinken bringen Menschen auf eine Art zusammen, die sonst kaum etwas schafft. Sie hinterlassen Momente, die noch lange nach dem letzten Schluck und dem Ende des Abends bleiben.',
 			paragraphs: [
@@ -243,7 +243,7 @@ const de = {
 			closing: `${site.name} ist nicht nur ein Cocktail. Es sind die Momente, die daraus entstehen.`
 		},
 		cta: {
-			title: `Bereit, ${site.name} auf euren Tresen oder euer Event zu holen?`,
+			title: `Bereit, ${site.name} auf euer nächstes Event zu holen?`,
 			lead: 'Fragt ein Tasting an. Wir kommen zu euch.'
 		}
 	},

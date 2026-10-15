@@ -11,7 +11,7 @@
 
 	const methods = $derived([
 		{ ...t.how.shake, image: shakeImage, width: 1200, height: 895 },
-		{ ...t.how.stir, image: stirImage, width: 1400, height: 785 }
+		{ ...t.how.stir, image: stirImage, width: 1400, height: 727 }
 	]);
 </script>
 

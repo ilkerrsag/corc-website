@@ -31,6 +31,9 @@
 		{/each}
 		<link rel="alternate" hreflang="x-default" href={url(defaultLocale)} />
 		<meta property="og:url" content={url(lang)} />
-		<meta property="og:image" content="{site.url}/logo.jpeg" />
+		<meta property="og:image" content="{site.url}/share-card.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
 	{/if}
 </svelte:head>

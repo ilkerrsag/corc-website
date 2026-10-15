@@ -24,7 +24,7 @@ const en: Messages = {
 		title: ['Bar quality.', 'In the glass in seconds.'],
 		cta: 'Book Your Tasting',
 		secondary: 'How it works',
-		imageAlt: `${site.name} bottle on a bar counter with a bartender in the background`
+		imageAlt: `Five ${site.name} bottles lined up on a bar counter`
 	},
 	audience: {
 		title: `Where ${site.name} gets poured`,
@@ -209,7 +209,7 @@ const en: Messages = {
 		eyebrow: `About ${site.name}`,
 		title: 'Modern cocktail bases. Made for the people who serve them.',
 		lead: 'We build cocktail bases for situations where pace, reliability and quality all have to come together. Our system takes the complexity out without cutting the creativity, so teams can spend their attention on the experience instead of the prep.',
-		imageAlt: `${site.name} bottle against dark marble`,
+		imageAlt: `Bartender behind the counter with three ${site.name} bottles`,
 		features: [
 			{
 				title: 'Naturally made',
@@ -227,7 +227,7 @@ const en: Messages = {
 		story: {
 			eyebrow: 'Our story',
 			title: 'It was never only about the drink.',
-			imageAlt: `${site.name} bottle with two drinks in a club with coloured lights`,
+			imageAlt: 'Two hands toasting with drinks at a bar',
 			opening:
 				'Food and drink bring people together in a way almost nothing else manages. They leave behind moments that stay long after the last sip and long after the night ends.',
 			paragraphs: [
@@ -237,7 +237,7 @@ const en: Messages = {
 			closing: `${site.name} is not only a cocktail. It is the moments that come out of it.`
 		},
 		cta: {
-			title: `Ready to bring ${site.name} to your bar or your next event?`,
+			title: `Ready to bring ${site.name} to your next event?`,
 			lead: 'Request a tasting and we will come to you.'
 		}
 	},

@@ -19,9 +19,13 @@
 			class="absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center]"
 		/>
 	</picture>
-	<!-- Darkens the side the text sits on, and fades the photo into the page below. -->
+	<!--
+		Darkens the side the text sits on, and fades the photo into the page below. The
+		bottles run the whole width of the photograph, so the left end of the gradient is
+		near solid: the headline needs its own ground, not a label behind it.
+	-->
 	<div
-		class="absolute inset-0 -z-10 bg-linear-to-r from-background/90 via-background/55 to-transparent max-sm:via-background/75 max-sm:to-background/45"
+		class="absolute inset-0 -z-10 bg-linear-to-r from-background via-background/75 to-background/15 max-sm:via-background/85 max-sm:to-background/55"
 	></div>
 	<div
 		class="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent"
