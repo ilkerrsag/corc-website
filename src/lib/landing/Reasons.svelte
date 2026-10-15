@@ -17,9 +17,21 @@
 <section id="why" class="mx-auto max-w-6xl px-5 pt-12 pb-20 sm:pt-14 sm:pb-24">
 	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} />
 
-	<div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+	<!--
+		Six tracks rather than three, so five cards fill two complete rows: three
+		across the top at two tracks each, two across the bottom at three. A plain
+		three column grid would leave the bottom right empty.
+	-->
+	<div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
 		{#each t.why.reasons as reason, i (reason.title)}
-			<article class="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
+			<article
+				class={[
+					'flex flex-col overflow-hidden rounded-2xl border border-line bg-card',
+					i < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
+					// at two columns the fifth card would sit alone at half width
+					i === 4 && 'sm:col-span-2 lg:col-span-3'
+				]}
+			>
 				<img
 					src={images[i]}
 					alt={reason.imageAlt}

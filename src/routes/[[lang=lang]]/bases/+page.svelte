@@ -20,7 +20,7 @@
 	keywords={t.bases.meta.keywords}
 />
 
-<section class="mx-auto max-w-6xl px-5 pt-16 pb-20 sm:pt-20">
+<section class="mx-auto max-w-7xl px-5 pt-16 pb-20 sm:pt-20">
 	<div class="mx-auto max-w-4xl text-center">
 		<p class="eyebrow text-primary">{t.bases.eyebrow}</p>
 		<h1
