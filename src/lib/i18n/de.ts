@@ -100,7 +100,7 @@ const de = {
 				tag: 'Mit und ohne Alkohol',
 				title: 'Jede Base funktioniert alkoholfrei',
 				text: 'Dieselbe Base, einmal mit Spirituose und einmal ohne. Alle am Tisch bekommen einen Drink, der ernst gemeint ist, nicht nur eine Limonade als Notlösung.',
-				imageAlt: ''
+				imageAlt: 'Zwei Framboise Drinks zwischen einer Gin Flasche und einer Flasche Sprudelwasser'
 			},
 			{
 				tag: 'Zufriedene Gäste',

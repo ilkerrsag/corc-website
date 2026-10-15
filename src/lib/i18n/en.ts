@@ -94,7 +94,7 @@ const en: Messages = {
 				tag: 'With or without alcohol',
 				title: 'Every base works alcohol free',
 				text: 'The same base, once with spirit and once without. Everyone at the table gets a drink that was actually thought through, not a soft drink handed over as a fallback.',
-				imageAlt: ''
+				imageAlt: 'Two Framboise drinks between a gin bottle and a bottle of sparkling water'
 			},
 			{
 				tag: 'Happy guests',
