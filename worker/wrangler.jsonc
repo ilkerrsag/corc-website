@@ -11,8 +11,7 @@
 		{
 			"binding": "DB",
 			"database_name": "corc-contact",
-			// Paste the id printed by `pnpm wrangler d1 create corc-contact --location weur`.
-			"database_id": "00000000-0000-0000-0000-000000000000"
+			"database_id": "878c5d6d-0a64-4127-be1e-f2477ece44f6"
 		}
 	],
 	// Notifications go out through Brevo. The sender sits on its own subdomain so
