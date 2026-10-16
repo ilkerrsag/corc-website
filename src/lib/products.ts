@@ -80,7 +80,7 @@ export const products: Product[] = [
 		image: maracuja,
 		de: {
 			tagline:
-				'Volle Passionsfrucht, tropisch und gerade süß genug. Rum und Wodka sind die naheliegenden Partner.',
+				'Passionsfrucht mit Erdbeere dahinter und einer Spur Vanille. Tropisch und vielschichtig.',
 			ingredients: 'Passionsfrucht, Erdbeere, Vanille, Zitrone, Limette, Orange',
 			pairsWith: 'Tequila, Wodka, Rum, alkoholfrei (mit oder ohne Sprudelwasser)',
 			garnish: 'Eine Limettenscheibe und eine zarte essbare Blüte.',
@@ -89,7 +89,7 @@ export const products: Product[] = [
 		},
 		en: {
 			tagline:
-				'Full passion fruit, tropical and just sweet enough. Rum and vodka are the obvious partners.',
+				'Passion fruit with strawberry behind it and a trace of vanilla. Tropical and layered.',
 			ingredients: 'Passion fruit, strawberry, vanilla, lemon, lime, orange',
 			pairsWith: 'Tequila, vodka, rum, alcohol-free (with or without sparkling water)',
 			garnish: 'A slice of lime and a delicate edible flower.',

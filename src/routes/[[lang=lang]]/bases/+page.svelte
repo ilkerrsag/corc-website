@@ -83,7 +83,7 @@
 					</div>
 				{/each}
 			</dl>
-			<p class="mt-4 text-center text-sm text-muted-foreground italic">{t.bases.yield.note}</p>
+			<p class="mt-4 text-center text-sm text-muted-foreground">{t.bases.yield.note}</p>
 		</div>
 	</div>
 </section>

@@ -92,7 +92,7 @@
 		{/each}
 	</ol>
 
-	<p class="mt-8 text-center text-sm text-muted-foreground italic">{t.how.note}</p>
+	<p class="mt-8 text-center text-sm text-muted-foreground">{t.how.note}</p>
 
 	<div class="mx-auto mt-12 max-w-3xl">
 		<h3 class="eyebrow text-center text-primary">{t.how.ratio.title}</h3>
@@ -111,6 +111,6 @@
 				</div>
 			{/each}
 		</dl>
-		<p class="mt-4 text-center text-sm text-muted-foreground italic">{t.how.ratio.note}</p>
+		<p class="mt-4 text-center text-sm text-muted-foreground">{t.how.ratio.note}</p>
 	</div>
 </section>
