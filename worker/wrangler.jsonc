@@ -19,6 +19,6 @@
 	// are. The key itself is a secret: `wrangler secret put BREVO_API_KEY`.
 	"vars": {
 		"NOTIFY_FROM": "website@notify.corcdrinks.com",
-		"NOTIFY_TO": "ilkersag96@gmail.com"
+		"NOTIFY_TO": "info@corcdrinks.com"
 	}
 }
