@@ -26,9 +26,22 @@
 			return;
 		}
 		const cut = window.matchMedia('(max-width: 640px)').matches ? 'intro-mobile' : 'intro';
-		const webm = node.canPlayType('video/webm; codecs="vp9"') !== '';
+		// Safari answers "maybe" to webm and then often fails to play it, which on a
+		// phone is every second visitor. Only a browser sure of itself gets the
+		// smaller file; everyone else gets the mp4, which all of them play.
+		const webm = node.canPlayType('video/webm; codecs="vp9"') === 'probably';
 		node.src = asset(`${cut}.${webm ? 'webm' : 'mp4'}`);
-		node.play().catch(() => (settled = true));
+
+		// A rejected play is a browser that will not autoplay at all, or a file it
+		// turned out not to want. Fall back to the mp4 once, then leave the still.
+		node.play().catch(() => {
+			if (webm) {
+				node.src = asset(`${cut}.mp4`);
+				node.play().catch(() => (settled = true));
+			} else {
+				settled = true;
+			}
+		});
 	}
 </script>
 

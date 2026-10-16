@@ -56,7 +56,7 @@ export const products: Product[] = [
 		image: fragola,
 		de: {
 			tagline:
-				'Reife Erdbeere mit einer sauberen Säure dahinter. Der Drink, den alle am Tisch verstehen.',
+				'Reife Erdbeere mit Minze darin und einer sauberen Säure dahinter. Der Drink, den alle am Tisch verstehen.',
 			ingredients: 'Erdbeere, Minze, Zitrone, Limette, Orange',
 			pairsWith: 'Wodka, Gin, Sekt, alkoholfrei (mit oder ohne Tonic / Sprudelwasser)',
 			garnish: 'Minze und frische Erdbeere.',
@@ -65,7 +65,7 @@ export const products: Product[] = [
 		},
 		en: {
 			tagline:
-				'Ripe strawberry with a clean acidity behind it. The drink everyone at the table understands.',
+				'Ripe strawberry with mint through the middle and a clean acidity behind it. The drink everyone at the table understands.',
 			ingredients: 'Strawberry, mint, lemon, lime, orange',
 			pairsWith:
 				'Vodka, gin, sparkling wine, alcohol-free (with or without tonic / sparkling water)',
@@ -127,7 +127,7 @@ export const products: Product[] = [
 		image: yuzu,
 		de: {
 			tagline:
-				'Japanische Zitrusfrucht, zwischen Limette und Mandarine. Die eleganteste Base der Reihe.',
+				'Japanische Zitrusfrucht mit Ananas und einer Spur Ingwer dahinter. Die eleganteste Base der Reihe.',
 			ingredients: 'Yuzu, Ananas, Ingwer, Zitrone, Orange',
 			pairsWith: 'Sprudelnder Mate-Tee zum Auffüllen (empfohlen), Wodka, Whiskey, Gin',
 			garnish: 'Getrocknete Zitronenscheibe oder frische Zitrusschale.',
@@ -136,7 +136,7 @@ export const products: Product[] = [
 		},
 		en: {
 			tagline:
-				'Japanese citrus, somewhere between lime and mandarin. The most elegant base in the range.',
+				'Japanese citrus with pineapple and a line of ginger behind it. The most elegant base in the range.',
 			ingredients: 'Yuzu, pineapple, ginger, lemon, orange',
 			pairsWith: 'Sparkling mate tea top-up (recommended), vodka, whiskey, gin',
 			garnish: 'Dried lemon slice or fresh citrus peel.',
