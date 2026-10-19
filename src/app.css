@@ -209,7 +209,7 @@
 
 	/* Poppins for text, Cormorant Garamond for display headings. */
 	--font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
-	--font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', Georgia, serif;
+	--font-display: 'Archivo Variable', 'Archivo', var(--font-sans);
 	--font-onest: var(--font-sans);
 	--font-pixel: var(--font-sans);
 	--font-term: var(--font-sans);

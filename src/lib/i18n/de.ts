@@ -99,7 +99,7 @@ const de = {
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Überzeugt euch selbst, am besten im Glas',
+		title: 'Lasst den Geschmack sprechen.',
 		note: `Schreibt uns für einen Tasting Termin. Wir kommen mit ${site.name} zu euch, in die Bar, ins Büro oder direkt aufs Event.`,
 		form: {
 			name: 'Euer Name',
@@ -231,8 +231,7 @@ const de = {
 			eyebrow: 'Unsere Geschichte',
 			title: 'Es ging nie nur um den Drink.',
 			imageAlt: 'Zwei Hände stoßen mit Drinks an einer Bar an',
-			opening:
-				'Essen und Trinken bringen Menschen auf eine Art zusammen, die sonst kaum etwas schafft. Sie hinterlassen Momente, die noch lange nach dem letzten Schluck und dem Ende des Abends bleiben.',
+			opening: 'Guter Geschmack bringt Menschen zusammen.',
 			paragraphs: [
 				'Ein guter Drink am richtigen Ort öffnet Gespräche, bringt Leute ins Gespräch miteinander und schafft eine Stimmung, die sich anfühlt wie ein eigener kleiner Ort in der Zeit.',
 				`${site.name} ist aus dem Wunsch entstanden, solche Momente planbar zu machen. Nicht einmal und nicht zufällig, sondern bewusst und jedes Mal. Nach Hunderten Events und Tausenden Gästen war eine Sache klar: Was zählt, ist nicht nur der Drink, sondern alles, was um ihn herum passiert.`
@@ -250,8 +249,8 @@ const de = {
 			description: `Cocktail und Mocktail Tasting in Berlin buchen. Testet ${site.name} in eurer Bar, im Büro oder auf eurem Event, unverbindlich und ohne Druck.`,
 			keywords: 'Cocktail Tasting Berlin, Event Drinks Berlin, Cocktail Catering'
 		},
-		title: 'Lasst den Geschmack entscheiden.',
-		lead: 'Fünf von Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch angesetzt auf Bestellung. Für alle, die ohne Kompromisse ausschenken.',
+		title: 'Lasst den Geschmack sprechen.',
+		lead: 'Fünf von Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch angesetzt auf Bestellung. Großer Geschmack, weniger Aufwand.',
 		steps: [
 			{
 				title: 'Formular ausfüllen',

@@ -100,7 +100,7 @@ const en: Messages = {
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Let the glass make the case',
+		title: 'Let the Taste Do the Talking.',
 		note: `Get in touch to set up a tasting. We bring ${site.name} to you, to the bar, the office or straight to the event.`,
 		form: {
 			name: 'Your name',
@@ -232,8 +232,7 @@ const en: Messages = {
 			eyebrow: 'Our story',
 			title: 'It was never only about the drink.',
 			imageAlt: 'Two hands toasting with drinks at a bar',
-			opening:
-				'Food and drink bring people together in a way almost nothing else manages. They leave behind moments that stay long after the last sip and long after the night ends.',
+			opening: 'Good taste brings people together.',
 			paragraphs: [
 				'A good drink in the right place opens conversations, pulls people toward each other and creates a mood that feels like its own small place in time.',
 				`${site.name} started from wanting to make those moments repeatable. Not once, not by accident, but on purpose and every time. After hundreds of events and thousands of guests one thing was clear: what counts is not only the drink, but everything happening around it.`
@@ -251,8 +250,8 @@ const en: Messages = {
 			description: `Book a cocktail and mocktail tasting in Berlin. Try ${site.name} at your bar, your office or your event, no pressure, no obligation.`,
 			keywords: 'cocktail tasting Berlin, event drinks Berlin, cocktail catering'
 		},
-		title: 'Let the glass make the case.',
-		lead: 'Five mixologist developed bases. Real fruit, real herbs, mixed fresh to order. For anyone who pours without compromise.',
+		title: 'Let the Taste Do the Talking.',
+		lead: 'Five mixologist developed bases. Real fruit, real herbs, mixed fresh to order. Great taste, less effort.',
 		steps: [
 			{
 				title: 'Fill in the form',
