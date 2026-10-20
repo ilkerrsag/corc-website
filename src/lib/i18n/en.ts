@@ -225,8 +225,18 @@ const en: Messages = {
 		],
 		makers: {
 			eyebrow: 'Who is behind it',
-			title: 'Built by people who have done the pouring.',
-			text: `${site.name} did not come out of a lab. The recipes come from a mixologist who spent years behind the bar and worked with major spirits brands, shaped across hundreds of events and thousands of guests. Every base is built the way a team actually needs it in service.`
+			title: 'The recipes come from behind the bar, not from a lab.',
+			name: 'Ilker Sagkaya',
+			role: `Founder of ${site.name}`,
+			paragraphs: [
+				'I have spent nine years in drinks. Behind the bar first, then on the brand side with Absolut, Beefeater and Chivas Regal, and in between running bars at private and corporate events across Berlin.',
+				`${site.name} came out of what kept going wrong in service, a drink that takes three minutes when the queue allows thirty seconds, and a recipe that tastes different depending on who is pouring it. Every base here is built to survive a real shift, not a photo shoot.`,
+				'I also make cocktail content as @shakeiteasyy, 19k followers on Instagram and 24k on TikTok. That audience is why I care what a drink looks like, not only how fast it pours.'
+			],
+			links: [
+				{ label: 'Instagram', href: 'https://www.instagram.com/shakeiteasyy' },
+				{ label: 'TikTok', href: 'https://www.tiktok.com/@shakeiteasyy' }
+			]
 		},
 		story: {
 			eyebrow: 'Our story',

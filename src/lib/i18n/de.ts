@@ -224,8 +224,18 @@ const de = {
 		],
 		makers: {
 			eyebrow: 'Wer dahinter steht',
-			title: 'Entwickelt von Leuten, die selbst ausgeschenkt haben.',
-			text: `${site.name} kommt nicht aus einem Labor. Die Rezepturen stammen von einem Mixologen, der Jahre hinter der Bar und mit großen Spirituosenmarken gearbeitet hat, entstanden über Hunderte Events und Tausende Gäste. Jede Base ist so gebaut, wie ein Team sie im Betrieb wirklich braucht.`
+			title: 'Die Rezepturen kommen von hinter der Bar, nicht aus dem Labor.',
+			name: 'Ilker Sagkaya',
+			role: `Gründer von ${site.name}`,
+			paragraphs: [
+				'Ich bin seit neun Jahren in der Getränkebranche. Erst hinter der Bar, dann auf Markenseite mit Absolut, Beefeater und Chivas Regal, dazwischen auf privaten Events und Firmenfeiern in ganz Berlin.',
+				`${site.name} ist aus dem entstanden, was im Betrieb immer wieder schiefging, ein Drink, der drei Minuten braucht, während die Schlange dreißig Sekunden erlaubt, und ein Rezept, das je nach Person anders schmeckt. Jede Base hier ist für eine echte Schicht gebaut, nicht für ein Fotoshooting.`,
+				'Unter @shakeiteasyy mache ich außerdem Cocktail-Content, 19.000 Follower auf Instagram und 24.000 auf TikTok. Dieses Publikum ist der Grund, warum mich auch interessiert, wie ein Drink aussieht, nicht nur wie schnell er geht.'
+			],
+			links: [
+				{ label: 'Instagram', href: 'https://www.instagram.com/shakeiteasyy' },
+				{ label: 'TikTok', href: 'https://www.tiktok.com/@shakeiteasyy' }
+			]
 		},
 		story: {
 			eyebrow: 'Unsere Geschichte',

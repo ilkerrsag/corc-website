@@ -66,14 +66,43 @@
 	</ul>
 </section>
 
-<section class="mx-auto max-w-3xl px-5 py-20 text-center sm:py-24">
-	<p class="eyebrow text-primary">{t.about.makers.eyebrow}</p>
+<!--
+	The founder, in his own words. A buyer in this trade wants to know who wrote
+	the recipe before they put it in front of their own guests, so this is first
+	person and signed rather than a line about "a mixologist".
+-->
+<section class="mx-auto max-w-3xl px-5 py-20 sm:py-24">
+	<p class="eyebrow text-center text-primary">{t.about.makers.eyebrow}</p>
 	<h2
-		class="mt-3 font-display text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
+		class="mt-3 text-center font-display text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
 	>
 		{t.about.makers.title}
 	</h2>
-	<p class="mt-5 leading-relaxed text-pretty text-muted-foreground">{t.about.makers.text}</p>
+
+	<div class="mt-10 space-y-5">
+		{#each t.about.makers.paragraphs as paragraph (paragraph)}
+			<p class="leading-relaxed text-pretty text-muted-foreground">{paragraph}</p>
+		{/each}
+	</div>
+
+	<div class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-line pt-6">
+		<p class="font-medium">{t.about.makers.name}</p>
+		<p class="text-sm text-muted-foreground">{t.about.makers.role}</p>
+		<ul class="ml-auto flex gap-4 text-sm">
+			{#each t.about.makers.links as link (link.href)}
+				<li>
+					<a
+						class="text-primary underline underline-offset-4 transition-colors hover:text-foreground"
+						href={link.href}
+						target="_blank"
+						rel="noreferrer"
+					>
+						{link.label}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </section>
 
 <section class="mx-auto max-w-6xl border-t border-line px-5 py-20 sm:py-24">
