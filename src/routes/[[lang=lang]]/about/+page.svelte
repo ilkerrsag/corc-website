@@ -2,6 +2,7 @@
 	import { Leaf, Zap } from '@lucide/svelte';
 
 	import bottle from '#lib/assets/pages/about-bottle.webp';
+	import founder from '#lib/assets/pages/about-founder.webp';
 	import story from '#lib/assets/pages/about-story.webp';
 	import bear from '#lib/assets/pages/berlin-bear.webp';
 	import Seo from '#lib/components/Seo.svelte';
@@ -71,18 +72,28 @@
 	the recipe before they put it in front of their own guests, so this is first
 	person and signed rather than a line about "a mixologist".
 -->
-<section class="mx-auto max-w-3xl px-5 py-20 sm:py-24">
+<section class="mx-auto max-w-5xl px-5 py-20 sm:py-24">
 	<p class="eyebrow text-center text-primary">{t.about.makers.eyebrow}</p>
 	<h2
-		class="mt-3 text-center font-display text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
+		class="mx-auto mt-3 max-w-3xl text-center font-display text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl"
 	>
 		{t.about.makers.title}
 	</h2>
 
-	<div class="mt-10 space-y-5">
-		{#each t.about.makers.paragraphs as paragraph (paragraph)}
-			<p class="leading-relaxed text-pretty text-muted-foreground">{paragraph}</p>
-		{/each}
+	<div class="mt-12 grid items-start gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-12">
+		<img
+			src={founder}
+			alt={t.about.makers.portraitAlt}
+			width="1200"
+			height="1600"
+			loading="lazy"
+			class="aspect-[3/4] h-auto w-full rounded-2xl object-cover"
+		/>
+		<div class="space-y-5">
+			{#each t.about.makers.paragraphs as paragraph (paragraph)}
+				<p class="leading-relaxed text-pretty text-muted-foreground">{paragraph}</p>
+			{/each}
+		</div>
 	</div>
 
 	<div class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-line pt-6">
