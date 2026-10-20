@@ -225,11 +225,12 @@ const en: Messages = {
 		],
 		makers: {
 			eyebrow: 'Who is behind it',
-			title: 'The recipes come from behind the bar, not from a lab.',
+			title: 'Hi, I’m Ilker. I make every base here.',
 			name: 'Ilker Sagkaya',
+			portraitAlt: 'Ilker Sagkaya behind the bar',
 			role: `Founder of ${site.name}`,
 			paragraphs: [
-				'I have spent nine years in drinks. Behind the bar first, then on the brand side with Absolut, Beefeater and Chivas Regal, and in between running bars at private and corporate events across Berlin.',
+				'I have spent nine years in drinks, starting behind the bar. In house at Pernod Ricard, the company behind Absolut, Beefeater and Chivas Regal, I ran their premium events in Istanbul and Izmir. I also handled the sponsorship partnerships for the top bars and clubs in both cities, on the venues’ side of the table rather than the brands’. In Berlin I have been building bars at private and corporate events ever since.',
 				`${site.name} came out of what kept going wrong in service, a drink that takes three minutes when the queue allows thirty seconds, and a recipe that tastes different depending on who is pouring it. Every base here is built to survive a real shift, not a photo shoot.`,
 				'I also make cocktail content as @shakeiteasyy, 19k followers on Instagram and 24k on TikTok. That audience is why I care what a drink looks like, not only how fast it pours.'
 			],
