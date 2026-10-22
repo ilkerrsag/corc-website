@@ -19,8 +19,7 @@ const en: Messages = {
 		language: 'Language'
 	},
 	hero: {
-		intro:
-			'Your signature cocktail, ready before the guest finishes ordering. For bars, caterers, hotels and corporate events.',
+		intro: 'Natural cocktail and mocktail bases. For bars, caterers, hotels and corporate events.',
 		title: ['Bar quality.', 'In the glass in seconds.'],
 		cta: 'Book Your Tasting',
 		secondary: 'How it works',

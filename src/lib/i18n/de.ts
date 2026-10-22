@@ -18,8 +18,7 @@ const de = {
 		language: 'Sprache'
 	},
 	hero: {
-		intro:
-			'Euer Signature Cocktail, fertig, bevor der Gast zu Ende bestellt hat. Für Bars, Caterer, Hotels und Firmenevents.',
+		intro: 'Natürliche Cocktail und Mocktail Basen. Für Bars, Caterer, Hotels und Firmenevents.',
 		title: ['Barqualität.', 'In Sekunden im Glas.'],
 		cta: 'Tasting vereinbaren',
 		secondary: 'So funktioniert’s',
