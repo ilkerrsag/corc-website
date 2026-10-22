@@ -19,7 +19,7 @@ const de = {
 	},
 	hero: {
 		intro:
-			'Besondere Cocktails und Mocktails. Wenig Aufwand, jedes Mal das gleiche Ergebnis. Für Bars, Caterer, Hotels und Firmenevents.',
+			'Euer Signature Cocktail, fertig, bevor der Gast zu Ende bestellt hat. Für Bars, Caterer, Hotels und Firmenevents.',
 		title: ['Barqualität.', 'In Sekunden im Glas.'],
 		cta: 'Tasting vereinbaren',
 		secondary: 'So funktioniert’s',
@@ -73,13 +73,13 @@ const de = {
 			},
 			{
 				tag: 'Frisch und natürlich',
-				title: 'Von Mixologen entwickelt. Verlässlich geliefert.',
+				title: 'Vom Mixologen kreiert. Gleicher Geschmack, jedes Glas.',
 				text: 'Echte Früchte und Kräuter als Hauptzutat, frisch angesetzt auf Bestellung. Barqualität, die euer Team jedes Mal wiederholen kann.',
 				imageAlt: `${site.name} Fragola Flasche zwischen frischen Erdbeeren, Himbeeren, Zitronen und Minze`
 			},
 			{
 				tag: 'Einfach',
-				title: 'Ohne Schulung einsatzbereit',
+				title: 'Schulung sparen. Qualität behalten.',
 				text: 'Keine aufwendige Vorbereitung, kein Spezialwissen. Jeder Gast bekommt denselben guten Cocktail, von der ersten Runde bis zum vollsten Moment des Abends.',
 				imageAlt: `${site.name} Yuzu Flasche neben einem Glas, das mit einem Barlöffel gerührt wird`
 			},
@@ -91,15 +91,15 @@ const de = {
 			},
 			{
 				tag: 'Zufriedene Gäste',
-				title: 'Drinks, für die man wiederkommt',
-				text: 'Gebt euren Gästen etwas, das hängen bleibt. Handwerkliche Qualität, nach der man ein zweites Glas bestellt. Und ein drittes.',
+				title: 'Der Geschmack von guter Gesellschaft.',
+				text: 'Drinks, die Menschen am Tisch halten. Handgemacht, ein zweites Glas wert. Und ein drittes.',
 				imageAlt: 'Gäste im Gespräch an einem Stehtisch, mit bunten Drinks in der Hand'
 			}
 		]
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Lasst den Geschmack sprechen.',
+		title: 'Erst probieren. Dann entscheiden.',
 		note: `Schreibt uns für einen Tasting Termin. Wir kommen mit ${site.name} zu euch, in die Bar, ins Büro oder direkt aufs Event.`,
 		form: {
 			name: 'Euer Name',
@@ -153,7 +153,7 @@ const de = {
 			{
 				value: '5',
 				label: 'Geschmacksrichtungen',
-				text: 'Jede von einem zertifizierten Mixologen und Lebensmittelwissenschaftler entwickelt'
+				text: 'Jede von einem zertifizierten Mixologen mit langjähriger Erfahrung entwickelt'
 			},
 			{
 				value: '2',
@@ -205,20 +205,20 @@ const de = {
 			keywords: 'Getränkemarke Berlin, Cocktailmarke Berlin, Mocktailmarke Berlin'
 		},
 		eyebrow: `Über ${site.name}`,
-		title: 'Moderne Cocktail Basen. Für die Leute gemacht, die sie servieren.',
+		title: 'Natürliche Basen. Erstklassige Drinks.',
 		lead: 'Wir entwickeln Cocktail Basen für Situationen, in denen Tempo, Verlässlichkeit und Qualität zusammenkommen müssen. Unser System nimmt die Komplexität raus, ohne die Kreativität zu beschneiden, damit Teams sich um das Erlebnis kümmern können statt um die Vorbereitung.',
 		imageAlt: `Barkeeper hinter dem Tresen mit drei ${site.name} Flaschen`,
 		features: [
 			{
-				title: 'Natürlich hergestellt',
+				title: 'Natürlich',
 				text: 'Echte Früchte und Kräuter als Hauptzutat, ohne Abkürzungen'
 			},
 			{
-				title: 'Auf Tempo gebaut',
-				text: 'Servierfähig in unter 10 Sekunden, ohne Vorbereitung und ohne Fachwissen'
+				title: 'Schnell',
+				text: 'Eis, Base, fertig. Unter 10 Sekunden.'
 			},
 			{
-				title: 'In Berlin entstanden',
+				title: 'Made in Berlin',
 				text: 'Aus einer Stadt, in der Kultur und Kreativität ständig aufeinandertreffen'
 			}
 		],
@@ -240,7 +240,7 @@ const de = {
 		},
 		story: {
 			eyebrow: 'Unsere Geschichte',
-			title: 'Es ging nie nur um den Drink.',
+			title: 'Von der Bar in die Flasche.',
 			imageAlt: 'Zwei Hände stoßen mit Drinks an einer Bar an',
 			opening: 'Guter Geschmack bringt Menschen zusammen.',
 			paragraphs: [
@@ -260,7 +260,7 @@ const de = {
 			description: `Cocktail und Mocktail Tasting in Berlin buchen. Testet ${site.name} in eurer Bar, im Büro oder auf eurem Event, unverbindlich und ohne Druck.`,
 			keywords: 'Cocktail Tasting Berlin, Event Drinks Berlin, Cocktail Catering'
 		},
-		title: 'Lasst den Geschmack sprechen.',
+		title: 'Erst probieren. Dann entscheiden.',
 		lead: 'Fünf von Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch angesetzt auf Bestellung. Großer Geschmack, weniger Aufwand.',
 		steps: [
 			{
