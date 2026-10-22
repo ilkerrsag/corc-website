@@ -19,8 +19,7 @@ const en: Messages = {
 		language: 'Language'
 	},
 	hero: {
-		intro:
-			'Exceptional cocktails and mocktails with minimal prep and maximum consistency. For bars, caterers, hotels and corporate events.',
+		intro: 'Natural cocktail and mocktail bases. For bars, caterers, hotels and corporate events.',
 		title: ['Bar quality.', 'In the glass in seconds.'],
 		cta: 'Book Your Tasting',
 		secondary: 'How it works',
@@ -74,13 +73,13 @@ const en: Messages = {
 			},
 			{
 				tag: 'Fresh and natural',
-				title: 'Mixologist developed. Reliably delivered.',
+				title: 'Crafted by a mixologist. Same taste, every pour.',
 				text: 'Real fruit and herbs as the main ingredient, mixed fresh to order. Bar quality your team can repeat every single time.',
 				imageAlt: `${site.name} Fragola bottle among fresh strawberries, raspberries, lemons and mint`
 			},
 			{
 				tag: 'Easy',
-				title: 'Ready to use with no training',
+				title: 'Skip the training. Keep the quality.',
 				text: 'No complicated prep, no specialist knowledge. Every guest gets the same good cocktail, from the first round to the busiest moment of the night.',
 				imageAlt: `${site.name} Yuzu bottle beside a glass being stirred with a bar spoon`
 			},
@@ -92,15 +91,15 @@ const en: Messages = {
 			},
 			{
 				tag: 'Happy guests',
-				title: 'Drinks worth coming back for',
-				text: 'Give your guests something that stays with them. Handcrafted quality worth a second glass. And a third.',
+				title: 'The taste of good company.',
+				text: 'Drinks that keep people at the table. Handcrafted, worth a second glass. And a third.',
 				imageAlt: 'Guests talking around a high table, colourful drinks in hand'
 			}
 		]
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Let the Taste Do the Talking.',
+		title: 'Taste first. Decide later.',
 		note: `Get in touch to set up a tasting. We bring ${site.name} to you, to the bar, the office or straight to the event.`,
 		form: {
 			name: 'Your name',
@@ -154,7 +153,7 @@ const en: Messages = {
 			{
 				value: '5',
 				label: 'Flavors',
-				text: 'Each developed by a certified mixologist and food scientist'
+				text: 'Each developed by a certified mixologist with years of experience'
 			},
 			{
 				value: '2',
@@ -206,20 +205,20 @@ const en: Messages = {
 			keywords: 'Berlin beverage brand, cocktail brand Berlin, mocktail brand Berlin'
 		},
 		eyebrow: `About ${site.name}`,
-		title: 'Modern cocktail bases. Made for the people who serve them.',
+		title: 'Natural bases. High class drinks.',
 		lead: 'We build cocktail bases for situations where pace, reliability and quality all have to come together. Our system takes the complexity out without cutting the creativity, so teams can spend their attention on the experience instead of the prep.',
 		imageAlt: `Bartender behind the counter with three ${site.name} bottles`,
 		features: [
 			{
-				title: 'Naturally made',
+				title: 'Natural',
 				text: 'Real fruit and herbs as the main ingredient, no shortcuts'
 			},
 			{
-				title: 'Built for pace',
-				text: 'Ready to serve in under 10 seconds, no prep and no specialist skills'
+				title: 'Fast',
+				text: 'Ice, base, done. Under 10 seconds.'
 			},
 			{
-				title: 'Started in Berlin',
+				title: 'Berlin made',
 				text: 'From a city where culture and creativity keep running into each other'
 			}
 		],
@@ -241,7 +240,7 @@ const en: Messages = {
 		},
 		story: {
 			eyebrow: 'Our story',
-			title: 'It was never only about the drink.',
+			title: 'From the bar to the bottle.',
 			imageAlt: 'Two hands toasting with drinks at a bar',
 			opening: 'Good taste brings people together.',
 			paragraphs: [
@@ -261,7 +260,7 @@ const en: Messages = {
 			description: `Book a cocktail and mocktail tasting in Berlin. Try ${site.name} at your bar, your office or your event, no pressure, no obligation.`,
 			keywords: 'cocktail tasting Berlin, event drinks Berlin, cocktail catering'
 		},
-		title: 'Let the Taste Do the Talking.',
+		title: 'Taste first. Decide later.',
 		lead: 'Five mixologist developed bases. Real fruit, real herbs, mixed fresh to order. Great taste, less effort.',
 		steps: [
 			{
