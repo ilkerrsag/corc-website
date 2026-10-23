@@ -28,6 +28,7 @@
 		>
 			{t.bases.title}
 		</h1>
+		<p class="mt-5 text-lg text-muted-foreground sm:text-xl">{t.bases.lead}</p>
 	</div>
 
 	<div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">

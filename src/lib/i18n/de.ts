@@ -98,7 +98,7 @@ const de = {
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Erst probieren. Dann entscheiden.',
+		title: 'Die erste Runde geht auf uns.',
 		note: `Schreibt uns für einen Tasting Termin. Wir kommen mit ${site.name} zu euch, in die Bar, ins Büro oder direkt aufs Event.`,
 		form: {
 			name: 'Euer Name',
@@ -145,7 +145,8 @@ const de = {
 			keywords: 'cocktail basen, mocktail basen, alkoholfreie Cocktails Event'
 		},
 		eyebrow: 'Cocktail Basen',
-		title: 'Cocktail- und Mocktail-Basen, gemacht für den Ausschank unter Zeitdruck.',
+		title: 'Signature-Basen für Cocktails und Mocktails, gemacht für die Bar.',
+		lead: 'Pour. Mix. Serve.',
 		discover: 'Entdecken',
 		statsAlt: 'Eine Base wird aus dem Barsieb in ein Glas gegossen',
 		stats: [
@@ -246,7 +247,7 @@ const de = {
 				'Ein guter Drink am richtigen Ort öffnet Gespräche, bringt Leute ins Gespräch miteinander und schafft eine Stimmung, die sich anfühlt wie ein eigener kleiner Ort in der Zeit.',
 				`${site.name} ist aus dem Wunsch entstanden, solche Momente planbar zu machen. Nicht einmal und nicht zufällig, sondern bewusst und jedes Mal. Nach Hunderten Events und Tausenden Gästen war eine Sache klar: Was zählt, ist nicht nur der Drink, sondern alles, was um ihn herum passiert.`
 			],
-			closing: `${site.name} ist nicht nur ein Cocktail. Es sind die Momente, die daraus entstehen.`
+			closing: 'Die Vorbereitung übernehmen wir. Der Abend gehört euch.'
 		},
 		cta: {
 			title: `Bereit, ${site.name} auf euer nächstes Event zu holen?`,
@@ -259,7 +260,7 @@ const de = {
 			description: `Cocktail und Mocktail Tasting in Berlin buchen. Testet ${site.name} in eurer Bar, im Büro oder auf eurem Event, unverbindlich und ohne Druck.`,
 			keywords: 'Cocktail Tasting Berlin, Event Drinks Berlin, Cocktail Catering'
 		},
-		title: 'Erst probieren. Dann entscheiden.',
+		title: 'Die erste Runde geht auf uns.',
 		lead: 'Fünf von Mixologen entwickelte Basen. Echte Früchte, echte Kräuter, frisch angesetzt auf Bestellung. Großer Geschmack, weniger Aufwand.',
 		steps: [
 			{
