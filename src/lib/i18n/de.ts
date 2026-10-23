@@ -145,7 +145,7 @@ const de = {
 			keywords: 'cocktail basen, mocktail basen, alkoholfreie Cocktails Event'
 		},
 		eyebrow: 'Cocktail Basen',
-		title: 'Echte Frucht. Echte Kräuter. Bereit zum Ausschenken.',
+		title: ['Echte Frucht. Echte Kräuter.', 'Bereit zum Ausschenken.'],
 		lead: 'Pour. Mix. Serve.',
 		discover: 'Entdecken',
 		statsAlt: 'Eine Base wird aus dem Barsieb in ein Glas gegossen',

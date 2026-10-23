@@ -26,7 +26,9 @@
 		<h1
 			class="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl"
 		>
-			{t.bases.title}
+			{#each t.bases.title as line (line)}
+				<span class="block">{line}</span>
+			{/each}
 		</h1>
 		<p class="mt-5 text-lg text-muted-foreground sm:text-xl">{t.bases.lead}</p>
 	</div>
