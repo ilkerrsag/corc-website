@@ -146,7 +146,7 @@ const en: Messages = {
 			keywords: 'ready to mix cocktails, mocktail bases, alcohol free cocktails events'
 		},
 		eyebrow: 'Cocktail Bases',
-		title: 'Signature cocktail and mocktail bases, crafted to perform.',
+		title: 'Real fruit. Real herbs. Ready to pour.',
 		lead: 'Pour. Mix. Serve.',
 		discover: 'Discover',
 		statsAlt: 'A base being strained from the shaker into a glass',
