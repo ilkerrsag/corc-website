@@ -99,7 +99,7 @@ const en: Messages = {
 	},
 	tasting: {
 		eyebrow: 'Tasting',
-		title: 'Taste first. Decide later.',
+		title: 'Your first round is on us.',
 		note: `Get in touch to set up a tasting. We bring ${site.name} to you, to the bar, the office or straight to the event.`,
 		form: {
 			name: 'Your name',
@@ -146,7 +146,8 @@ const en: Messages = {
 			keywords: 'ready to mix cocktails, mocktail bases, alcohol free cocktails events'
 		},
 		eyebrow: 'Cocktail Bases',
-		title: 'Cocktail and mocktail bases, made for pouring under pressure.',
+		title: 'Real fruit. Real herbs. Ready to pour.',
+		lead: 'Pour. Mix. Serve.',
 		discover: 'Discover',
 		statsAlt: 'A base being strained from the shaker into a glass',
 		stats: [
@@ -247,7 +248,7 @@ const en: Messages = {
 				'A good drink in the right place opens conversations, pulls people toward each other and creates a mood that feels like its own small place in time.',
 				`${site.name} started from wanting to make those moments repeatable. Not once, not by accident, but on purpose and every time. After hundreds of events and thousands of guests one thing was clear: what counts is not only the drink, but everything happening around it.`
 			],
-			closing: `${site.name} is not only a cocktail. It is the moments that come out of it.`
+			closing: 'We handle the prep. You own the night.'
 		},
 		cta: {
 			title: `Ready to bring ${site.name} to your next event?`,
@@ -260,7 +261,7 @@ const en: Messages = {
 			description: `Book a cocktail and mocktail tasting in Berlin. Try ${site.name} at your bar, your office or your event, no pressure, no obligation.`,
 			keywords: 'cocktail tasting Berlin, event drinks Berlin, cocktail catering'
 		},
-		title: 'Taste first. Decide later.',
+		title: 'Your first round is on us.',
 		lead: 'Five mixologist developed bases. Real fruit, real herbs, mixed fresh to order. Great taste, less effort.',
 		steps: [
 			{
