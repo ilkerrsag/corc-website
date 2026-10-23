@@ -195,8 +195,8 @@ const en: Messages = {
 		others: 'More flavours'
 	},
 	cta: {
-		title: 'Tell us where you will be pouring.',
-		lead: 'We will be in touch shortly and bring the tasting to you.',
+		title: 'Let’s taste it together.',
+		lead: 'We will be in touch shortly and come to you.',
 		button: 'Book a tasting'
 	},
 	about: {

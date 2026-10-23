@@ -194,8 +194,8 @@ const de = {
 		others: 'Weitere Sorten'
 	},
 	cta: {
-		title: 'Sagt uns, wo ausgeschenkt wird.',
-		lead: 'Wir melden uns in Kürze und bringen das Tasting zu euch.',
+		title: 'Lasst uns gemeinsam probieren.',
+		lead: 'Wir melden uns in Kürze und kommen zu euch.',
 		button: 'Tasting buchen'
 	},
 	about: {
