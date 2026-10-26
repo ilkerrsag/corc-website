@@ -3,7 +3,15 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
+/**
+ * Cloudflare Pages builds every branch, and a branch build is served from a real
+ * public address. `CF_PAGES_BRANCH` is the only thing that tells one apart from
+ * the live site, so it is what keeps a preview out of the search index.
+ */
+const previewBuild = Boolean(process.env.CF_PAGES_BRANCH && process.env.CF_PAGES_BRANCH !== 'main');
+
 export default defineConfig({
+	define: { __PREVIEW_BUILD__: JSON.stringify(previewBuild) },
 	plugins: [
 		tailwindcss(),
 		sveltekit({

@@ -14,6 +14,9 @@ declare global {
 		readonly VITE_SITE_URL?: string;
 	}
 
+	/** Set by Vite: true on a Cloudflare Pages build of any branch other than main. */
+	const __PREVIEW_BUILD__: boolean;
+
 	interface Window {
 		turnstile?: {
 			render(

@@ -17,6 +17,8 @@
 
 <svelte:head>
 	<title>{title}</title>
+	<!-- A branch preview is a real address; it should not end up in anyone's results. -->
+	{#if __PREVIEW_BUILD__}<meta name="robots" content="noindex, nofollow" />{/if}
 	<meta name="description" content={description} />
 	{#if keywords}<meta name="keywords" content={keywords} />{/if}
 	<meta property="og:type" content="website" />
