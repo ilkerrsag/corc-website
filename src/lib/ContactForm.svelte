@@ -12,7 +12,8 @@
 		'border-input bg-paper placeholder:text-faint focus-visible:border-ink focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 flex h-(--field-height) w-full min-w-0 rounded-md border px-3.5 py-1 text-sm outline-none transition-[color,box-shadow,border-color] enabled:hover:border-ink/35 focus-visible:ring-[3px]';
 
 	type Status = 'idle' | 'sending' | 'sent' | 'error';
-	type FieldName = 'name' | 'company' | 'email' | 'businessType' | 'message' | 'topic';
+	type FieldName =
+		'name' | 'company' | 'email' | 'businessType' | 'message' | 'topic' | 'format' | 'outlet';
 
 	/**
 	 * The tasting page asks one thing and asks it straight. The contact page uses
@@ -38,11 +39,20 @@
 
 	/** Without a topic field the form is a tasting request, which is what it always was. */
 	const asksForBusiness = $derived(!contact || topic === 'tasting');
+	// A quote needs a business to quote to, even though the rest of the topics do not.
+	const needsCompany = $derived(asksForBusiness || topic === 'pricing');
+
+	/** The errors that belong to the contact form rather than to the tasting one. */
+	const ownErrors = $derived({
+		topic: contact?.topicError ?? '',
+		format: contact?.formatError ?? '',
+		outlet: contact?.outletError ?? ''
+	});
 
 	const fieldError = (field: FieldName) =>
 		invalidFields.includes(field)
-			? field === 'topic'
-				? (contact?.topicError ?? '')
+			? field === 'topic' || field === 'format' || field === 'outlet'
+				? ownErrors[field]
 				: t.errors[field]
 			: null;
 
@@ -151,14 +161,14 @@
 				{/snippet}
 			</Field>
 			<Field
-				label={asksForBusiness ? t.company : (contact?.companyOptional ?? t.company)}
-				required={asksForBusiness}
+				label={needsCompany ? t.company : (contact?.companyOptional ?? t.company)}
+				required={needsCompany}
 				error={fieldError('company')}
 			>
 				{#snippet children({ attrs })}
 					<Input
 						name="company"
-						required={asksForBusiness}
+						required={needsCompany}
 						maxlength={200}
 						autocomplete="organization"
 						{...attrs}
@@ -182,6 +192,50 @@
 							<option value={option.value}>{option.label}</option>
 						{/each}
 					</select>
+				{/snippet}
+			</Field>
+		{/if}
+
+		<!--
+			What the answer needs that the message would otherwise have to carry: a
+			price depends on the format and roughly how much, and a press enquiry is
+			answered differently depending on where it will run.
+		-->
+		{#if contact && topic === 'pricing'}
+			<div class="grid items-end gap-5 sm:grid-cols-2">
+				<Field label={contact.format} required error={fieldError('format')}>
+					{#snippet children({ attrs })}
+						<select name="format" required class={SELECT_CLASS} {...attrs}>
+							<option value="">{contact.formatPlaceholder}</option>
+							{#each contact.formatOptions as option (option.value)}
+								<option value={option.value}>{option.label}</option>
+							{/each}
+						</select>
+					{/snippet}
+				</Field>
+				<Field label={contact.volume}>
+					{#snippet children({ attrs })}
+						<select name="volume" class={SELECT_CLASS} {...attrs}>
+							<option value="">{contact.volumePlaceholder}</option>
+							{#each contact.volumeOptions as option (option.value)}
+								<option value={option.value}>{option.label}</option>
+							{/each}
+						</select>
+					{/snippet}
+				</Field>
+			</div>
+		{/if}
+
+		{#if contact && topic === 'press'}
+			<Field label={contact.outlet} required error={fieldError('outlet')}>
+				{#snippet children({ attrs })}
+					<Input
+						name="outlet"
+						required
+						maxlength={200}
+						placeholder={contact.outletPlaceholder}
+						{...attrs}
+					/>
 				{/snippet}
 			</Field>
 		{/if}

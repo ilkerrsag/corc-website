@@ -388,6 +388,28 @@ const en: Messages = {
 				{ value: 'other', label: 'Something else' }
 			],
 			topicError: 'Please choose a topic.',
+			// Asked only for the topic that needs them, so the form stays short for the rest.
+			format: 'Which format?',
+			formatPlaceholder: 'Please select',
+			formatOptions: [
+				{ value: '400ml', label: '400 ml' },
+				{ value: '1l', label: '1 L' },
+				{ value: 'both', label: 'Both' },
+				{ value: 'unsure', label: 'Not decided yet' }
+			],
+			formatError: 'Please choose a format.',
+			volume: 'Rough quantity (optional)',
+			volumePlaceholder: 'Please select',
+			volumeOptions: [
+				{ value: 'upto10', label: 'Up to 10 bottles a month' },
+				{ value: '10to30', label: '10 to 30 bottles a month' },
+				{ value: '30to100', label: '30 to 100 bottles a month' },
+				{ value: 'over100', label: 'More than 100 bottles a month' },
+				{ value: 'unsure', label: 'Hard to say yet' }
+			],
+			outlet: 'Outlet or channel',
+			outletPlaceholder: 'Name of the publication, station or channel',
+			outletError: 'Please enter the outlet or channel.',
 			companyOptional: 'Company (optional)',
 			message: 'Your message',
 			messagePlaceholder: 'What can we help with?',

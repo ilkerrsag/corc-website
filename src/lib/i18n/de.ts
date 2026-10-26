@@ -394,6 +394,28 @@ const de = {
 				{ value: 'other', label: 'Sonstiges' }
 			],
 			topicError: 'Bitte wählt ein Thema.',
+			// Asked only for the topic that needs them, so the form stays short for the rest.
+			format: 'Welches Format?',
+			formatPlaceholder: 'Bitte auswählen',
+			formatOptions: [
+				{ value: '400ml', label: '400 ml' },
+				{ value: '1l', label: '1 L' },
+				{ value: 'both', label: 'Beide' },
+				{ value: 'unsure', label: 'Noch offen' }
+			],
+			formatError: 'Bitte wählt ein Format.',
+			volume: 'Ungefährer Bedarf (optional)',
+			volumePlaceholder: 'Bitte auswählen',
+			volumeOptions: [
+				{ value: 'upto10', label: 'Bis 10 Flaschen im Monat' },
+				{ value: '10to30', label: '10 bis 30 Flaschen im Monat' },
+				{ value: '30to100', label: '30 bis 100 Flaschen im Monat' },
+				{ value: 'over100', label: 'Mehr als 100 Flaschen im Monat' },
+				{ value: 'unsure', label: 'Noch nicht abschätzbar' }
+			],
+			outlet: 'Medium oder Kanal',
+			outletPlaceholder: 'Name der Publikation, des Senders oder des Kanals',
+			outletError: 'Bitte tragt das Medium oder den Kanal ein.',
 			companyOptional: 'Unternehmen (optional)',
 			message: 'Eure Nachricht',
 			messagePlaceholder: 'Worum geht es genau?',

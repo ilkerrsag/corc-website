@@ -18,11 +18,14 @@ interface Submission {
 	businessType: string;
 	message: string;
 	topic: string;
+	format: string;
+	volume: string;
+	outlet: string;
 	lang: string | null;
 }
 
 const MAX_BODY_BYTES = 20_000;
-const MAX_LENGTH = { name: 200, company: 200, email: 320, message: 5000 };
+const MAX_LENGTH = { name: 200, company: 200, email: 320, message: 5000, outlet: 200 };
 const LANGUAGES = ['de', 'en'];
 const BUSINESS_TYPES = ['bar', 'caterer', 'hotel', 'company', 'other'];
 
@@ -32,6 +35,9 @@ const BUSINESS_TYPES = ['bar', 'caterer', 'hotel', 'company', 'other'];
  * still has to ask for and what the subject line of the notification says.
  */
 const TOPICS = ['tasting', 'pricing', 'product', 'press', 'other'];
+/** Only a pricing enquiry carries these, and only its own form can produce them. */
+const FORMATS = ['400ml', '1l', 'both', 'unsure'];
+const VOLUMES = ['upto10', '10to30', '30to100', 'over100', 'unsure'];
 const TOPIC_SUBJECTS: Record<string, string> = {
 	tasting: 'Tasting-Anfrage',
 	pricing: 'Preise und Bestellung',
@@ -90,10 +96,13 @@ async function notify(env: Env, submission: Submission): Promise<void> {
 		`Betrieb:   ${submission.company || '(keine Angabe)'}`,
 		`Art:       ${submission.businessType || '(keine Angabe)'}`,
 		`E-Mail:    ${submission.email}`,
-		`Sprache:   ${submission.lang ?? 'unbekannt'}`,
-		'',
-		submission.message || '(keine Nachricht)'
+		`Sprache:   ${submission.lang ?? 'unbekannt'}`
 	];
+	// Each one belongs to a single topic, so an empty line here means it was never asked.
+	if (submission.format) lines.push(`Format:    ${submission.format}`);
+	if (submission.volume) lines.push(`Bedarf:    ${submission.volume}`);
+	if (submission.outlet) lines.push(`Medium:    ${submission.outlet}`);
+	lines.push('', submission.message || '(keine Nachricht)');
 
 	const response = await fetch(BREVO_SEND_URL, {
 		method: 'POST',
@@ -154,14 +163,29 @@ export default {
 		// No topic at all means the tasting page, which has only ever sent the one kind.
 		const rawTopic = field(data, 'topic');
 		const topic = rawTopic || 'tasting';
+		// Kept only for the topic that asks for them, so a stray value cannot ride along.
+		const format = topic === 'pricing' ? field(data, 'format') : '';
+		const volume = topic === 'pricing' ? field(data, 'volume') : '';
+		const outlet = topic === 'press' ? field(data, 'outlet') : '';
 
 		const fields: Record<string, string> = {};
 		if (!TOPICS.includes(topic)) fields.topic = 'A topic is required';
-		// Only a tasting needs to know who is pouring; a question does not.
+		if (topic === 'pricing') {
+			if (!FORMATS.includes(format)) fields.format = 'A format is required';
+			// The quantity is optional, but it is a menu, so anything else is not from the form.
+			if (volume && !VOLUMES.includes(volume)) fields.volume = 'Unknown quantity';
+		}
+		if (topic === 'press') {
+			if (!outlet) fields.outlet = 'An outlet is required';
+			else if (outlet.length > MAX_LENGTH.outlet) fields.outlet = 'Outlet is too long';
+		}
+		// Only a tasting needs to know who is pouring; a question does not. A quote
+		// still needs a business to be addressed to.
 		const needsBusiness = topic === 'tasting';
+		const needsCompany = needsBusiness || topic === 'pricing';
 		if (!name) fields.name = 'Name is required';
 		else if (name.length > MAX_LENGTH.name) fields.name = 'Name is too long';
-		if (needsBusiness && !company) fields.company = 'Venue or company is required';
+		if (needsCompany && !company) fields.company = 'Venue or company is required';
 		else if (company.length > MAX_LENGTH.company) fields.company = 'Venue or company is too long';
 		if (!EMAIL_PATTERN.test(email) || email.length > MAX_LENGTH.email) {
 			fields.email = 'A valid email is required';
@@ -180,18 +204,29 @@ export default {
 			return json({ error: 'Verification failed, please try again' }, 403);
 		}
 
+		const submission: Submission = {
+			name,
+			company,
+			email,
+			businessType,
+			message,
+			topic,
+			format,
+			volume,
+			outlet,
+			lang
+		};
+
 		await env.DB.prepare(
-			'INSERT INTO submissions (name, company, email, business_type, message, topic, lang) VALUES (?, ?, ?, ?, ?, ?, ?)'
+			'INSERT INTO submissions (name, company, email, business_type, message, topic, format, volume, outlet, lang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 		)
-			.bind(name, company, email, businessType, message, topic, lang)
+			.bind(name, company, email, businessType, message, topic, format, volume, outlet, lang)
 			.run();
 
 		ctx.waitUntil(
-			notify(env, { name, company, email, businessType, message, topic, lang }).catch(
-				(error: unknown) => {
-					console.error('notification failed', error);
-				}
-			)
+			notify(env, submission).catch((error: unknown) => {
+				console.error('notification failed', error);
+			})
 		);
 
 		return json({ ok: true });
