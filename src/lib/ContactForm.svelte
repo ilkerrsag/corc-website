@@ -7,17 +7,44 @@
 
 	const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
-	type Status = 'idle' | 'sending' | 'sent' | 'error';
-	type FieldName = 'name' | 'company' | 'email' | 'businessType' | 'message';
+	/** The native select, dressed to match the `Input` primitive beside it. */
+	const SELECT_CLASS =
+		'border-input bg-paper placeholder:text-faint focus-visible:border-ink focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 flex h-(--field-height) w-full min-w-0 rounded-md border px-3.5 py-1 text-sm outline-none transition-[color,box-shadow,border-color] enabled:hover:border-ink/35 focus-visible:ring-[3px]';
 
-	let { lang, t }: { lang: Locale; t: Messages['tasting']['form'] } = $props();
+	type Status = 'idle' | 'sending' | 'sent' | 'error';
+	type FieldName = 'name' | 'company' | 'email' | 'businessType' | 'message' | 'topic';
+
+	/**
+	 * The tasting page asks one thing and asks it straight. The contact page uses
+	 * the same form with `contact` passed in, which puts a topic in front and then
+	 * only asks for the business once the topic is a tasting: a journalist should
+	 * not have to pick between bar and caterer to send a question.
+	 */
+	let {
+		lang,
+		t,
+		contact
+	}: {
+		lang: Locale;
+		t: Messages['tasting']['form'];
+		contact?: Messages['contactPage']['form'];
+	} = $props();
 
 	let status = $state<Status>('idle');
 	let error = $state('');
 	let invalidFields = $state<FieldName[]>([]);
+	let topic = $state('');
 	let widgetId: string | undefined;
 
-	const fieldError = (field: FieldName) => (invalidFields.includes(field) ? t.errors[field] : null);
+	/** Without a topic field the form is a tasting request, which is what it always was. */
+	const asksForBusiness = $derived(!contact || topic === 'tasting');
+
+	const fieldError = (field: FieldName) =>
+		invalidFields.includes(field)
+			? field === 'topic'
+				? (contact?.topicError ?? '')
+				: t.errors[field]
+			: null;
 
 	function loadTurnstile(): Promise<NonNullable<Window['turnstile']>> {
 		if (window.turnstile) return Promise.resolve(window.turnstile);
@@ -99,20 +126,43 @@
 
 {#if status === 'sent'}
 	<div class="rounded-2xl border border-line bg-background p-8 text-center" role="status">
-		<p class="font-display text-3xl font-semibold">{t.sentTitle}</p>
-		<p class="mt-2 text-muted-foreground">{t.sentText}</p>
+		<p class="font-display text-3xl font-semibold">{contact?.sentTitle ?? t.sentTitle}</p>
+		<p class="mt-2 text-muted-foreground">{contact?.sentText ?? t.sentText}</p>
 	</div>
 {:else}
 	<form onsubmit={submit} class="grid gap-5">
+		{#if contact}
+			<Field label={contact.topic} required error={fieldError('topic')}>
+				{#snippet children({ attrs })}
+					<select name="topic" required bind:value={topic} class={SELECT_CLASS} {...attrs}>
+						<option value="">{contact.topicPlaceholder}</option>
+						{#each contact.topicOptions as option (option.value)}
+							<option value={option.value}>{option.label}</option>
+						{/each}
+					</select>
+				{/snippet}
+			</Field>
+		{/if}
+
 		<div class="grid items-end gap-5 sm:grid-cols-2">
 			<Field label={t.name} required error={fieldError('name')}>
 				{#snippet children({ attrs })}
 					<Input name="name" required maxlength={200} autocomplete="name" {...attrs} />
 				{/snippet}
 			</Field>
-			<Field label={t.company} required error={fieldError('company')}>
+			<Field
+				label={asksForBusiness ? t.company : (contact?.companyOptional ?? t.company)}
+				required={asksForBusiness}
+				error={fieldError('company')}
+			>
 				{#snippet children({ attrs })}
-					<Input name="company" required maxlength={200} autocomplete="organization" {...attrs} />
+					<Input
+						name="company"
+						required={asksForBusiness}
+						maxlength={200}
+						autocomplete="organization"
+						{...attrs}
+					/>
 				{/snippet}
 			</Field>
 		</div>
@@ -123,29 +173,26 @@
 			{/snippet}
 		</Field>
 
-		<Field label={t.businessType} required error={fieldError('businessType')}>
-			{#snippet children({ attrs })}
-				<select
-					name="businessType"
-					required
-					class="border-input bg-paper placeholder:text-faint focus-visible:border-ink focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 flex h-(--field-height) w-full min-w-0 rounded-md border px-3.5 py-1 text-sm outline-none transition-[color,box-shadow,border-color] enabled:hover:border-ink/35 focus-visible:ring-[3px]"
-					{...attrs}
-				>
-					<option value="">{t.businessTypePlaceholder}</option>
-					{#each t.businessTypeOptions as option (option.value)}
-						<option value={option.value}>{option.label}</option>
-					{/each}
-				</select>
-			{/snippet}
-		</Field>
+		{#if asksForBusiness}
+			<Field label={t.businessType} required error={fieldError('businessType')}>
+				{#snippet children({ attrs })}
+					<select name="businessType" required class={SELECT_CLASS} {...attrs}>
+						<option value="">{t.businessTypePlaceholder}</option>
+						{#each t.businessTypeOptions as option (option.value)}
+							<option value={option.value}>{option.label}</option>
+						{/each}
+					</select>
+				{/snippet}
+			</Field>
+		{/if}
 
-		<Field label={t.message} error={fieldError('message')}>
+		<Field label={contact?.message ?? t.message} error={fieldError('message')}>
 			{#snippet children({ attrs })}
 				<Textarea
 					name="message"
 					maxlength={5000}
 					rows={4}
-					placeholder={t.messagePlaceholder}
+					placeholder={contact?.messagePlaceholder ?? t.messagePlaceholder}
 					class="min-h-28"
 					{...attrs}
 				/>

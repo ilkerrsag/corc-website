@@ -17,6 +17,7 @@ interface Submission {
 	email: string;
 	businessType: string;
 	message: string;
+	topic: string;
 	lang: string | null;
 }
 
@@ -24,6 +25,20 @@ const MAX_BODY_BYTES = 20_000;
 const MAX_LENGTH = { name: 200, company: 200, email: 320, message: 5000 };
 const LANGUAGES = ['de', 'en'];
 const BUSINESS_TYPES = ['bar', 'caterer', 'hotel', 'company', 'other'];
+
+/**
+ * The tasting page sends no topic, because asking for a tasting is the only
+ * thing it does. The contact page sends one, and it decides both what the form
+ * still has to ask for and what the subject line of the notification says.
+ */
+const TOPICS = ['tasting', 'pricing', 'product', 'press', 'other'];
+const TOPIC_SUBJECTS: Record<string, string> = {
+	tasting: 'Tasting-Anfrage',
+	pricing: 'Preise und Bestellung',
+	product: 'Produktfrage',
+	press: 'Presse und Kooperation',
+	other: 'Anfrage'
+};
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const BREVO_SEND_URL = 'https://api.brevo.com/v3/smtp/email';
@@ -68,10 +83,12 @@ function oneLine(value: string): string {
 async function notify(env: Env, submission: Submission): Promise<void> {
 	if (!env.BREVO_API_KEY || !env.NOTIFY_FROM || !env.NOTIFY_TO) return;
 
+	const subject = TOPIC_SUBJECTS[submission.topic] ?? TOPIC_SUBJECTS.other;
 	const lines = [
+		`Thema:     ${subject}`,
 		`Name:      ${submission.name}`,
-		`Betrieb:   ${submission.company}`,
-		`Art:       ${submission.businessType}`,
+		`Betrieb:   ${submission.company || '(keine Angabe)'}`,
+		`Art:       ${submission.businessType || '(keine Angabe)'}`,
 		`E-Mail:    ${submission.email}`,
 		`Sprache:   ${submission.lang ?? 'unbekannt'}`,
 		'',
@@ -89,7 +106,7 @@ async function notify(env: Env, submission: Submission): Promise<void> {
 			sender: { name: 'CORC Website', email: env.NOTIFY_FROM },
 			to: [{ email: env.NOTIFY_TO }],
 			replyTo: { name: oneLine(submission.name), email: submission.email },
-			subject: `Tasting-Anfrage: ${oneLine(submission.company)}`,
+			subject: `${subject}: ${oneLine(submission.company) || oneLine(submission.name)}`,
 			textContent: lines.join('\n')
 		}),
 		signal: AbortSignal.timeout(10_000)
@@ -134,16 +151,24 @@ export default {
 		const message = field(data, 'message');
 		const businessType = field(data, 'businessType');
 		const lang = LANGUAGES.includes(field(data, 'lang')) ? field(data, 'lang') : null;
+		// No topic at all means the tasting page, which has only ever sent the one kind.
+		const rawTopic = field(data, 'topic');
+		const topic = rawTopic || 'tasting';
 
 		const fields: Record<string, string> = {};
+		if (!TOPICS.includes(topic)) fields.topic = 'A topic is required';
+		// Only a tasting needs to know who is pouring; a question does not.
+		const needsBusiness = topic === 'tasting';
 		if (!name) fields.name = 'Name is required';
 		else if (name.length > MAX_LENGTH.name) fields.name = 'Name is too long';
-		if (!company) fields.company = 'Venue or company is required';
+		if (needsBusiness && !company) fields.company = 'Venue or company is required';
 		else if (company.length > MAX_LENGTH.company) fields.company = 'Venue or company is too long';
 		if (!EMAIL_PATTERN.test(email) || email.length > MAX_LENGTH.email) {
 			fields.email = 'A valid email is required';
 		}
-		if (!BUSINESS_TYPES.includes(businessType)) fields.businessType = 'A business type is required';
+		if (needsBusiness && !BUSINESS_TYPES.includes(businessType)) {
+			fields.businessType = 'A business type is required';
+		}
 		if (message.length > MAX_LENGTH.message) fields.message = 'Message is too long';
 		if (Object.keys(fields).length > 0) {
 			return json({ error: 'Please check the form and try again', fields }, 422);
@@ -156,15 +181,17 @@ export default {
 		}
 
 		await env.DB.prepare(
-			'INSERT INTO submissions (name, company, email, business_type, message, lang) VALUES (?, ?, ?, ?, ?, ?)'
+			'INSERT INTO submissions (name, company, email, business_type, message, topic, lang) VALUES (?, ?, ?, ?, ?, ?, ?)'
 		)
-			.bind(name, company, email, businessType, message, lang)
+			.bind(name, company, email, businessType, message, topic, lang)
 			.run();
 
 		ctx.waitUntil(
-			notify(env, { name, company, email, businessType, message, lang }).catch((error: unknown) => {
-				console.error('notification failed', error);
-			})
+			notify(env, { name, company, email, businessType, message, topic, lang }).catch(
+				(error: unknown) => {
+					console.error('notification failed', error);
+				}
+			)
 		);
 
 		return json({ ok: true });

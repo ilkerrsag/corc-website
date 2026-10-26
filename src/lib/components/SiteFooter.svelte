@@ -9,7 +9,9 @@
 	const links = $derived<{ page: PageName; label: string }[]>([
 		{ page: 'home', label: t.nav.home },
 		{ page: 'bases', label: t.nav.bases },
+		{ page: 'why', label: t.nav.why },
 		{ page: 'about', label: t.nav.about },
+		{ page: 'contact', label: t.nav.contact },
 		{ page: 'tasting', label: t.nav.cta }
 	]);
 </script>

@@ -16,8 +16,10 @@ export const routes = {
 	home: '/[[lang=lang]]',
 	bases: '/[[lang=lang]]/bases',
 	base: '/[[lang=lang]]/bases/[slug]',
+	why: '/[[lang=lang]]/why',
 	about: '/[[lang=lang]]/about',
 	tasting: '/[[lang=lang]]/tasting',
+	contact: '/[[lang=lang]]/contact',
 	imprint: '/[[lang=lang]]/imprint',
 	privacy: '/[[lang=lang]]/privacy'
 } as const;
@@ -34,8 +36,10 @@ const pageByRoute = Object.fromEntries(
  */
 const segments: Record<Exclude<PageName, 'home' | 'base'>, Record<Locale, string>> = {
 	bases: { de: 'cocktail-basen', en: 'cocktail-bases' },
+	why: { de: 'warum-corc', en: 'why-corc' },
 	about: { de: 'ueber-corc', en: 'about' },
 	tasting: { de: 'tasting-buchen', en: 'book-a-tasting' },
+	contact: { de: 'kontakt', en: 'contact' },
 	imprint: { de: 'impressum', en: 'imprint' },
 	privacy: { de: 'datenschutz', en: 'privacy' }
 };

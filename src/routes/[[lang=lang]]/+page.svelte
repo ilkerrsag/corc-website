@@ -4,7 +4,7 @@
 	import Audience from '#lib/landing/Audience.svelte';
 	import Hero from '#lib/landing/Hero.svelte';
 	import HowItWorks from '#lib/landing/HowItWorks.svelte';
-	import Reasons from '#lib/landing/Reasons.svelte';
+	import ReasonsCompact from '#lib/landing/ReasonsCompact.svelte';
 	import Tasting from '#lib/landing/Tasting.svelte';
 
 	import type { PageProps } from './$types';
@@ -24,5 +24,5 @@
 <Hero {t} />
 <Audience {t} />
 <HowItWorks {t} />
-<Reasons {t} />
+<ReasonsCompact lang={data.lang} {t} />
 <Tasting lang={data.lang} {t} />

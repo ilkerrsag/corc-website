@@ -8,14 +8,14 @@
 	import speed from '#lib/assets/landing/reason-speed.webp';
 	import type { Messages } from '#lib/i18n/index.js';
 
-	let { t }: { t: Messages } = $props();
+	let { t, eyebrow = t.why.eyebrow }: { t: Messages; eyebrow?: string } = $props();
 
 	// Same order as `why.reasons` in the translations.
 	const images = [speed, fresh, easy, alcohol, guests];
 </script>
 
 <section id="why" class="mx-auto max-w-6xl px-5 pt-12 pb-20 sm:pt-14 sm:pb-24">
-	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} />
+	<SectionHeading {eyebrow} title={t.why.title} />
 
 	<!--
 		Six tracks rather than three, so five cards fill two complete rows: three

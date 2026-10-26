@@ -12,7 +12,9 @@ const en: Messages = {
 	nav: {
 		home: 'Main Page',
 		bases: 'Cocktail Bases',
+		why: `Why ${site.name}`,
 		about: 'About',
+		contact: 'Contact',
 		cta: 'Book a Tasting',
 		main: 'Main navigation',
 		menu: 'Menu',
@@ -95,7 +97,85 @@ const en: Messages = {
 				text: 'Drinks that keep people at the table. Handcrafted, worth a second glass. And a third.',
 				imageAlt: 'Guests talking around a high table, colourful drinks in hand'
 			}
-		]
+		],
+		detailEyebrow: 'In detail',
+		// On the home page the reasons are a compact strip; this link carries on to the full page.
+		more: 'See all five reasons'
+	},
+	whyPage: {
+		meta: {
+			title: `Why ${site.name} | Cocktail Bases for Venues and Events`,
+			description: `Why bars, caterers, hotels and companies in Berlin work with ${site.name}. Compared with preparing everything in house and with syrups and purees.`,
+			keywords: 'cocktail bases hospitality, mocktail solution catering, bar prep time'
+		},
+		eyebrow: `Why ${site.name}`,
+		title: 'The same bar quality, without the prep behind it.',
+		lead: 'There are three ways to get to a cocktail: make everything yourself, reach for syrup, or use a base that does both. Here is what each one means during service.',
+		ctaPrimary: 'Book a tasting',
+		ctaSecondary: 'See the bases',
+		compare: {
+			eyebrow: 'Compared',
+			title: 'What the difference looks like in service.',
+			rowLabel: 'Criterion',
+			columns: ['In house prep', 'Syrups and purees', site.name],
+			rows: [
+				{ label: 'Time per drink', values: ['1.5 to 2 minutes', 'Fast', 'Under 10 seconds'] },
+				{
+					label: 'Consistent taste',
+					values: ['Depends who is mixing', 'High', 'The same every glass']
+				},
+				{
+					label: 'Ingredients',
+					values: [
+						'Fresh, but prepared again every day',
+						'Flavouring and concentrate',
+						'Fruit and herbs as the main ingredient'
+					]
+				},
+				{ label: 'Training', values: ['An experienced bartender', 'Little', 'None'] },
+				{ label: 'Waste', values: ['High, fruit spoils', 'Low', 'Until the bottle is empty'] },
+				{
+					label: 'Alcohol free',
+					values: ['Needs its own recipe', 'Limited', 'The same base with tonic, soda or mate tea']
+				}
+			],
+			note: 'Alcohol free here means replacing, not leaving out: the base with tonic, soda, mate tea or ginger beer makes a mocktail that holds its own next to the cocktail.'
+		},
+		numbers: {
+			title: 'In numbers',
+			items: [
+				{ value: 'Under 10s', label: 'From glass to guest' },
+				{ value: '5', label: 'Bases to choose from' },
+				{ value: '400 ml & 1 L', label: 'Two formats' },
+				{ value: '12 to 13', label: 'Drinks per litre' }
+			]
+		},
+		audience: {
+			eyebrow: 'Who it is for',
+			title: `Where ${site.name} gets poured`,
+			items: [
+				{
+					title: 'Bars and restaurants',
+					text: 'A cocktail menu that still works on a full Friday, with no extra prep in the afternoon.'
+				},
+				{
+					title: 'Caterers and event agencies',
+					text: 'The same quality at every location, even on the nights when no mixologist is on the team.'
+				},
+				{
+					title: 'Hotels and conferences',
+					text: 'From the lobby to the evening reception, without keeping a bar team on hand.'
+				},
+				{
+					title: 'Company parties and office events',
+					text: 'Someone from the team pours and the drink still lands, round after round.'
+				},
+				{
+					title: 'Private celebrations',
+					text: 'Bar quality at home, without hiring anyone to make it happen.'
+				}
+			]
+		}
 	},
 	tasting: {
 		eyebrow: 'Tasting',
@@ -274,6 +354,46 @@ const en: Messages = {
 			},
 			{ title: 'Taste and decide', text: 'Try the bases together with your team.' }
 		]
+	},
+	contactPage: {
+		meta: {
+			title: `Contact | ${site.name} Berlin`,
+			description: `Questions about the bases, about pricing or about working with ${site.name}. Write to us, we usually reply within one working day.`,
+			keywords: 'CORC contact, cocktail bases Berlin contact, mocktail enquiry Berlin'
+		},
+		eyebrow: 'Contact',
+		title: 'Write to us.',
+		lead: 'Questions about the bases, about pricing or about working together: this is the place. Every message comes straight to us.',
+		direct: {
+			title: 'Direct',
+			emailLabel: 'Email',
+			responseLabel: 'Response time',
+			responseText: 'Usually within one working day',
+			locationLabel: 'Based in',
+			locationText: 'Berlin, Germany'
+		},
+		tastingBox: {
+			title: 'Rather taste it first?',
+			text: 'A tasting is the shortest route. We bring the bases to you.',
+			link: 'Book a tasting'
+		},
+		form: {
+			topic: 'What is this about?',
+			topicPlaceholder: 'Please select',
+			topicOptions: [
+				{ value: 'tasting', label: 'Tasting request' },
+				{ value: 'pricing', label: 'Pricing and orders' },
+				{ value: 'product', label: 'Question about a product' },
+				{ value: 'press', label: 'Press and partnerships' },
+				{ value: 'other', label: 'Something else' }
+			],
+			topicError: 'Please choose a topic.',
+			companyOptional: 'Company (optional)',
+			message: 'Your message',
+			messagePlaceholder: 'What can we help with?',
+			sentTitle: 'Thanks, we have your message.',
+			sentText: 'We will be in touch shortly.'
+		}
 	},
 	legal: {
 		updated: 'Last updated:',
