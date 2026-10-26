@@ -11,7 +11,9 @@ const de = {
 	nav: {
 		home: 'Hauptseite',
 		bases: 'Cocktail Basen',
+		why: `Warum ${site.name}`,
 		about: `Über ${site.name}`,
+		contact: 'Kontakt',
 		cta: 'Tasting buchen',
 		main: 'Hauptnavigation',
 		menu: 'Menü',
@@ -94,7 +96,92 @@ const de = {
 				text: 'Drinks, die Menschen am Tisch halten. Handgemacht, ein zweites Glas wert. Und ein drittes.',
 				imageAlt: 'Gäste im Gespräch an einem Stehtisch, mit bunten Drinks in der Hand'
 			}
-		]
+		],
+		detailEyebrow: 'Im Detail',
+		// On the home page the reasons are a compact strip; this link carries on to the full page.
+		more: 'Alle fünf Gründe ansehen'
+	},
+	whyPage: {
+		meta: {
+			title: `Warum ${site.name} | Cocktail Basen für Gastronomie und Events`,
+			description: `Warum Bars, Caterer, Hotels und Unternehmen in Berlin mit ${site.name} arbeiten. Im Vergleich zur eigenen Zubereitung und zu Sirup und Püree.`,
+			keywords: 'Cocktail Basen Gastronomie, Mocktail Lösung Catering, Cocktail Vorbereitung Bar'
+		},
+		eyebrow: `Warum ${site.name}`,
+		title: 'Dieselbe Barqualität, ohne die Vorbereitung dahinter.',
+		lead: 'Drei Wege führen zum Cocktail: alles selbst ansetzen, zu Sirup greifen, oder eine Base nehmen, die beides kann. Hier steht, was das im Service bedeutet.',
+		ctaPrimary: 'Tasting vereinbaren',
+		ctaSecondary: 'Basen ansehen',
+		compare: {
+			eyebrow: 'Im Vergleich',
+			title: 'Was der Unterschied im Service ausmacht.',
+			rowLabel: 'Kriterium',
+			columns: ['Eigene Zubereitung', 'Sirup und Püree', site.name],
+			rows: [
+				{ label: 'Zeit pro Drink', values: ['1,5 bis 2 Minuten', 'Schnell', 'Unter 10 Sekunden'] },
+				{
+					label: 'Gleichbleibender Geschmack',
+					values: ['Hängt davon ab, wer mixt', 'Hoch', 'Jedes Glas gleich']
+				},
+				{
+					label: 'Zutaten',
+					values: [
+						'Frisch, aber jeden Tag neu',
+						'Aroma und Konzentrat',
+						'Früchte und Kräuter als Hauptzutat'
+					]
+				},
+				{ label: 'Schulung', values: ['Erfahrene Barkraft nötig', 'Gering', 'Keine'] },
+				{
+					label: 'Schwund',
+					values: ['Hoch, Früchte verderben', 'Gering', 'Bis die Flasche leer ist']
+				},
+				{
+					label: 'Alkoholfrei',
+					values: [
+						'Eigenes Rezept nötig',
+						'Begrenzt',
+						'Dieselbe Base mit Tonic, Soda oder Mate Tee'
+					]
+				}
+			],
+			note: 'Alkoholfrei heißt hier nicht weglassen, sondern ersetzen: Base plus Tonic, Soda, Mate Tee oder Ginger Beer ergibt einen Mocktail, der neben dem Cocktail besteht.'
+		},
+		numbers: {
+			title: 'In Zahlen',
+			items: [
+				{ value: 'Unter 10 s', label: 'Vom Glas bis zum Gast' },
+				{ value: '5', label: 'Basen zur Auswahl' },
+				{ value: '400 ml & 1 L', label: 'Zwei Formate' },
+				{ value: '12 bis 13', label: 'Drinks pro Liter' }
+			]
+		},
+		audience: {
+			eyebrow: 'Für wen',
+			title: `Wo ${site.name} ausgeschenkt wird`,
+			items: [
+				{
+					title: 'Bars und Restaurants',
+					text: 'Eine Cocktailkarte, die auch am vollen Freitag funktioniert, ohne zusätzliche Vorbereitung am Nachmittag.'
+				},
+				{
+					title: 'Caterer und Eventagenturen',
+					text: 'Gleiche Qualität an jedem Standort, auch wenn an dem Abend kein Mixologe im Team steht.'
+				},
+				{
+					title: 'Hotels und Konferenzen',
+					text: 'Von der Lobby bis zum Abendempfang, ohne eigene Barmannschaft vorhalten zu müssen.'
+				},
+				{
+					title: 'Firmenfeiern und Büroevents',
+					text: 'Jemand aus dem Team gießt ein und der Drink sitzt trotzdem, Runde für Runde.'
+				},
+				{
+					title: 'Private Veranstaltungen',
+					text: 'Barqualität zu Hause, ohne jemanden dafür zu engagieren.'
+				}
+			]
+		}
 	},
 	tasting: {
 		eyebrow: 'Tasting',
@@ -273,6 +360,68 @@ const de = {
 			},
 			{ title: 'Probieren und entscheiden', text: 'Testet die Basen zusammen mit eurem Team.' }
 		]
+	},
+	contactPage: {
+		meta: {
+			title: `Kontakt | ${site.name} Berlin`,
+			description: `Fragen zu den Basen, zu Preisen oder zu einer Zusammenarbeit mit ${site.name}. Schreibt uns, wir antworten in der Regel innerhalb eines Werktags.`,
+			keywords: 'CORC Kontakt, Cocktail Basen Berlin Kontakt, Mocktail Anfrage Berlin'
+		},
+		eyebrow: 'Kontakt',
+		title: 'Schreibt uns.',
+		lead: 'Fragen zu den Basen, zu Preisen oder zu einer Zusammenarbeit: hier seid ihr richtig. Jede Nachricht landet direkt bei uns.',
+		direct: {
+			title: 'Direkt',
+			emailLabel: 'E-Mail',
+			responseLabel: 'Antwortzeit',
+			responseText: 'In der Regel innerhalb eines Werktags',
+			locationLabel: 'Sitz',
+			locationText: 'Berlin, Deutschland'
+		},
+		tastingBox: {
+			title: 'Lieber gleich probieren?',
+			text: 'Ein Tasting ist der kürzeste Weg. Wir kommen mit den Basen zu euch.',
+			link: 'Tasting buchen'
+		},
+		form: {
+			topic: 'Worum geht es?',
+			topicPlaceholder: 'Bitte auswählen',
+			topicOptions: [
+				{ value: 'tasting', label: 'Tasting Anfrage' },
+				{ value: 'pricing', label: 'Preise und Bestellung' },
+				{ value: 'product', label: 'Frage zu einem Produkt' },
+				{ value: 'press', label: 'Presse und Kooperation' },
+				{ value: 'other', label: 'Sonstiges' }
+			],
+			topicError: 'Bitte wählt ein Thema.',
+			// Asked only for the topic that needs them, so the form stays short for the rest.
+			format: 'Welches Format?',
+			formatPlaceholder: 'Bitte auswählen',
+			formatOptions: [
+				{ value: '400ml', label: '400 ml' },
+				{ value: '1l', label: '1 L' },
+				{ value: 'both', label: 'Beide' },
+				{ value: 'unsure', label: 'Noch offen' }
+			],
+			formatError: 'Bitte wählt ein Format.',
+			volume: 'Ungefährer Bedarf (optional)',
+			volumePlaceholder: 'Bitte auswählen',
+			volumeOptions: [
+				{ value: 'upto10', label: 'Bis 10 Flaschen im Monat' },
+				{ value: '10to30', label: '10 bis 30 Flaschen im Monat' },
+				{ value: '30to100', label: '30 bis 100 Flaschen im Monat' },
+				{ value: 'over100', label: 'Mehr als 100 Flaschen im Monat' },
+				{ value: 'unsure', label: 'Noch nicht abschätzbar' }
+			],
+			outlet: 'Medium oder Kanal',
+			outletPlaceholder: 'Name der Publikation, des Senders oder des Kanals',
+			outletError: 'Bitte tragt das Medium oder den Kanal ein.',
+			companyOptional: 'Unternehmen (optional)',
+			message: 'Eure Nachricht',
+			messagePlaceholder: 'Worum geht es genau?',
+			sentTitle: 'Danke, wir haben eure Nachricht.',
+			sentText: 'Wir melden uns in Kürze bei euch.'
+		}
 	},
 	legal: {
 		updated: 'Stand:',

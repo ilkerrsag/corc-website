@@ -23,10 +23,12 @@
 	let menuOpen = $state(false);
 	afterNavigate(() => (menuOpen = false));
 
+	// The logo already goes home, so the bar spends its room on the pages that argue.
 	const links = $derived<{ page: PageName; label: string }[]>([
-		{ page: 'home', label: t.nav.home },
 		{ page: 'bases', label: t.nav.bases },
-		{ page: 'about', label: t.nav.about }
+		{ page: 'why', label: t.nav.why },
+		{ page: 'about', label: t.nav.about },
+		{ page: 'contact', label: t.nav.contact }
 	]);
 
 	// `home` is the prefix of every other route, so it only counts on an exact match.
@@ -42,7 +44,12 @@
 			<img src={logo} alt={site.name} width="720" height="255" class="h-9 w-auto" />
 		</a>
 
-		<nav class="ml-auto hidden items-center gap-7 text-sm md:flex" aria-label={t.nav.main}>
+		<!--
+			Four links, and the German ones are long. The full bar waits for `lg`;
+			below that the menu button carries them, which also keeps the tablet
+			width from wrapping every label onto two lines.
+		-->
+		<nav class="ml-auto hidden items-center gap-6 text-sm lg:flex" aria-label={t.nav.main}>
 			{#each links as link (link.page)}
 				<a
 					href={pagePath(lang, link.page)}
@@ -54,7 +61,7 @@
 			{/each}
 		</nav>
 
-		<div class="ml-auto flex items-center gap-3 sm:gap-4 md:ml-0">
+		<div class="ml-auto flex items-center gap-3 sm:gap-4 lg:ml-0">
 			<div class="flex items-center gap-1 text-sm" role="group" aria-label={t.nav.language}>
 				{#each locales as locale, i (locale)}
 					{#if i > 0}<span class="text-faint" aria-hidden="true">/</span>{/if}
@@ -74,7 +81,7 @@
 			</Button>
 			<button
 				type="button"
-				class="-mr-2 grid size-10 place-items-center rounded-full text-foreground md:hidden"
+				class="-mr-2 grid size-10 place-items-center rounded-full text-foreground lg:hidden"
 				aria-label={t.nav.menu}
 				aria-expanded={menuOpen}
 				aria-controls="mobile-menu"
@@ -88,7 +95,7 @@
 	{#if menuOpen}
 		<nav
 			id="mobile-menu"
-			class="border-t border-line bg-background px-5 pt-2 pb-5 md:hidden"
+			class="border-t border-line bg-background px-5 pt-2 pb-5 lg:hidden"
 			aria-label={t.nav.main}
 		>
 			<ul class="divide-y divide-line">
