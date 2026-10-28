@@ -65,7 +65,7 @@ const en: Messages = {
 	},
 	why: {
 		eyebrow: `Why ${site.name}`,
-		title: `Five reasons to pour ${site.name}.`,
+		title: `Five reasons to work with ${site.name}.`,
 		lead: 'For bars, caterers, hotels and companies in Berlin.',
 		reasons: [
 			{
