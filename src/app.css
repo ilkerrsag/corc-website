@@ -419,10 +419,20 @@
 /* The small-caps label over a group ("E-POSTA BİLDİRİMLERİ"). Two to four words at
    most; colour comes from the call site (`text-muted-foreground`). */
 @utility eyebrow {
-	font-size: 0.6875rem;
+	font-size: 0.75rem;
 	font-weight: 400;
 	line-height: 1.6;
 	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* The same label where it has to carry a whole section rather than a field: over a
+   section heading or a page title, where 12px reads as an afterthought. */
+@utility eyebrow-lg {
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.6;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 

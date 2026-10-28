@@ -3,7 +3,7 @@
 </script>
 
 <div class="mx-auto max-w-3xl text-center">
-	<p class="eyebrow text-primary">{eyebrow}</p>
+	<p class="eyebrow-lg text-primary">{eyebrow}</p>
 	<h2
 		class="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl"
 	>

@@ -64,7 +64,8 @@ const de = {
 	},
 	why: {
 		eyebrow: `Warum ${site.name}`,
-		title: `Fünf Gründe, warum Bars, Caterer und Unternehmen in Berlin mit ${site.name} arbeiten.`,
+		title: `Fünf Gründe für ${site.name}.`,
+		lead: 'Für Bars, Caterer, Hotels und Unternehmen in Berlin.',
 		reasons: [
 			{
 				tag: 'Schnell',
@@ -110,6 +111,7 @@ const de = {
 		eyebrow: `Warum ${site.name}`,
 		title: 'Dieselbe Barqualität, ohne die Vorbereitung dahinter.',
 		lead: 'Drei Wege führen zum Cocktail: alles selbst ansetzen, zu Sirup greifen, oder eine Base nehmen, die beides kann. Hier steht, was das im Service bedeutet.',
+		imageAlt: 'Eine Base wird aus dem Shaker ins Glas abgeseiht',
 		ctaPrimary: 'Tasting vereinbaren',
 		ctaSecondary: 'Basen ansehen',
 		compare: {

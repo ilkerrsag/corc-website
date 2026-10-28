@@ -14,7 +14,7 @@
 	full version, with images and the comparison behind it, lives on its own page.
 -->
 <section id="why" class="mx-auto max-w-6xl px-5 pt-12 pb-20 sm:pt-14 sm:pb-24">
-	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} />
+	<SectionHeading eyebrow={t.why.eyebrow} title={t.why.title} lead={t.why.lead} />
 
 	<ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
 		{#each t.why.reasons as reason (reason.title)}
