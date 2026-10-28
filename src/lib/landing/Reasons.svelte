@@ -15,7 +15,7 @@
 </script>
 
 <section id="why" class="mx-auto max-w-6xl px-5 pt-12 pb-20 sm:pt-14 sm:pb-24">
-	<SectionHeading {eyebrow} title={t.why.title} />
+	<SectionHeading {eyebrow} title={t.why.title} lead={t.why.lead} />
 
 	<!--
 		Six tracks rather than three, so five cards fill two complete rows: three
