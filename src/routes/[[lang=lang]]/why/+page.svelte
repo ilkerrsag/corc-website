@@ -1,5 +1,5 @@
 <script lang="ts">
-	import pour from '#lib/assets/pages/bases-pour.webp';
+	import pour from '#lib/assets/pages/why-pour.webp';
 	import CtaBand from '#lib/components/CtaBand.svelte';
 	import Mark from '#lib/components/Mark.svelte';
 	import Seo from '#lib/components/Seo.svelte';
@@ -62,10 +62,10 @@
 		<img
 			src={pour}
 			alt={t.whyPage.imageAlt}
-			width="1376"
-			height="768"
+			width="1419"
+			height="887"
 			fetchpriority="high"
-			class="aspect-[16/10] h-auto w-full rounded-2xl object-cover object-[58%_center]"
+			class="aspect-[16/10] h-auto w-full rounded-2xl object-cover"
 		/>
 	</div>
 </section>

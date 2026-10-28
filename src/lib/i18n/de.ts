@@ -111,7 +111,7 @@ const de = {
 		eyebrow: `Warum ${site.name}`,
 		title: 'Dieselbe Barqualität, ohne die Vorbereitung dahinter.',
 		lead: 'Drei Wege führen zum Cocktail: alles selbst ansetzen, zu Sirup greifen, oder eine Base nehmen, die beides kann. Hier steht, was das im Service bedeutet.',
-		imageAlt: 'Eine Base wird aus dem Shaker ins Glas abgeseiht',
+		imageAlt: 'Ein Drink wird aus dem Shaker in eine Coupe-Schale abgeseiht',
 		ctaPrimary: 'Tasting vereinbaren',
 		ctaSecondary: 'Basen ansehen',
 		compare: {

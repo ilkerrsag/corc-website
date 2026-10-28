@@ -112,7 +112,7 @@ const en: Messages = {
 		eyebrow: `Why ${site.name}`,
 		title: 'The same bar quality, without the prep behind it.',
 		lead: 'There are three ways to get to a cocktail: make everything yourself, reach for syrup, or use a base that does both. Here is what each one means during service.',
-		imageAlt: 'A base being strained from the shaker into a glass',
+		imageAlt: 'A drink being strained from the shaker into a coupe glass',
 		ctaPrimary: 'Book a tasting',
 		ctaSecondary: 'See the bases',
 		compare: {
