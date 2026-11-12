@@ -25,7 +25,10 @@ export default defineConfig({
 			// ever reaches the translated addresses, so the internal route paths
 			// (`/bases`, `/about`, `/tasting`) never get written out as duplicates.
 			// `/sitemap.xml` is named here because nothing on the site links to it.
-			prerender: { entries: ['/', '/en', '/sitemap.xml'] }
+			// `handleUnseenRoutes` is here only for the maintenance notice: the root layout
+			// renders it instead of the page, so there are no links to crawl and the content
+			// routes are never reached. Remove it together with `src/lib/maintenance.ts`.
+			prerender: { entries: ['/', '/en', '/sitemap.xml'], handleUnseenRoutes: 'ignore' }
 		})
 	],
 	server: {

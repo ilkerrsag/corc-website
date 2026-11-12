@@ -7,9 +7,16 @@
 	import '../app.css';
 	import '../media.css';
 
+	import Maintenance from '../ui/Maintenance.svelte';
+	import { MAINTENANCE } from '#lib/maintenance.js';
+
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 </script>
 
-{@render children()}
+{#if MAINTENANCE}
+	<Maintenance />
+{:else}
+	{@render children()}
+{/if}
