@@ -753,12 +753,11 @@ export function mountEventFunnel(initialLang) {
       if (G.crewB > 0) { RV = G.crewB; figure(BAR, 0.62, 0.66, 'bar'); }
       if (G.runner > 0) { RV = G.runner; figure(BAR, 1.62, 0.84, 'bar'); }
       if (G.bar > 0) { RV = G.bar; drawBar(); RV = G.bottles; drawBottles(); RV = G.kit; drawKit(); }
-      if (G.tentBar > 0) { RV = G.tentBar; drawCanopy(TENT_BAR); }
     }]);
-    // outdoors the canopy is the first thing on the plot, so it has to stand on its
-    // own before there is a bar — and it also covers the self-service station
-    if (G.tentBar > 0 && !(G.bar > 0 || G.shelf > 0))
-      q.push([at(TENT_BAR.o, 0, 0), function () { RV = G.tentBar; drawCanopy(TENT_BAR); }]);
+    // A canopy sorts by its own back edge, so it is drawn before everything that stands
+    // under it and its legs end up behind the crew, the bottles and the speakers.
+    if (G.tentBar > 0) q.push([at(TENT_BAR.o, 0, TENT_BAR.d / 2), function () { RV = G.tentBar; drawCanopy(TENT_BAR); }]);
+    if (G.tentDJ > 0) q.push([at(TENT_DJ.o, 0, TENT_DJ.d / 2), function () { RV = G.tentDJ; drawCanopy(TENT_DJ); }]);
     if (G.spkBarL > 0) q.push([at(SPK_BAR_L,0,0), function () { RV = G.spkBarL; drawSpeaker(SPK_BAR_L); }]);
     if (G.spkBarR > 0) q.push([at(SPK_BAR_R,0,0), function () { RV = G.spkBarR; drawSpeaker(SPK_BAR_R); }]);
     if (G.spkL > 0) q.push([at(SPK_L,0,0), function () { RV = G.spkL; drawSpeaker(SPK_L); }]);
@@ -766,7 +765,6 @@ export function mountEventFunnel(initialLang) {
     if (G.dj > 0) q.push([at(BOOTH,0,0.62), function () { RV = G.dj; figure(BOOTH, 0, 0.62, 'dj'); }]);
     if (G.booth > 0) q.push([at(BOOTH,0,0), function () {
       RV = G.booth; drawBooth(); RV = G.mixer; drawMixer();
-      if (G.tentDJ > 0) { RV = G.tentDJ; drawCanopy(TENT_DJ); }
     }]);
     if (G.station > 0) q.push([at(ST,0,0), function () {
       if (G.host > 0) { RV = G.host; figure(ST, -1.72, 0.38, 'bar'); }
@@ -1772,6 +1770,7 @@ export function mountEventFunnel(initialLang) {
   /* ===================== panel ===================== */
   var elSteps = document.getElementById('steps'), elRail = document.getElementById('rail'),
       elCrumbs = document.getElementById('crumbs'), elSend = document.getElementById('send'),
+      elTag2 = document.getElementById('octag'),
       elTag = document.getElementById('stagetag');
 
   function paintRail() {
@@ -1797,6 +1796,7 @@ export function mountEventFunnel(initialLang) {
     if (!sent) elSend.textContent = tr('Send the request');
     elSend.disabled = sent || !(S.name && S.email && idx === STEPS.length - 1);
     elTag.textContent = tr(STEPS[idx].label);
+    paintTag();
   }
   function paint() {
     if (S.guests > 60 && S.service === 'self') S.service = 'bar';
@@ -1824,6 +1824,19 @@ export function mountEventFunnel(initialLang) {
     reached = Math.max(reached, idx);
     paint(); pushScene();
   }
+  // the sign only lights once there is an occasion to put on it
+  function paintTag() {
+    if (!S.occasion) { elTag2.innerHTML = ''; elTag2.dataset.v = ''; return; }
+    var name = pick(OCCASIONS, S.occasion);
+    if (elTag2.dataset.v === name) return;
+    elTag2.dataset.v = name;
+    elTag2.innerHTML = '<span class="cf-frame"><b>' + esc(name) + '</b></span>';
+    var f = elTag2.querySelector('.cf-frame'), r = f.getBoundingClientRect(), h = '', x, y;
+    for (x = 9; x < r.width - 4; x += 13) h += '<i style="left:' + x + 'px;top:-1.75px"></i><i style="left:' + x + 'px;bottom:-1.75px"></i>';
+    for (y = 9; y < r.height - 4; y += 13) h += '<i style="top:' + y + 'px;left:-1.75px"></i><i style="top:' + y + 'px;right:-1.75px"></i>';
+    f.insertAdjacentHTML('beforeend', h);
+  }
+
   elSend.addEventListener('click', function () {
     sent = true;
     elSend.textContent = tr('Sent');

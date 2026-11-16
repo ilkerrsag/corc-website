@@ -28,6 +28,7 @@
 		<section class="cf-stage">
 			<div class="cf-stagetag" id="stagetag"></div>
 			<svg id="sheet" viewBox="0 0 1000 720" aria-label={label}></svg>
+			<div class="cf-octag" id="octag"></div>
 		</section>
 	</div>
 	<svg id="probe"></svg>
