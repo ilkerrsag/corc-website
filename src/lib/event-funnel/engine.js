@@ -1067,8 +1067,13 @@ export function mountEventFunnel(initialLang) {
         var opts = PACKS.filter(function (p) { return !(S.service === 'self' && p.id === 'late'); }).map(function (p) {
           return p.id === 'cash' ? p : { id:p.id, name:p.name, note:p.note, num:p.per + ' ' + tr('per guest') + ' · ' + tr('about') + ' ' + (p.per * S.guests) + ' ' + tr('cocktails') };
         });
-        var btn;
-        m.appendChild(cards(opts, 'pack', function () { S.customDrinks = null; pushScene(); ok(); }));
+        var btn, self = S.service === 'self';
+        var wrap = cards(opts, 'pack', function () { S.customDrinks = null; pushScene(); ok(); prices(); });
+        m.appendChild(wrap);
+        // the station is one flat price however the evening is shaped, so it is said once
+        if (self) m.appendChild(el('<p class="cf-note" style="margin-top:14px">' + tr('Self-service station') + ', ' +
+          tr('up to four hours') + ': <span class="cf-money">' + esc(eur(RATE.self)) + '</span> ' + tr('net') + '. ' +
+          tr('The drinks are in that price.') + '</p>'));
         var link = el('<button class="cf-link" type="button">' + tr('Set the number myself') + '</button>');
         var box = el('<div style="display:none"></div>');
         var st = el('<div class="cf-row"><div class="cf-stepper"><button type="button" data-d="-25">&minus;</button><input inputmode="numeric" /><button type="button" data-d="25">+</button></div></div>');
@@ -1076,9 +1081,10 @@ export function mountEventFunnel(initialLang) {
         st.querySelectorAll('button').forEach(function (b) {
           b.addEventListener('click', function () { inp.value = Math.max(25, (+inp.value || 0) + (+b.dataset.d)); S.customDrinks = +inp.value; paintBar(); });
         });
-        inp.addEventListener('input', function () { S.customDrinks = parseInt(inp.value.replace(/\D/g,''),10) || null; paintBar(); });
+        inp.addEventListener('input', function () { S.customDrinks = parseInt(inp.value.replace(/\D/g,''),10) || null; paintBar(); prices(); });
         box.appendChild(el('<p class="cf-note" style="margin-top:18px">' + tr('Total cocktails for the night.') + '</p>'));
         box.appendChild(st);
+        var ownPrice = el('<p class="cf-note"></p>'); box.appendChild(ownPrice);
         link.addEventListener('click', function () { box.style.display = 'block'; link.style.display = 'none'; S.customDrinks = +inp.value; S.pack = S.pack || 'custom'; paintBar(); ok(); });
         m.appendChild(link); m.appendChild(box);
         m.appendChild(el('<p class="cf-note">' + tr('Your line on unused drinks goes here.') + '</p>'));
@@ -1092,15 +1098,36 @@ export function mountEventFunnel(initialLang) {
           c.addEventListener('click', function () {
             S.duration = d.id;
             hours.querySelectorAll('.cf-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c); });
-            paintBar(); ok();
+            paintBar(); ok(); prices();
           });
           hours.appendChild(c);
         });
         m.appendChild(hours);
         m.appendChild(el('<p class="cf-note">' + tr('We arrive two hours before you open and clear within one hour after. It does not count against your bar time.') + '</p>'));
 
+        m.appendChild(el('<p class="cf-note" style="margin-top:22px">' + tr('Every price here is net. VAT comes on top.') + '</p>'));
+
+        // Each card carries the price of its own choice. Bar time is folded in, so a
+        // longer evening moves the numbers where the customer can see it happen.
+        function prices() {
+          var nodes = wrap.querySelectorAll('.cf-opt');
+          opts.forEach(function (o, i) {
+            if (self) { priceTag(nodes[i], ''); return; }
+            if (o.id === 'cash') { priceTag(nodes[i], eur(RATE.cashSetup)); return; }
+            var p = drinksPrice(perOf(o.id) * S.guests);
+            priceTag(nodes[i], p == null ? tr('On request') : eur(p), p == null ? '' : 'net');
+          });
+          if (!self && S.customDrinks) {
+            var c = drinksPrice(S.customDrinks);
+            ownPrice.innerHTML = c == null
+              ? tr('Past four hundred cocktails we run a second bar, and we quote that one by hand.')
+              : '<span class="cf-money">' + esc(eur(c)) + '</span> ' + tr('net') + ', ' + tr('bar service for') + ' ' +
+                S.customDrinks + ' ' + tr('cocktails') + (hoursOf() ? ' ' + tr('over') + ' ' + hoursOf() + ' h' : '') + '.';
+          } else ownPrice.innerHTML = '';
+        }
+
         function ok() { btn.disabled = !(S.pack || S.customDrinks) || !S.duration; }
-        btn = cont('Continue', false); m.appendChild(btn); ok();
+        btn = cont('Continue', false); m.appendChild(btn); ok(); prices();
       } },
 
     { id:'menu', label:'Menu', sum:function(){ return S.menu.length + ' ' + tr('cocktails') + (S.aperitifs ? ' + ' + tr('aperitifs') : '') + (S.beers ? ' + ' + tr('beer') : ''); },
@@ -1153,10 +1180,12 @@ export function mountEventFunnel(initialLang) {
       title:'Want a cocktail workshop before the party?', sub:'Forty five minutes, hands on, before the event starts: your people shake their own, then the bar takes over. It does not have to sit on the event day at all, so if you would rather have it on its own date, say so in the last step.',
       body:function(m){
         var btn;
-        m.appendChild(cards(WORKSHOP, 'workshop', function (o) {
+        var wrap = cards(WORKSHOP, 'workshop', function (o) {
           if (o.id === 'no') extra.innerHTML = ''; else draw();
           pushScene(); btn.disabled = false;
-        }));
+        });
+        m.appendChild(wrap);
+        priceTag(wrap.querySelectorAll('.cf-opt')[0], eur(RATE.workshop));   // flat, whatever the headcount
         var extra = el('<div></div>'); m.appendChild(extra);
         function draw() {
           extra.innerHTML = '';
@@ -1176,12 +1205,19 @@ export function mountEventFunnel(initialLang) {
       title:'What about music?', sub:'The bar runs fine without it. These are the two ways to add it.',
       body:function(m){
         var btn;
-        m.appendChild(cards(MUSIC, 'music', function (o) {
+        var wrap = cards(MUSIC, 'music', function (o) {
           pushScene();
           if (o.id === 'none') { S.direction = []; S.avoid = ''; S.otherLive = ''; extra.innerHTML = ''; }
           else draw();
           btn.disabled = false;
-        }));
+        });
+        m.appendChild(wrap);
+        // speakers ride along with the bar; the DJ is a line of his own, and it grows with the hours
+        var mNodes = wrap.querySelectorAll('.cf-opt');
+        MUSIC.forEach(function (o, i) {
+          if (o.id === 'speakers') priceTag(mNodes[i], tr('Included'), '');
+          if (o.id === 'dj') priceTag(mNodes[i], eur(djPrice()));
+        });
         var extra = el('<div></div>'); m.appendChild(extra);
         function draw() {
           extra.innerHTML = '';
@@ -1189,6 +1225,10 @@ export function mountEventFunnel(initialLang) {
             extra.appendChild(el('<p class="cf-note" style="margin-top:22px;color:var(--mut)">' +
               '<b style="color:var(--fg);font-weight:500">' + tr('How the night runs.') + '</b> ' +
               tr('The resident plays up to three hours of house and techno. Around the set, the playlist runs in the genres you pick.') + '</p>'));
+            extra.appendChild(el('<p class="cf-note">' + tr('Booth, speakers and the resident for') + ' ' + RATE.djTime + ' h: <span class="cf-money">' +
+              esc(eur(RATE.dj)) + '</span> ' + tr('net') + '. ' + tr('Each further hour') + ' <span class="cf-money">' +
+              esc(eur(RATE.djHour)) + '</span>.' + (hoursOf() > RATE.djTime ? ' ' + tr('Your') + ' ' + hoursOf() + ' h: <span class="cf-money">' +
+              esc(eur(djPrice())) + '</span> ' + tr('net') + '.' : '') + '</p>'));
           }
           extra.appendChild(el('<p class="cf-note" style="margin-top:22px;color:var(--mut)">' + tr('What should the playlist sound like? Pick up to three.') + '</p>'));
           var c = el('<div class="cf-chips" style="margin-top:10px"></div>');
@@ -1238,6 +1278,10 @@ export function mountEventFunnel(initialLang) {
             b.setAttribute('aria-pressed', S.extras.indexOf(o.id) > -1);
             pushScene(); paintBar();
           });
+          // the two per-unit extras are priced off the package the bar is already on
+          if (o.id === 'video') priceTag(b, eur(RATE.video));
+          if (o.id === 'drinks') priceTag(b, eur(blockPrice()));   // the note already says per block of 25
+          if (o.id === 'late') priceTag(b, eur(hourPrice()));      // and here, per hour
           tg.appendChild(b);
         });
         m.appendChild(tg);
@@ -1678,7 +1722,17 @@ export function mountEventFunnel(initialLang) {
     "Power on site is not confirmed, so we will come back to you about a generator.": "Strom vor Ort ist nicht bestätigt, deshalb melden wir uns wegen eines Generators.",
     "We are in two hours before the bar opens and clear within one hour after. It does not count against your bar time.": "Wir sind zwei Stunden vor Öffnung der Bar da und innerhalb einer Stunde danach wieder raus. Das zählt nicht zu eurer Barzeit.",
     "50 % deposit on confirmation, the balance after the event. Business clients receive an invoice with VAT listed separately.": "50 % Anzahlung bei Bestätigung, der Rest nach dem Event. Geschäftskunden erhalten eine Rechnung mit ausgewiesener MwSt.",
-    "Free up to 21 days before. 50 % between 21 and 7 days. Full price within the final 7 days.": "Kostenlos bis 21 Tage vorher. 50 % zwischen 21 und 7 Tagen. Voller Preis in den letzten 7 Tagen."
+    "Free up to 21 days before. 50 % between 21 and 7 days. Full price within the final 7 days.": "Kostenlos bis 21 Tage vorher. 50 % zwischen 21 und 7 Tagen. Voller Preis in den letzten 7 Tagen.",
+
+    "up to four hours": "bis vier Stunden",
+    "The drinks are in that price.": "Die Getränke sind da drin.",
+    "Every price here is net. VAT comes on top.": "Alle Preise hier sind netto. Die MwSt. kommt obendrauf.",
+    "Past four hundred cocktails we run a second bar, and we quote that one by hand.": "Ab vierhundert Cocktails stellen wir eine zweite Bar, und die kalkulieren wir von Hand.",
+    "bar service for": "Barservice für",
+    "over": "über",
+    "Booth, speakers and the resident for": "Booth, Boxen und unser Resident für",
+    "Each further hour": "Jede weitere Stunde",
+    "Your": "Eure"
   };
   function tr(k) { return (LANG === 'de' && DE[k]) ? DE[k] : k; }
   function loc() { return LANG === 'de' ? 'de-DE' : 'en-GB'; }
@@ -1698,6 +1752,30 @@ export function mountEventFunnel(initialLang) {
   };
   function eur(v) { return v.toLocaleString(loc()) + ' €'; }
   function round50(v) { return Math.round(v / 50) * 50; }
+
+  // Each step can price its own decision, so nothing is a surprise at the end.
+  // These read the same rate card quote() does; they never add up a running total.
+  function hoursOf() { return parseInt(S.duration, 10) || 0; }
+  function tierOf(d) { for (var i = 0; i < RATE.tiers.length; i++) if (d <= RATE.tiers[i].max) return RATE.tiers[i]; return null; }
+  function perOf(id) { for (var i = 0; i < PACKS.length; i++) if (PACKS[i].id === id) return PACKS[i].per; return 0; }
+  function drinksPrice(d) {                       // bar service, net, for that many cocktails
+    var t = tierOf(d); if (!t) return null;
+    var h = hoursOf();
+    return t.net + (h > t.time ? (h - t.time) * t.hour : 0);
+  }
+  function djPrice() { return RATE.dj + RATE.djHour * Math.max(0, (hoursOf() || RATE.djTime) - RATE.djTime); }
+  function blockPrice() { var t = tierOf(totalDrinks()); return t ? t.block : 250; }
+  function hourPrice() { var t = tierOf(totalDrinks()); return t ? t.hour : RATE.cashHour; }
+
+  // writes, updates or clears the price in a card's corner
+  function priceTag(node, text, label) {
+    var t = node.querySelector('.cf-eur');
+    if (!text) { if (t) node.removeChild(t); node.classList.remove('hasEur'); return; }
+    if (!t) { t = el('<span class="cf-eur"></span>'); node.appendChild(t); }
+    if (label === undefined) label = 'net';
+    t.innerHTML = esc(text) + (label ? '<em>' + esc(tr(label)) + '</em>' : '');
+    node.classList.add('hasEur');
+  }
 
   function quote() {
     var q = { lines:[], net:0, over:false, notes:[] };

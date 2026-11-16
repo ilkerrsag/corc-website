@@ -34,6 +34,12 @@
 .funnel .cf-opt b{display:block;font-weight:500;font-size:0.95rem;}
 .funnel .cf-opt i{display:block;font-style:normal;color:var(--mut);font-size:0.8rem;line-height:1.5;margin-top:3px;}
 .funnel .cf-opt .cf-num{display:block;color:var(--primary);font-size:0.76rem;letter-spacing:0.06em;margin-top:5px;}
+/* the price of one decision, in the corner of the card that carries it */
+.funnel .cf-opt, .funnel .cf-tg{position:relative;}
+.funnel .cf-opt.cf-hasEur, .funnel .cf-tg.cf-hasEur{padding-right:104px;}
+.funnel .cf-eur{position:absolute;top:12px;right:15px;text-align:right;white-space:nowrap;font-family:var(--display);font-weight:500;font-size:0.88rem;line-height:1.1;}
+.funnel .cf-eur em{display:block;font-style:normal;font-family:inherit;font-weight:400;color:var(--mut);font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;margin-top:3px;white-space:normal;max-width:88px;margin-left:auto;line-height:1.35;}
+.funnel .cf-money{color:var(--fg);font-family:var(--display);font-weight:500;}
 .funnel .cf-row{display:flex;align-items:center;gap:12px;margin-top:20px;}
 .funnel .cf-stepper{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);}
 .funnel .cf-stepper button{width:44px;height:48px;background:none;border:0;font-size:1.1rem;color:var(--mut);}

@@ -6,7 +6,7 @@ OUT = '/home/claude/corc-website/src/lib/event-funnel/'
 NAMES = ['app','big','box','btn','card','chip','chips','crumbs','done','eyebrow','f','facts','fields',
          'ghost','lbl','lines','link','ln','mark','note','now','num','on','opt','opts','panel','phead',
          'ptop','quote','rail','row','soft','stage','stagetag','step','stepper','steps','sub','sumbar',
-         't','tg','toggles','two','val','vat','octag','frame']
+         't','tg','toggles','two','val','vat','octag','frame','eur','money','hasEur']
 S = set(NAMES)
 src = io.open(SRC, encoding='utf-8').read().split('\n')
 cs = next(i for i, l in enumerate(src) if l.strip() == ':root{')
