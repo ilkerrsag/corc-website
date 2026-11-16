@@ -5,7 +5,7 @@ import { site } from '#lib/site.js';
 export const prerender = true;
 
 /** Every page, in every language, each one naming its translations. */
-const pages: PageName[] = ['home', 'bases', 'why', 'about', 'tasting', 'contact'];
+const pages: PageName[] = ['home', 'bases', 'eventBar', 'why', 'about', 'tasting', 'contact'];
 
 function entry(page: PageName, params: Record<string, string> = {}): string {
 	const alternates = locales

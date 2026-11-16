@@ -14,6 +14,7 @@ const de = {
 		why: `Warum ${site.name}`,
 		about: `Über ${site.name}`,
 		contact: 'Kontakt',
+		eventBar: 'Event Bar',
 		cta: 'Tasting buchen',
 		main: 'Hauptnavigation',
 		menu: 'Menü',
@@ -342,6 +343,14 @@ const de = {
 			title: `Bereit, ${site.name} auf euer nächstes Event zu holen?`,
 			lead: 'Fragt ein Tasting an. Wir kommen zu euch.'
 		}
+	},
+	eventBarPage: {
+		meta: {
+			title: `Event Bar in Berlin, in zehn Schritten geplant | ${site.name}`,
+			description: `Plant eure Event Bar in Berlin Schritt für Schritt: Bar oder Selbstbedienung, wie viele Drinks, die Karte, Musik und Extras. Die Schätzung seht ihr, bevor ihr eure Daten hinterlasst.`,
+			keywords: 'Event Bar Berlin, mobile Cocktailbar, Cocktail Catering Berlin'
+		},
+		label: 'Event Bar'
 	},
 	tastingPage: {
 		meta: {

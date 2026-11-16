@@ -19,6 +19,7 @@ export const routes = {
 	why: '/[[lang=lang]]/why',
 	about: '/[[lang=lang]]/about',
 	tasting: '/[[lang=lang]]/tasting',
+	eventBar: '/[[lang=lang]]/eventBar',
 	contact: '/[[lang=lang]]/contact',
 	imprint: '/[[lang=lang]]/imprint',
 	privacy: '/[[lang=lang]]/privacy'
@@ -39,6 +40,7 @@ const segments: Record<Exclude<PageName, 'home' | 'base'>, Record<Locale, string
 	why: { de: 'warum-corc', en: 'why-corc' },
 	about: { de: 'ueber-corc', en: 'about' },
 	tasting: { de: 'tasting-buchen', en: 'book-a-tasting' },
+	eventBar: { de: 'event-bar', en: 'event-bar' },
 	contact: { de: 'kontakt', en: 'contact' },
 	imprint: { de: 'impressum', en: 'imprint' },
 	privacy: { de: 'datenschutz', en: 'privacy' }

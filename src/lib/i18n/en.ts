@@ -15,6 +15,7 @@ const en: Messages = {
 		why: `Why ${site.name}`,
 		about: 'About',
 		contact: 'Contact',
+		eventBar: 'Event Bar',
 		cta: 'Book a Tasting',
 		main: 'Main navigation',
 		menu: 'Menu',
@@ -336,6 +337,14 @@ const en: Messages = {
 			title: `Ready to bring ${site.name} to your next event?`,
 			lead: 'Request a tasting and we will come to you.'
 		}
+	},
+	eventBarPage: {
+		meta: {
+			title: `Event Bar in Berlin, Planned in Ten Steps | ${site.name}`,
+			description: `Plan your event bar in Berlin step by step: bar or self service, how many drinks, the card, music and extras. You see the estimate before you leave your details.`,
+			keywords: 'event bar Berlin, mobile cocktail bar, cocktail catering Berlin'
+		},
+		label: 'Event bar'
 	},
 	tastingPage: {
 		meta: {

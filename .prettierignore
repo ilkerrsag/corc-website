@@ -12,3 +12,7 @@ bun.lockb
 /src/ui/
 /src/app.css
 /src/media.css
+
+# generated from the standalone prototype
+src/lib/event-funnel/engine.js
+src/lib/event-funnel/funnel.css

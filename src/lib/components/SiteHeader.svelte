@@ -26,6 +26,7 @@
 	// The logo already goes home, so the bar spends its room on the pages that argue.
 	const links = $derived<{ page: PageName; label: string }[]>([
 		{ page: 'bases', label: t.nav.bases },
+		{ page: 'eventBar', label: t.nav.eventBar },
 		{ page: 'why', label: t.nav.why },
 		{ page: 'about', label: t.nav.about },
 		{ page: 'contact', label: t.nav.contact }
