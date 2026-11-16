@@ -467,7 +467,8 @@ export function mountEventFunnel(initialLang) {
     var c = Math.cos(BAR.rot), s = Math.sin(BAR.rot);
     return { x: BAR.x + lx * c - lz * s, z: BAR.z + lx * s + lz * c, rot: BAR.rot };
   }
-  var SPK_BAR_L = barLocal(-1.62, 0.02), SPK_BAR_R = barLocal(1.62, 0.02);
+  // the pair stands forward of the counter, so neither one tangles with the back shelf
+  var SPK_BAR_L = barLocal(-1.66, 0.02), SPK_BAR_R = barLocal(1.66, 0.02);
 
   function off(o, lx, lz) {
     var c = Math.cos(o.rot || 0), s = Math.sin(o.rot || 0);
@@ -524,7 +525,10 @@ export function mountEventFunnel(initialLang) {
   // The crew stands clear of the DJ zone, to its right and a step forward, so no
   // tent post or speaker stand crosses them.
   var VID = { rig: { x: 5.52, z: -0.72, rot: -1.780 }, man: { x: 6.46, z: -0.42, rot: 0 } };
-  function vidPos() { return VID; }
+  // With no DJ booth there is nothing between the bar and the camera, so the operator sets
+  // up near it rather than standing alone at the far end of an empty floor.
+  var VID_NEAR = { rig: { x: 2.05, z: -1.02, rot: -1.780 }, man: { x: 2.99, z: -0.72, rot: 0 } };
+  function vidPos() { return S.music === 'dj' ? VID : VID_NEAR; }
 
   var ST = { x: BAR.x, z: BAR.z, rot: BAR.rot, w: 2.80, d: 0.76, top: 0.90, slab: 0.05, shelf: 0.26 };
   ST.surface = ST.top + ST.slab;
@@ -719,15 +723,17 @@ export function mountEventFunnel(initialLang) {
 
   var SHOT = {
     near:       { yaw: BAR.rot, dist: 4.05,  tx: BAR.x,  tz: BAR.z,       cy: 243, eye: 1.60, focal: 1060, vb: 720 },
-    wide:       { yaw: -0.26,   dist: 11.20, tx: 0.55,   tz: 2.30,        cy: 268, eye: 1.60, focal: 1010, vb: 500 },
+    wide:       { yaw: -0.26,   dist: 12.60, tx: 0.08,   tz: 2.30,        cy: 268, eye: 1.60, focal: 940,  vb: 500 },
     nearSpk:    { yaw: BAR.rot, dist: 4.95,  tx: BAR.x,  tz: BAR.z,       cy: 296, eye: 1.60, focal: 1060, vb: 720 },
     menu:       { yaw: BAR.rot, dist: 0.95,  tx: CARD.x, tz: CARD.z,      cy: 342, eye: CARD.base + CARD.h * 0.5, focal: 2600, vb: 700 },
     work:       { yaw: -1.25,   dist: 5.60,  tx: WORK.x, tz: WORK.z,      cy: 140, eye: 1.60, focal: 1020, vb: 480 },
     nearOut:    { yaw: BAR.rot, dist: 8.80,  tx: BAR.x,  tz: BAR.z + 0.5, cy: 300, eye: 1.60, focal: 1240, vb: 720 },
     plot:       { yaw: -0.26,   dist: 16.50, tx: 1.26,   tz: 2.56,        cy: 238, eye: 1.95, focal: 820,  vb: 500 },
-    wideOut:    { yaw: -0.26,   dist: 11.60, tx: 0.55,   tz: 2.30,        cy: 318, eye: 1.60, focal: 930,  vb: 560 },
-    wideVid:    { yaw: -0.26,   dist: 12.70, tx: 1.55,   tz: 2.30,        cy: 272, eye: 1.60, focal: 960,  vb: 500 },
-    wideVidOut: { yaw: -0.26,   dist: 13.20, tx: 1.55,   tz: 2.30,        cy: 322, eye: 1.60, focal: 890,  vb: 560 },
+    wideOut:    { yaw: -0.26,   dist: 13.10, tx: 0.08,   tz: 2.30,        cy: 318, eye: 1.60, focal: 865,  vb: 560 },
+    wideVid:    { yaw: -0.26,   dist: 14.20, tx: 1.20,   tz: 2.30,        cy: 272, eye: 1.60, focal: 895,  vb: 500 },
+    wideVidOut: { yaw: -0.26,   dist: 14.80, tx: 1.20,   tz: 2.30,        cy: 322, eye: 1.60, focal: 825,  vb: 560 },
+    vidNear:    { yaw: 0.30,    dist: 9.60,  tx: -0.55,  tz: 1.95,        cy: 262, eye: 1.60, focal: 975,  vb: 500 },
+    vidNearOut: { yaw: 0.30,    dist: 10.10, tx: -0.55,  tz: 1.95,        cy: 312, eye: 1.60, focal: 900,  vb: 560 },
     nearSelf:   { yaw: BAR.rot, dist: 5.10,  tx: ST.x,    tz: ST.z,         cy: 228, eye: 1.60, focal: 1060, vb: 720 },
     menuSelf:   { yaw: BAR.rot, dist: 0.98,  tx: STAND.x, tz: STAND.z,      cy: 352, eye: 1.32, focal: 2400, vb: 720 }
   };
@@ -826,16 +832,23 @@ export function mountEventFunnel(initialLang) {
       cb = t + Math.max(200, Math.min(CAMT, CAMT * rem));
       t = cb;
     }
-    var upAt = t;
+    var upAt = t, cardEnd = null;
     ORDER.forEach(function (k) {
       if (k === 'menu') return;                     // the card writes in parallel, see below
-      if ((target[k]||0) > from[k] + 0.001) { tl.push({ k:k, a:t, b:t+(UP[k] || 400), to:target[k]||0 }); t += UP[k] || 400; }
+      if ((target[k]||0) > from[k] + 0.001) {
+        tl.push({ k:k, a:t, b:t+(UP[k] || 400), to:target[k]||0 });
+        if (k === 'card') cardEnd = t + (UP[k] || 400);
+        t += UP[k] || 400;
+      }
     });
-    // every cocktail takes the same time to appear, whatever else is being drawn alongside it
+    // The card writes on its own clock. It waits for the blank card to be drawn and for
+    // nothing else, so picking a cocktail mid-flight adds a line instead of stalling the
+    // scene, and every cocktail takes the same time to appear.
     if ((target.menu||0) > from.menu + 0.001) {
       var dm = Math.max(380, ((target.menu||0) - from.menu) * ITEMS.length * 300);
-      tl.push({ k:'menu', a:upAt, b:upAt + dm, to:target.menu||0 });
-      t = Math.max(t, upAt + dm);
+      var ma = cardEnd == null ? 0 : cardEnd;
+      tl.push({ k:'menu', a:ma, b:ma + dm, to:target.menu||0 });
+      t = Math.max(t, ma + dm);
     }
     var total = Math.max(t, 1), t0 = null;
     (function frame(now) {
@@ -895,7 +908,8 @@ export function mountEventFunnel(initialLang) {
     var shot = bare ? SHOT.plot : (self ? SHOT.nearSelf : (spk ? SHOT.nearSpk : SHOT.near));
     if (id === 'workshop' && S.workshop === 'yes') shot = Object.assign({}, SHOT.work, { dist: 1.60 + workWidth() * 1.25 });
     else if (id === 'menu') shot = self ? SHOT.menuSelf : SHOT.menu;
-    else if (t.vidRig && idx >= iExtras) shot = out ? SHOT.wideVidOut : SHOT.wideVid;
+    else if (t.vidRig && idx >= iExtras) shot = S.music === 'dj' ? (out ? SHOT.wideVidOut : SHOT.wideVid)
+                                                                 : (out ? SHOT.vidNearOut : SHOT.vidNear);
     else if (S.music === 'dj' && idx >= iMusic) shot = out ? SHOT.wideOut : SHOT.wide;
     twoCrew = crewOf() > 1;
     return { t: t, shot: shot };
@@ -911,7 +925,9 @@ export function mountEventFunnel(initialLang) {
     BAR_BOTTLES = picked.map(function (b) { return b.col; });
     var n = ITEMS.length;
     MENU = ITEMS.map(function () { return 0; });
-    if (animate && prevItems > 0 && n > prevItems) G.menu = prevItems / n;
+    // A new item never rubs out what is already written: the lines drawn so far keep
+    // their place on the longer card, so the pen carries on from where it was.
+    if (animate && prevItems > 0 && n > prevItems) G.menu = Math.min(1, (G.menu || 0) * prevItems / n);
     else if (animate && n < prevItems) G.menu = 1;
     prevItems = n;
     measure();
@@ -1185,19 +1201,29 @@ export function mountEventFunnel(initialLang) {
           pushScene(); btn.disabled = false;
         });
         m.appendChild(wrap);
-        priceTag(wrap.querySelectorAll('.cf-opt')[0], eur(RATE.workshop));   // flat, whatever the headcount
+        var yes = wrap.querySelectorAll('.cf-opt')[0], headNote = null;
+        // the card and the line under the stepper both move with the headcount
+        function price() {
+          priceTag(yes, eur(workshopPrice()));
+          if (headNote) headNote.innerHTML = tr('Up to') + ' ' + RATE.workshopBase + ' ' + tr('people') + ': <span class="cf-money">' +
+            esc(eur(RATE.workshop)) + '</span> ' + tr('net') + '. ' + tr('Each further person') + ' <span class="cf-money">' +
+            esc(eur(RATE.workshopHead)) + '</span>.';
+        }
         var extra = el('<div></div>'); m.appendChild(extra);
         function draw() {
-          extra.innerHTML = '';
+          extra.innerHTML = ''; headNote = null;
           var st = el('<div class="cf-row"><div class="cf-stepper"><button type="button" data-d="-2">&minus;</button><input inputmode="numeric" /><button type="button" data-d="2">+</button></div></div>');
           var inp = st.querySelector('input'); inp.value = S.workshopPeople;
           st.querySelectorAll('button').forEach(function (b) {
-            b.addEventListener('click', function () { S.workshopPeople = Math.max(4, Math.min(20, S.workshopPeople + (+b.dataset.d))); inp.value = S.workshopPeople; pushScene(); paintBar(); });
+            b.addEventListener('click', function () { S.workshopPeople = Math.max(4, Math.min(20, S.workshopPeople + (+b.dataset.d))); inp.value = S.workshopPeople; pushScene(); paintBar(); price(); });
           });
           extra.appendChild(el('<p class="cf-note" style="margin-top:18px">' + tr('How many people take part? Up to twenty.') + '</p>'));
           extra.appendChild(st);
+          headNote = el('<p class="cf-note"></p>'); extra.appendChild(headNote);
+          price();
         }
         if (S.workshop === 'yes') draw();
+        price();
         btn = cont('Continue', !!S.workshop); m.appendChild(btn);
       } },
 
@@ -1215,7 +1241,7 @@ export function mountEventFunnel(initialLang) {
         // speakers ride along with the bar; the DJ is a line of his own, and it grows with the hours
         var mNodes = wrap.querySelectorAll('.cf-opt');
         MUSIC.forEach(function (o, i) {
-          if (o.id === 'speakers') priceTag(mNodes[i], tr('Included'), '');
+          if (o.id === 'speakers') priceTag(mNodes[i], eur(RATE.speakers));
           if (o.id === 'dj') priceTag(mNodes[i], eur(djPrice()));
         });
         var extra = el('<div></div>'); m.appendChild(extra);
@@ -1732,7 +1758,10 @@ export function mountEventFunnel(initialLang) {
     "over": "über",
     "Booth, speakers and the resident for": "Booth, Boxen und unser Resident für",
     "Each further hour": "Jede weitere Stunde",
-    "Your": "Eure"
+    "Your": "Eure",
+    "Up to": "Bis",
+    "people": "Personen",
+    "Each further person": "Jede weitere Person"
   };
   function tr(k) { return (LANG === 'de' && DE[k]) ? DE[k] : k; }
   function loc() { return LANG === 'de' ? 'de-DE' : 'en-GB'; }
@@ -1748,7 +1777,8 @@ export function mountEventFunnel(initialLang) {
       { id:'XL', max:400, net:2500, hour:300, block:160, time:5 }
     ],
     self:600, selfTime:4, cashSetup:300, cashHour:150,
-    dj:900, djTime:4, djHour:150, workshop:800, video:350, vat:0.19
+    speakers:300, dj:900, djTime:4, djHour:150,
+    workshop:800, workshopBase:10, workshopHead:60, video:350, vat:0.19
   };
   function eur(v) { return v.toLocaleString(loc()) + ' €'; }
   function round50(v) { return Math.round(v / 50) * 50; }
@@ -1764,6 +1794,8 @@ export function mountEventFunnel(initialLang) {
     return t.net + (h > t.time ? (h - t.time) * t.hour : 0);
   }
   function djPrice() { return RATE.dj + RATE.djHour * Math.max(0, (hoursOf() || RATE.djTime) - RATE.djTime); }
+  // the base covers a table of ten; past that each pair of hands costs the same again
+  function workshopPrice() { return RATE.workshop + RATE.workshopHead * Math.max(0, S.workshopPeople - RATE.workshopBase); }
   function blockPrice() { var t = tierOf(totalDrinks()); return t ? t.block : 250; }
   function hourPrice() { var t = tierOf(totalDrinks()); return t ? t.hour : RATE.cashHour; }
 
@@ -1802,12 +1834,14 @@ export function mountEventFunnel(initialLang) {
             tr('Everything stays open, the crew stays on'));
     }
 
+    if (S.music === 'speakers')
+      add(tr('Speakers and playlist'), RATE.speakers, tr('A pair of speakers beside the bar, your genres all night'));
     if (S.music === 'dj') {
       var extraDj = Math.max(0, hours - RATE.djTime);
       add(tr('DJ and sound system') + ', ' + RATE.djTime + ' h', RATE.dj, tr('Booth, speakers and our resident'));
       if (extraDj) add('DJ, ' + extraDj + ' ' + tr(extraDj > 1 ? 'more hours' : 'more hour'), RATE.djHour * extraDj);
     }
-    if (S.workshop === 'yes') add(tr('Cocktail workshop'), RATE.workshop, S.workshopPeople + ' ' + tr('people, forty five minutes'));
+    if (S.workshop === 'yes') add(tr('Cocktail workshop'), workshopPrice(), S.workshopPeople + ' ' + tr('people, forty five minutes'));
     if (S.extras.indexOf('video') > -1) add(tr('Event video'), RATE.video, tr('A short film of the night, within a week'));
     if (S.extras.indexOf('drinks') > -1)
       add(tr('Extra drinks, one block of 25'), (tier ? tier.block : 250), tr('Each further block at the same rate'));
