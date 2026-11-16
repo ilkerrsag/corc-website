@@ -474,10 +474,10 @@ export function mountEventFunnel(initialLang) {
     return { x: o.x + lx * c - lz * s, z: o.z + lx * s + lz * c, rot: o.rot || 0 };
   }
   function boothLocal(lx, lz) { return off(BOOTH, lx, lz); }
-  var SPK_L = boothLocal(-1.45, 0.12), SPK_R = boothLocal(1.45, 0.12);
+  var SPK_L = boothLocal(-1.58, -0.38), SPK_R = boothLocal(1.58, -0.38);
 
   var TENT_BAR = { o: barLocal(0.00, 0.50),   w: 3.90, d: 2.80, eave: 2.34, peak: 3.02 };
-  var TENT_DJ  = { o: boothLocal(0.00, 0.25), w: 4.00, d: 2.60, eave: 2.34, peak: 3.02 };
+  var TENT_DJ  = { o: boothLocal(0.00, 0.25), w: 4.30, d: 2.60, eave: 2.34, peak: 3.02 };
   function drawCanopy(t) {
     var o = t.o, hw = t.w / 2, hd = t.d / 2;
     var c = [[-hw,-hd],[hw,-hd],[hw,hd],[-hw,hd]], legs = '';
@@ -523,7 +523,7 @@ export function mountEventFunnel(initialLang) {
   // into the open floor between the two tents instead of standing among them.
   // The crew stands clear of the DJ zone, to its right and a step forward, so no
   // tent post or speaker stand crosses them.
-  var VID = { rig: { x: 6.10, z: -0.60, rot: -1.780 }, man: { x: 6.58, z: -0.10, rot: 0 } };
+  var VID = { rig: { x: 5.52, z: -0.72, rot: -1.780 }, man: { x: 6.46, z: -0.42, rot: 0 } };
   function vidPos() { return VID; }
 
   var ST = { x: BAR.x, z: BAR.z, rot: BAR.rot, w: 2.80, d: 0.76, top: 0.90, slab: 0.05, shelf: 0.26 };

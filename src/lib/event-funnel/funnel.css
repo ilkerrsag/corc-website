@@ -93,7 +93,7 @@
 .funnel #probe{position:absolute;width:0;height:0;overflow:hidden;}
 /* The sign in the corner: the one lit thing in a room of white lines. */
 .funnel .cf-octag{position:absolute;top:46px;right:28px;text-align:right;pointer-events:none;}
-.funnel .cf-octag .cf-frame{position:relative;display:inline-block;border:1px solid var(--line);border-radius:3px;padding:12px 20px;}
+.funnel .cf-octag .cf-frame{position:relative;display:inline-block;border:1px solid var(--line);border-radius:3px;padding:12px 20px;background:var(--bg);}
 .funnel .cf-octag b{display:block;font-family:var(--display);font-weight:500;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;}
 .funnel .cf-octag i{position:absolute;width:3.5px;height:3.5px;border-radius:50%;background:var(--primary);box-shadow:0 0 4px hsl(50 98% 51% / 0.8);}
 @media (max-width:900px){
