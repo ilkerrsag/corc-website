@@ -260,11 +260,19 @@ export function mountEventFunnel(initialLang) {
   // The grid follows the room, not the world axes: it runs parallel to the bar
   // and therefore square to the DJ side as well.
   var GRID = { x: 0.55, z: 1.85, rot: 0.785 };
+  // The ground lays itself out rather than appearing: every grid line is sorted by where
+  // it falls on screen and drawn in turn, so the floor sweeps in from the left.
   function drawFloor() {
-    var g = '';
-    for (var a = -8; a <= 14; a++) g += 'M' + fmt(L(GRID, a, 0, -9)) + 'L' + fmt(L(GRID, a, 0, 6));
-    for (var b = -9; b <= 6; b++) g += 'M' + fmt(L(GRID, -8, 0, b)) + 'L' + fmt(L(GRID, 14, 0, b));
-    line(g, { stroke: '#2c2c2c', w: 1 });
+    var keep = RV, p = Math.max(0, Math.min(1, keep)), segs = [], a, b;
+    for (a = -8; a <= 14; a++) segs.push([L(GRID, a, 0, -9), L(GRID, a, 0, 6)]);
+    for (b = -9; b <= 6; b++) segs.push([L(GRID, -8, 0, b), L(GRID, 14, 0, b)]);
+    segs.sort(function (u, v) { return (u[0][0] + u[1][0]) - (v[0][0] + v[1][0]); });
+    var span = 0.34;                      // how much of the sweep one line gets to itself
+    for (var i = 0; i < segs.length; i++) {
+      RV = Math.min(1, (p - (i / segs.length) * (1 - span)) / span);   // past 1 the dash wraps
+      if (RV > 0.002) line('M' + fmt(segs[i][0]) + 'L' + fmt(segs[i][1]), { stroke: '#2c2c2c', w: 1 });
+    }
+    RV = keep;
   }
   function arrow(p, d) {
     var a = 7;
@@ -792,7 +800,7 @@ export function mountEventFunnel(initialLang) {
   var ORDER = ['floor','station','host','jars','stand','bar','crewA','crewB','runner','shelf','stock','bottles','kit','card','menu',
                'tentBar','spkBarL','spkBarR','booth','mixer','dj','spkL','spkR','tentDJ',
                'vidRig','vidMan','work'];
-  var UP = { floor:420, bar:900, crewA:460, crewB:460, runner:460, shelf:700, stock:1150, bottles:430,
+  var UP = { floor:1250, bar:900, crewA:460, crewB:460, runner:460, shelf:700, stock:1150, bottles:430,
              kit:320, card:540, menu:2200, spkBarL:380, spkBarR:380, booth:540, mixer:320, dj:420, spkL:380, spkR:380 };
   var DOWN = 190, CAMT = 950, raf = null;
   // a click during a camera move should only pay for the distance that is left
