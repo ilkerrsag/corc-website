@@ -756,9 +756,9 @@ export function mountEventFunnel(initialLang) {
     if (G.bar > 0 || G.shelf > 0) q.push([at(BAR, 0, 0), function () {
       if (G.shelf > 0) { RV = G.shelf; drawShelfFrame(); RV = G.stock; drawShelfBottles(); }
       if (G.crewA > 0) { var ax = twoCrew ? -0.62 : 0; RV = G.crewA; figure(BAR, ax, 0.66, 'bar'); }
-      // with a runner on the end the second bartender slides in, so the three stand apart
-      if (G.crewB > 0) { RV = G.crewB; figure(BAR, G.runner > 0 ? 0.38 : 0.62, 0.66, 'bar'); }
-      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.40, 0.90, 'bar'); }
+      if (G.crewB > 0) { RV = G.crewB; figure(BAR, 0.62, 0.66, 'bar'); }
+      // the runner works the open side of the bar, clear of the counter and the speaker
+      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.22, -0.40, 'bar'); }
       if (G.bar > 0) { RV = G.bar; drawBar(); RV = G.bottles; drawBottles(); RV = G.kit; drawKit(); }
     }]);
     // A canopy sorts by its own back edge, so it is drawn before everything that stands
