@@ -468,7 +468,7 @@ export function mountEventFunnel(initialLang) {
     return { x: BAR.x + lx * c - lz * s, z: BAR.z + lx * s + lz * c, rot: BAR.rot };
   }
   // the pair stands forward of the counter, so neither one tangles with the back shelf
-  var SPK_BAR_L = barLocal(-1.66, 0.02), SPK_BAR_R = barLocal(1.66, 0.02);
+  var SPK_BAR_L = barLocal(-2.12, 0.02), SPK_BAR_R = barLocal(2.12, 0.02);
 
   function off(o, lx, lz) {
     var c = Math.cos(o.rot || 0), s = Math.sin(o.rot || 0);
@@ -477,7 +477,7 @@ export function mountEventFunnel(initialLang) {
   function boothLocal(lx, lz) { return off(BOOTH, lx, lz); }
   var SPK_L = boothLocal(-1.58, -0.38), SPK_R = boothLocal(1.58, -0.38);
 
-  var TENT_BAR = { o: barLocal(0.00, 0.50),   w: 3.90, d: 2.80, eave: 2.34, peak: 3.02 };
+  var TENT_BAR = { o: barLocal(0.00, 0.50),   w: 4.55, d: 2.80, eave: 2.34, peak: 3.02 };
   var TENT_DJ  = { o: boothLocal(0.00, 0.25), w: 4.30, d: 2.60, eave: 2.34, peak: 3.02 };
   function drawCanopy(t) {
     var o = t.o, hw = t.w / 2, hd = t.d / 2;
@@ -756,8 +756,9 @@ export function mountEventFunnel(initialLang) {
     if (G.bar > 0 || G.shelf > 0) q.push([at(BAR, 0, 0), function () {
       if (G.shelf > 0) { RV = G.shelf; drawShelfFrame(); RV = G.stock; drawShelfBottles(); }
       if (G.crewA > 0) { var ax = twoCrew ? -0.62 : 0; RV = G.crewA; figure(BAR, ax, 0.66, 'bar'); }
-      if (G.crewB > 0) { RV = G.crewB; figure(BAR, 0.62, 0.66, 'bar'); }
-      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.62, 0.84, 'bar'); }
+      // with a runner on the end the second bartender slides in, so the three stand apart
+      if (G.crewB > 0) { RV = G.crewB; figure(BAR, G.runner > 0 ? 0.38 : 0.62, 0.66, 'bar'); }
+      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.40, 0.90, 'bar'); }
       if (G.bar > 0) { RV = G.bar; drawBar(); RV = G.bottles; drawBottles(); RV = G.kit; drawKit(); }
     }]);
     // A canopy sorts by its own back edge, so it is drawn before everything that stands
