@@ -1104,7 +1104,6 @@ export function mountEventFunnel(initialLang) {
         var ownPrice = el('<p class="cf-note"></p>'); box.appendChild(ownPrice);
         link.addEventListener('click', function () { box.style.display = 'block'; link.style.display = 'none'; S.customDrinks = +inp.value; S.pack = S.pack || 'custom'; paintBar(); ok(); });
         m.appendChild(link); m.appendChild(box);
-        m.appendChild(el('<p class="cf-note">' + tr('Your line on unused drinks goes here.') + '</p>'));
 
         // how long the bar stays open: the other half of the same decision
         m.appendChild(el('<p class="cf-note" style="margin-top:26px;color:var(--mut)">' + tr('How long is the bar open?') + '</p>'));
@@ -1602,7 +1601,6 @@ export function mountEventFunnel(initialLang) {
     "For": "Für",
     "Set the number myself": "Zahl selbst festlegen",
     "Total cocktails for the night.": "Cocktails insgesamt für den Abend.",
-    "Your line on unused drinks goes here.": "Euer Satz zu nicht getrunkenen Drinks steht hier.",
     "Fresh · Herbal · Bright": "Frisch · Kräutrig · Klar",
     "Gin, basil, lemon, lime, orange": "Gin, Basilikum, Zitrone, Limette, Orange",
     "Juicy · Rounded · Lively": "Saftig · Rund · Lebendig",
