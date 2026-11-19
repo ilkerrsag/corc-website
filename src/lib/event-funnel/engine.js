@@ -758,7 +758,7 @@ export function mountEventFunnel(initialLang) {
       if (G.crewA > 0) { var ax = twoCrew ? -0.62 : 0; RV = G.crewA; figure(BAR, ax, 0.66, 'bar'); }
       if (G.crewB > 0) { RV = G.crewB; figure(BAR, 0.62, 0.66, 'bar'); }
       // the runner stands behind the bar at the right end, where he may cover the counter
-      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.20, 0.94, 'bar'); }
+      if (G.runner > 0) { RV = G.runner; figure(BAR, 1.33, 0.94, 'bar'); }
       if (G.bar > 0) { RV = G.bar; drawBar(); RV = G.bottles; drawBottles(); RV = G.kit; drawKit(); }
     }]);
     // A canopy sorts by its own back edge, so it is drawn before everything that stands
