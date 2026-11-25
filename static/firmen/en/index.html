@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event bar and cocktail bases for companies | CORC</title>
+<meta name="description" content="A cocktail bar for your company party in Berlin, up to 180 guests. Counter, bartenders and spirits on site. And the CORC bases for the office once the night is over.">
+<meta name="theme-color" content="#1f1f1f">
+<link rel="canonical" href="https://corcdrinks.com/firmen/en/">
+<link rel="alternate" hreflang="de" href="https://corcdrinks.com/firmen/">
+<link rel="alternate" hreflang="en" href="https://corcdrinks.com/firmen/en/">
+<link rel="alternate" hreflang="x-default" href="https://corcdrinks.com/firmen/">
+<link rel="icon" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://corcdrinks.com/firmen/en/">
+<meta property="og:title" content="Event bar and cocktail bases for companies | CORC">
+<meta property="og:description" content="A cocktail bar for your company party in Berlin, up to 180 guests. Counter, bartenders and spirits on site. And the CORC bases for the office once the night is over.">
+<meta property="og:image" content="https://corcdrinks.com/share-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+  img{max-width:100%;height:auto}
+</style>
+<style>
+/* Layout follows corcdrinks.com: photo hero behind a charcoal gradient, then
+   alternating plain and card-surface bands, each with a centred eyebrow + display heading. */
+:root{
+  --charcoal:hsl(0 0% 12%);
+  --card:hsl(0 0% 15%);
+  --tint:hsl(0 0% 18%);
+  --line:hsl(0 0% 22%);
+  --fg:hsl(0 0% 98%);
+  --muted-fg:hsl(0 0% 72%);
+  --faint:hsl(0 0% 52%);
+  --primary:hsl(50 98% 51%);
+  --primary-lighter:hsl(50 100% 62%);
+  --radius:0.5rem;
+  --font-sans:"Poppins",ui-sans-serif,system-ui,sans-serif;
+  --font-display:"Archivo","Poppins",ui-sans-serif,system-ui,sans-serif;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+body{
+  background:var(--charcoal);
+  color:var(--fg);
+  font-family:var(--font-sans);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+
+.wrap{
+  max-width:72rem;
+  margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+  padding-block:clamp(48px,7vw,80px);
+}
+.band{border-block:1px solid var(--line);background:var(--card)}
+.band-tight .wrap{padding-block:clamp(36px,5vw,56px)}
+
+/* --- type --- */
+.eyebrow{font-size:.75rem;font-weight:400;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.eyebrow-lg{font-size:.8125rem;font-weight:500;line-height:1.6;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.text-primary{color:var(--primary)}
+h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem,7vw,4.5rem);
+  font-weight:600;line-height:1.02;letter-spacing:-.025em;
+  text-wrap:balance;margin:1.5rem 0 0;
+}
+h1 .line2{display:block;color:var(--primary);text-transform:uppercase}
+h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.9rem,4vw,3rem);
+  font-weight:600;line-height:1.08;letter-spacing:-.02em;
+  text-wrap:balance;margin:.75rem 0 0;
+}
+h3{font-size:1.0625rem;font-weight:600;line-height:1.3;margin:0}
+p{margin:0}
+
+.heading{max-width:48rem;margin-inline:auto;text-align:center}
+.heading .lead{max-width:38rem;margin:1rem auto 0;color:var(--muted-fg);line-height:1.7;text-wrap:pretty}
+.note{color:var(--faint);font-size:.875rem;line-height:1.65;max-width:52rem;margin-inline:auto;text-align:center}
+.vat{color:var(--faint);font-size:.8125rem;letter-spacing:.02em;text-align:center;margin-top:1.125rem}
+.card .amt .incl{display:block;font-family:var(--font-sans);font-size:.8125rem;font-weight:400;letter-spacing:0;color:var(--faint);white-space:nowrap;margin-top:.3125rem}
+.rows .vl .gross{display:block;font-weight:400;font-size:.75rem;color:var(--faint);margin-top:.1875rem}
+
+/* --- buttons --- */
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:3rem;padding-inline:1.5rem;font-size:1rem;font-weight:600;
+  font-family:var(--font-sans);border-radius:9999px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background-color .12s ease,border-color .12s ease,color .12s ease,opacity .12s ease;
+}
+.btn-primary{background:var(--primary);color:var(--charcoal)}
+.btn-primary:hover{background:var(--primary-lighter)}
+.btn-primary:active{opacity:.85}
+.btn-ghost{border-color:hsl(0 0% 98% / .3);color:var(--fg)}
+.btn-ghost:hover{background:hsl(0 0% 98% / .1)}
+.btn:focus-visible{outline:3px solid hsl(50 98% 51% / .5);outline-offset:2px}
+
+/* --- hero --- */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero picture,.hero>picture img{position:absolute;inset:0;z-index:-10;height:100%;width:100%}
+.hero>picture img{height:100%;object-fit:cover;object-position:68% center}
+.hero .veil{
+  position:absolute;inset:0;z-index:-10;
+  background:linear-gradient(to right,var(--charcoal),hsl(0 0% 12% / .75) 45%,hsl(0 0% 12% / .15));
+}
+.hero .fade{
+  position:absolute;inset-inline:0;bottom:0;z-index:-10;height:5rem;
+  background:linear-gradient(to top,var(--charcoal),transparent);
+}
+@media(max-width:640px){
+  .hero .veil{background:linear-gradient(to right,var(--charcoal),hsl(0 0% 12% / .8) 45%,hsl(0 0% 12% / .4))}
+}
+.hero .wrap{display:flex;align-items:center;min-height:min(40rem,78svh)}
+.hero-copy{max-width:36rem}
+.hero-copy .intro{max-width:28rem;font-size:1.0625rem;line-height:1.7;color:hsl(0 0% 98% / .85)}
+
+/* --- masthead --- */
+.masthead .wrap{padding-block:1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.masthead img{width:clamp(96px,16vw,132px)}
+.lang{display:flex;align-items:center;gap:.4375rem;font-size:.8125rem}
+.lang a,.lang span{padding:.3125rem .8125rem;border-radius:9999px;text-decoration:none;border:1px solid transparent;white-space:nowrap}
+.lang a{color:var(--muted-fg);border-color:var(--line);transition:color .12s,border-color .12s}
+.lang a:hover{color:var(--fg);border-color:var(--primary)}
+.lang .on{background:var(--fg);color:var(--charcoal);font-weight:500}
+
+/* --- audience strip --- */
+.aud{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.75rem 1rem;grid-template-columns:repeat(2,1fr);text-align:center}
+@media(min-width:640px){.aud{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.aud{grid-template-columns:repeat(5,1fr)}}
+.aud li{color:var(--muted-fg);font-size:.875rem;line-height:1.35;text-wrap:balance;min-width:0}
+.aud li:last-child{grid-column:1/-1}
+@media(min-width:1024px){.aud li:last-child{grid-column:auto}}
+
+/* --- the range --- */
+.range{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;gap:.75rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:34rem){.range{gap:1rem;grid-template-columns:repeat(3,1fr)}}
+@media(min-width:64rem){.range{grid-template-columns:repeat(5,1fr)}}
+.range li{
+  display:flex;flex-direction:column;min-width:0;overflow:hidden;
+  border:1px solid var(--line);border-radius:1rem;background:var(--card);
+}
+.band .range li{background:var(--tint)}
+.range .shot{aspect-ratio:1;width:100%;height:auto;object-fit:cover;background:var(--tint)}
+.range .body{padding:1rem 1rem 1.25rem;display:flex;flex-direction:column;gap:.4375rem;flex:1}
+.range .tag{color:var(--muted-fg);font-size:.875rem;line-height:1.5;text-wrap:pretty}
+.range .pair{color:var(--faint);font-size:.8125rem;line-height:1.45;margin-top:auto;padding-top:.375rem}
+
+/* --- package cards --- */
+.cards{display:grid;gap:1rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+@media(min-width:68rem){
+  /* all five side by side, cheapest first, so the row reads as one ladder */
+  .cards{grid-template-columns:repeat(5,1fr)}
+  .card{padding:1.25rem 1.125rem}
+  .card .amt{font-size:1.75rem}
+  .card .amt .incl{font-size:.75rem}
+  .card dl{font-size:.8125rem}
+}
+.card{
+  display:flex;flex-direction:column;min-width:0;
+  border:1px solid var(--line);border-radius:1rem;background:var(--card);padding:1.5rem 1.375rem;
+}
+.band .card{background:var(--tint)}
+.card .tier{color:var(--primary);margin-bottom:1rem}
+.card .amt{font-family:var(--font-display);font-size:2.25rem;font-weight:600;letter-spacing:-.025em;line-height:1;font-variant-numeric:tabular-nums}
+.card .per{color:var(--faint);font-size:.8125rem;margin:.375rem 0 1.25rem}
+.card dl{margin:0;display:grid;gap:.5rem;font-size:.875rem}
+.card .row{display:flex;justify-content:space-between;gap:.75rem}
+.card dt{color:var(--muted-fg)}
+.card dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums}
+
+/* --- rows --- */
+.rows{list-style:none;margin:2.5rem auto 0;padding:0;max-width:44rem}
+.rows li{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;padding:.9375rem 0;border-bottom:1px solid var(--line)}
+.rows li:first-child{border-top:1px solid var(--line)}
+.rows .lb{flex:1;min-width:11rem;color:var(--muted-fg)}
+.rows .lb .sub{display:block;color:var(--faint);font-size:.8125rem;line-height:1.45;margin-top:.1875rem}
+.rows .vl{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.rows .vl.key{color:var(--primary)}
+.rows+.note{margin-top:1.5rem}
+.sub-head{margin:2.75rem auto 0;max-width:44rem;text-align:center;color:var(--primary)}
+
+/* --- pour ratio, laid out as on corcdrinks.com: one bordered row, three cells --- */
+.ratio{margin:1rem auto 0;max-width:48rem;display:grid;border:1px solid var(--line);border-radius:1rem;background:var(--card);overflow:hidden}
+.band .ratio{background:var(--tint)}
+.ratio>div{display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;border-top:1px solid var(--line);min-width:0}
+.ratio>div:first-child{border-top:0}
+@media(min-width:40rem){
+  .ratio{grid-template-columns:repeat(3,1fr)}
+  .ratio>div{border-top:0;border-left:1px solid var(--line)}
+  .ratio>div:first-child{border-left:0}
+}
+.ratio svg{width:1.75rem;height:1.75rem;color:var(--primary);flex:none}
+.ratio .amt2{font-size:1.125rem;font-weight:500;line-height:1.3}
+.ratio .lbl{font-size:.875rem;color:var(--muted-fg);line-height:1.4;margin-top:.125rem}
+
+/* --- bottle split: the copy sits beside the product, so the labels stay readable --- */
+.split{display:grid;gap:2rem;align-items:center}
+@media(min-width:52rem){.split{grid-template-columns:1fr 1fr;gap:3rem}}
+.split .lead2{max-width:34rem;margin:1rem 0 0;color:var(--muted-fg);line-height:1.7;text-wrap:pretty}
+.split-shot{width:100%;height:auto;border-radius:1rem;border:1px solid var(--line);object-fit:cover;aspect-ratio:1}
+
+/* --- spec grid --- */
+.specs{display:grid;gap:1rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.spec{border:1px solid var(--line);border-radius:1rem;background:var(--card);padding:1.375rem;min-width:0;margin:0}
+.band .spec{background:var(--tint)}
+.spec dt{color:var(--primary);margin-bottom:.5rem}
+.spec dd{margin:0;color:var(--muted-fg);font-size:.9375rem;line-height:1.6}
+
+/* --- enquiry --- */
+.enq{position:relative;isolation:isolate;overflow:hidden;border-block:1px solid var(--line)}
+.enq>img{position:absolute;inset:0;z-index:-10;height:100%!important;width:100%;object-fit:cover}
+.enq .veil{position:absolute;inset:0;z-index:-10;background:hsl(0 0% 12% / .9)}
+.form{
+  max-width:38rem;margin:2.5rem auto 0;
+  border:1px solid var(--line);border-radius:1rem;background:var(--card);
+  padding:clamp(1.375rem,4vw,2rem);
+}
+.field{display:grid;gap:.4375rem;margin-bottom:1rem}
+.field label{color:var(--faint);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.field input,.field select{
+  font-family:var(--font-sans);font-size:1rem;color:var(--fg);
+  background:var(--charcoal);border:1px solid hsl(0 0% 30%);
+  border-radius:var(--radius);height:2.75rem;padding-inline:.8125rem;width:100%;
+}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,hsl(0 0% 72%) 50%),linear-gradient(135deg,hsl(0 0% 72%) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:2.25rem}
+.field input:focus-visible,.field select:focus-visible{outline:3px solid hsl(50 98% 51% / .5);outline-offset:0;border-color:var(--primary)}
+@media(min-width:34rem){.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}}
+
+.contact{display:grid;gap:.625rem;max-width:38rem;margin:1.75rem auto 0;font-size:.9375rem}
+.contact div{display:flex;flex-wrap:wrap;align-items:center;gap:.625rem}
+.contact .k{color:var(--faint);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;min-width:5rem}
+.contact .v{font-weight:500;user-select:all}
+.copy{
+  font-family:var(--font-sans);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--line);color:var(--faint);
+  border-radius:9999px;padding:.25rem .625rem;cursor:pointer;transition:color .12s,border-color .12s;
+}
+.copy:hover{border-color:var(--primary);color:var(--primary)}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:2rem;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;align-items:center;color:var(--faint);font-size:.8125rem}
+footer .tag{color:var(--muted-fg)}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <img src="../logo.png" alt="CORC" width="720" height="255">
+    <nav class="lang" aria-label="Language">
+      <span class="on">English</span>
+      <a href="../" hreflang="de">Deutsch</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <picture>
+    <source media="(max-width:640px)" srcset="../hero-mobile.webp">
+    <img src="../hero.webp" alt="CORC bottles on a bar counter" width="2000" height="784" fetchpriority="high">
+  </picture>
+  <div class="veil"></div>
+  <div class="fade"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="intro">Cocktail bars for company parties, private celebrations and events. Counter, bartenders, spirits and fresh garnishes, brought to you. And when the night is over, the cocktails can stay.</p>
+      <h1>Bar quality.<span class="line2">At your venue.</span></h1>
+      <div class="btns">
+        <a class="btn btn-primary" href="#enquiry">Check availability</a>
+        <a class="btn btn-ghost" href="#packages">See packages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-tight">
+  <div class="wrap">
+    <p class="eyebrow text-primary" style="text-align:center">Where the CORC bar turns up</p>
+    <ul class="aud">
+      <li>Company parties and office events</li>
+      <li>Private celebrations</li>
+      <li>Weddings</li>
+      <li>Product launches and openings</li>
+      <li>Conferences and offsites</li>
+    </ul>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow-lg text-primary">Packages</p>
+      <h2>You cover the bar, your guests pay nothing.</h2>
+      <p class="lead">For company parties, private celebrations and invitation-only events. One price, everything in it, nothing collected at the bar.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="eyebrow-lg tier">Self service</p>
+        <p class="amt">600 € <span class="incl">(714 € incl. VAT)</span></p>
+        <p class="per">4 hours · no bar in the room</p>
+        <dl>
+          <div class="row"><dt>Guests</dt><dd>up to 40</dd></div>
+          <div class="row"><dt>Drinks</dt><dd>80</dd></div>
+          <div class="row"><dt>Crew</dt><dd>none, we set it up</dd></div>
+          <div class="row"><dt>On dispensers</dt><dd>3 CORC drinks</dd></div>
+          <div class="row"><dt>Spritz</dt><dd>not available</dd></div>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="eyebrow-lg tier">Package S</p>
+        <p class="amt">1.000 € <span class="incl">(1.190 € incl. VAT)</span></p>
+        <p class="per">4 hours · from 20 € per guest</p>
+        <dl>
+          <div class="row"><dt>Guests</dt><dd>30 – 50</dd></div>
+          <div class="row"><dt>Drinks</dt><dd>100</dd></div>
+          <div class="row"><dt>Crew</dt><dd>1 bartender</dd></div>
+          <div class="row"><dt>Extra hour</dt><dd>+150 €</dd></div>
+          <div class="row"><dt>Drinks per extra hour</dt><dd>+25</dd></div>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="eyebrow-lg tier">Package M</p>
+        <p class="amt">1.400 € <span class="incl">(1.666 € incl. VAT)</span></p>
+        <p class="per">4 hours · from 16 € per guest</p>
+        <dl>
+          <div class="row"><dt>Guests</dt><dd>55 – 90</dd></div>
+          <div class="row"><dt>Drinks</dt><dd>180</dd></div>
+          <div class="row"><dt>Crew</dt><dd>2 bartenders</dd></div>
+          <div class="row"><dt>Extra hour</dt><dd>+200 €</dd></div>
+          <div class="row"><dt>Drinks per extra hour</dt><dd>+45</dd></div>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="eyebrow-lg tier">Package L</p>
+        <p class="amt">1.950 € <span class="incl">(2.320,50 € incl. VAT)</span></p>
+        <p class="per">4 hours · from 14 € per guest</p>
+        <dl>
+          <div class="row"><dt>Guests</dt><dd>85 – 140</dd></div>
+          <div class="row"><dt>Drinks</dt><dd>280</dd></div>
+          <div class="row"><dt>Crew</dt><dd>2 bartenders</dd></div>
+          <div class="row"><dt>Extra hour</dt><dd>+250 €</dd></div>
+          <div class="row"><dt>Drinks per extra hour</dt><dd>+70</dd></div>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="eyebrow-lg tier">Package XL</p>
+        <p class="amt">2.500 € <span class="incl">(2.975 € incl. VAT)</span></p>
+        <p class="per">5 hours · from 14 € per guest</p>
+        <dl>
+          <div class="row"><dt>Guests</dt><dd>130 – 180</dd></div>
+          <div class="row"><dt>Drinks</dt><dd>400</dd></div>
+          <div class="row"><dt>Crew</dt><dd>2 bartenders + runner</dd></div>
+          <div class="row"><dt>Extra hour</dt><dd>+300 €</dd></div>
+          <div class="row"><dt>Drinks per extra hour</dt><dd>+100</dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="note" style="margin-top:1.75rem">Spirits, liqueurs and the CORC premixes are included in every package price, and so is travel within Berlin.</p>
+    <p class="vat">Prices are net. The total including VAT is shown beside each one. Business clients receive an invoice with VAT listed separately.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow-lg text-primary">Cash bar</p>
+      <h2>Or you cover the setup, guests buy their own.</h2>
+      <p class="lead">For rented venues and private organisers who would rather not carry the whole bar. You pay the setup fee and guarantee a minimum turnover.</p>
+    </div>
+    <p class="eyebrow-lg sub-head" style="margin-top:2.25rem">What you pay</p>
+    <ul class="rows" style="margin-top:1.25rem">
+      <li><span class="lb">Setup fee, 4 hours of bar<span class="sub">Minimum bar turnover 450 €</span></span><span class="vl key">300 €<span class="gross">357 € incl. VAT</span></span></li>
+      <li><span class="lb">Setup fee, 6 hours of bar<span class="sub">Minimum bar turnover 600 €</span></span><span class="vl key">300 €<span class="gross">357 € incl. VAT</span></span></li>
+    </ul>
+
+    <p class="eyebrow-lg sub-head">What your guests pay, incl. VAT</p>
+    <ul class="rows" style="margin-top:1.25rem">
+      <li><span class="lb">CORC Signature cocktail</span><span class="vl">10 €</span></li>
+      <li><span class="lb">CORC Signature, alcohol free</span><span class="vl">7 €</span></li>
+      <li><span class="lb">Spritz, Aperol, Campari or Limoncello</span><span class="vl">8 €</span></li>
+      <li><span class="lb">Beer, 0.5 l</span><span class="vl">5 €</span></li>
+    </ul>
+    <p class="note" style="margin-top:1.5rem">Spend above the minimum and you owe nothing further. Below it, you cover the difference. Cash only, and letting guests know in advance, on the invitation and at the venue, is down to you.</p>
+    <p class="vat">Prices are net, with the total including VAT beside each one.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow-lg text-primary">Add ons</p>
+      <h2>Available with any booking.</h2>
+    </div>
+    <ul class="rows">
+      <li><span class="lb">DJ and sound system, 4 hours</span><span class="vl">900 €<span class="gross">1.071 € incl. VAT</span></span></li>
+      <li><span class="lb">DJ, each additional hour</span><span class="vl">150 €<span class="gross">178,50 € incl. VAT</span></span></li>
+      <li><span class="lb">Cocktail workshop, up to 10 people</span><span class="vl">800 €<span class="gross">952 € incl. VAT</span></span></li>
+      <li><span class="lb">Event video for your channels</span><span class="vl">350 €<span class="gross">416,50 € incl. VAT</span></span></li>
+    </ul>
+    <p class="vat">Prices are net, with the total including VAT beside each one.</p>
+  </div>
+</section>
+
+<section id="bottles" class="band">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow-lg text-primary">Cocktail bases</p>
+        <h2>The bar goes home. The cocktails stay.</h2>
+        <p class="lead2">Keep the five signature bases in the office fridge: Basilico, Fragola, Maracuja, Framboise and Yuzu. Pour, add the spirit, serve. Ten seconds, no training behind it, and the same taste in every glass. Leave the spirit out and the same bottle makes a mocktail.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#enquiry" data-model="Cocktail bases for the office">Book a free tasting</a>
+        </div>
+      </div>
+      <img class="split-shot" src="../bottle.webp" alt="CORC bottles on a counter" width="1200" height="1200" loading="lazy">
+    </div>
+    <p class="eyebrow text-primary" style="text-align:center;margin-top:3rem">Recommended ratio</p>
+    <div class="ratio">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-4 9 3 9H7l3-9z"/></svg>
+        <div><p class="amt2">3 Shot</p><p class="lbl">CORC Base</p></div>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-4 9 3 9H7l3-9z"/></svg>
+        <div><p class="amt2">2 Shot</p><p class="lbl">Spirit (optional)</p></div>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        <div><p class="amt2">1 Shot</p><p class="lbl">Water (without shaker)</p></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:1rem">One shot equals 2.5 cl. Leave out the spirit and it becomes a mocktail. Bottles come in 400 ml and 1 L, priced in batches. Keep refrigerated and consume within five days.</p>
+    <p class="note" style="margin-top:.75rem">Bottles ship in Berlin from spring 2027. Taste them now and we will tell you when yours are ready.</p>
+    <p class="note" style="margin-top:1.25rem"><a href="https://corcdrinks.com/en/cocktail-bases" style="color:var(--muted-fg)">See all five and how they are used</a></p>
+  </div>
+</section>
+
+<section id="enquiry" class="enq">
+  <img src="../tasting-bg.webp" alt="" width="2000" height="1116" loading="lazy">
+  <div class="veil"></div>
+  <div class="wrap">
+    <div class="heading">
+      <p class="eyebrow-lg text-primary">Get in touch</p>
+      <h2>Tell us the date, or ask for a tasting.</h2>
+      <p class="lead">Fill this in and it opens a WhatsApp message, already written.</p>
+    </div>
+
+    <form class="form" id="enquiry-form">
+      <div class="two">
+        <div class="field">
+          <label for="f-date">Event date</label>
+          <input type="date" id="f-date" name="date">
+        </div>
+        <div class="field">
+          <label for="f-guests">Guests</label>
+          <input type="number" id="f-guests" name="guests" min="1" placeholder="60" inputmode="numeric">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-venue">Venue or area</label>
+        <input type="text" id="f-venue" name="venue" placeholder="Kreuzberg, or the venue name">
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="f-model">What you have in mind</label>
+          <select id="f-model" name="model">
+            <option>Hosted package</option>
+            <option>Cash bar</option>
+            <option>Self service station</option>
+            <option>Cocktail bases for the office</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" placeholder="Name">
+        </div>
+      </div>
+      <div class="btns" style="margin-top:1.5rem">
+        <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
+      </div>
+    </form>
+
+    <div class="contact">
+      <div><span class="k">WhatsApp</span><span class="v">+49 172 826 56 90</span><button class="copy" type="button" data-copy="+491728265690">Copy</button></div>
+      <div><span class="k">Email</span><span class="v">sagkaya@corcdrinks.com</span><button class="copy" type="button" data-copy="sagkaya@corcdrinks.com">Copy</button></div>
+    </div>
+
+    <p class="note" style="margin-top:1.75rem">Prices are net, with the total including VAT shown beside each one. Your written quote confirms the final amount.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="tag">CORC · Pop. Pour. Done.</span>
+    <span>Berlin, Germany · corcdrinks.com</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PHONE = "491728265690";
+
+  var form = document.getElementById("enquiry-form");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var get = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; };
+    var date = get("f-date"), guests = get("f-guests"), venue = get("f-venue"),
+        model = get("f-model"), name = get("f-name");
+    var bases = model.indexOf("Cocktail bases") === 0;
+    var lines = [bases ? "Hi Ilker, I'd like to taste the CORC cocktail bases."
+                       : "Hi Ilker, I'd like to check availability for an event."];
+    if (date)   lines.push("Date: " + date);
+    if (guests) lines.push("Guests: " + guests);
+    if (venue)  lines.push("Venue: " + venue);
+    if (model)  lines.push("Looking at: " + model);
+    if (name)   lines.push("From: " + name);
+    window.open("https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+  });
+
+  // a link can say what it is about, so the form arrives already pointed the right way
+  Array.prototype.forEach.call(document.querySelectorAll("a[data-model]"), function(a){
+    a.addEventListener("click", function(){
+      var sel = document.getElementById("f-model"), want = a.getAttribute("data-model");
+      if (!sel) return;
+      Array.prototype.forEach.call(sel.options, function(o){ if (o.text === want) sel.value = o.value; });
+    });
+  });
+
+  function selectValue(btn){
+    var v = btn.parentNode.querySelector(".v");
+    if (!v) return;
+    var r = document.createRange();
+    r.selectNodeContents(v);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".copy"), function(btn){
+    btn.addEventListener("click", function(){
+      var text = btn.getAttribute("data-copy");
+      var flash = function(){
+        var old = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(function(){ btn.textContent = old; }, 1600);
+      };
+      try {
+        navigator.clipboard.writeText(text).then(flash, function(){ selectValue(btn); });
+      } catch (err) { selectValue(btn); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
